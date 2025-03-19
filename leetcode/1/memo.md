@@ -8,7 +8,7 @@ Solutionsを確認したところ、hash tableの利用で time complexity: O(n)
 
 #### 反省事項
 
-- 落ち着いてconstraintsを確認・他の解法の模索を怠ってしまった。
+- 落ち着いてconstraintsの確認・他の解法の模索をすることを怠ってしまった。
 
 ### step 2
 
