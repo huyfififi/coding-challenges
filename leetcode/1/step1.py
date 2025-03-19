@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # Time complexity: O(n), Space complexity: O(n)
+        # Time complexity: O(nlogn), Space complexity: O(n)
         nums_sorted: tuple[int, int] = sorted(
             [(n, i) for i, n in enumerate(nums)],
             key=lambda x: x[0],
