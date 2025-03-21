@@ -30,3 +30,4 @@ Solutionsを確認したところ、hash tableの利用で time complexity: O(n)
 - Don't leave comments about time/space complexity.
 - Use a single trailing underscore to avoid naming conflicts with Python keywords (PEP 8).
 - Remember that time/space complexity is not the highest priority—programs exist to serve end users.
+- `li` and `ri` are ambiguous. `left_i` and `right_i` might be better options.
