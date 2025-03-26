@@ -18,4 +18,22 @@
 - Since Python dictionaries are mutable, naming a local dictionary `BRACKET_PAIRS` in all caps might be misleading, as all-caps typically implies a global constant.
 - Use early `return` or `continue` statements to reduce nesting and improve readability (?) in Python code.
 
+[saagchickenのpull request](https://github.com/saagchicken/coding_practice/pull/21/files)を眺めて、だいたい同じような解法であることを確認。
+
+↑のプルリクエスト上のコメントで、PEP8にempty sequences は falseであることを利用せよ、との記載があることに気づく。PEP8は定期的に眺めるようにしているし、既にこのパターンには従えていたが、意外と見落としているスタイリングフォーマットがあるのかもしれない。TODO: PEP8で今まであまり意識していなかったセクションを見直してみる。
+
+```
+# Correct:
+if not seq:
+if seq:
+```
+
+```
+# Wrong:
+if len(seq):
+if not len(seq):
+```
+
+との例示があるが、len(seq)をintと比較する例がどちらに属するのか明示されていないのでややわかりづらいなと思った。軽くGoogleしたところ、if not seqがpythonicがPythonicな書き方であることは理解しつつlen(seq) == 0の方がわかりやすいと主張する人たちも少なからず存在していたので趣味の範囲かなとも思った。
+
 # step 3
