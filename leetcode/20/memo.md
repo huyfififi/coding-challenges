@@ -9,7 +9,7 @@
 		- Call stack usage: O(n), since we can have up to n/2 recursive calls.
 		- Each recursive calls create a new string: O(n) space per call.
 		- Therefore, the cumulative space could reach O(n^2)
-- approach 2. Use a stack to match brackets
+- approach 2. Use a stack to match brackets (knowledge)
 	- Time complexity: O(n), as we scan the string once.
 	- Space complexity: O(n), since at most `n` brackets will be stored on the stack.
 
