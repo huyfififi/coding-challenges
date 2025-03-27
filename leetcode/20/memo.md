@@ -19,7 +19,7 @@
 - Since Python dictionaries are mutable, naming a local dictionary `BRACKET_PAIRS` in all caps might be misleading, as all-caps typically implies a global constant.
 - Use early `return` or `continue` statements to reduce nesting and improve readability (?) in Python code.
 
-[saagchickenのpull request](https://github.com/saagchicken/coding_practice/pull/21/files)を眺めて、だいたい同じような解法であることを確認。
+[saagchickenさんのpull request](https://github.com/saagchicken/coding_practice/pull/21/files)を眺めて、だいたい同じような解法であることを確認。
 
 ↑のプルリクエスト上のコメントで、PEP8にempty sequences は falseであることを利用せよ、との記載があることに気づく。PEP8は定期的に眺めるようにしているし、既にこのパターンには従えていたが、意外と見落としているスタイリングフォーマットがあるのかもしれない。TODO: PEP8で今まであまり意識していなかったセクションを見直してみる。
 
