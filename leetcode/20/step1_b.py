@@ -1,6 +1,6 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        PARENTHESE_PAIRS = {
+        PARENTHESIS_PAIRS = {
             "(": ")",
             "{": "}",
             "[": "]",
