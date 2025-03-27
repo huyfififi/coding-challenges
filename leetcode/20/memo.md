@@ -1,10 +1,11 @@
 # step 1
 
 - approach 1: Remove valid bracket pairs one by one
-	- Time complexity: O(n^3)
-		- 1. Each step removes 2 brackets.
-		- 2. We iterate through the entire string for each step.
-		- 3. String concatenation involves copying, which adds overhead.
+	- Observation: In a valid bracket string, there is always at least one pair of adjacent matching brackets.
+	- Time complexity: O(n^2)
+		- In each step, we remove exactly two brackets. We have to scan the string (which takes O(n) time) to find an remove a valid pair.
+		- Since we remove two brackets per step, we perform roughly n/2 steps. Multiplying O(n) per step by n/2 steps gives O(n^2) in total.
+		- Although string concatenation also takes O(n) time, we only do it once per step, so overall the time complexity is O(n^2).
 	- Space complexity: O(n^2) (I'm not very confident)
 		- Call stack usage: O(n), since we can have up to n/2 recursive calls.
 		- Each recursive calls create a new string: O(n) space per call.
@@ -39,3 +40,9 @@ if not len(seq):
 bracket\_map -> open\_to\_close もなるほどと思ったが、もう少しいろんな人のコードを見て多くの人はどちらの方がわかりやすく感じるか確認する必要があると思った。ある程度趣味の範囲内？なのかなとも思う。
 
 # step 3
+
+None
+
+# Feedback
+
+# step 4
