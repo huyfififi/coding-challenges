@@ -39,6 +39,8 @@ if not len(seq):
 
 bracket\_map -> open\_to\_close もなるほどと思ったが、もう少しいろんな人のコードを見て多くの人はどちらの方がわかりやすく感じるか確認する必要があると思った。ある程度趣味の範囲内？なのかなとも思う。
 
+-> 前回も同じ指摘を受けたのだった（ref: [ichika0615さんのコメント](https://github.com/huyfififi/coding-challenges/pull/1#discussion_r2002776605)）。もう一度考え直してみたところ、hash tableのkey -> valueの関係をうまく表現できているし、keyとvalueがなんなのか一目で理解できるので `x_to_y` という表現はわかりやすく感じた。次回からちゃんと気に留めて使っていこう。
+
 # step 3
 
 None
