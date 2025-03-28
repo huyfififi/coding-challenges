@@ -47,4 +47,20 @@ None
 
 # Feedback
 
-# step 4
+- "Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as single character variable names." [PEP8 - Names to Avoid](https://peps.python.org/pep-0008/)
+	- PEP8について指摘されることが多いので、TODO: 次回までにPEP8を一度は流し見する・`ruff`/`flake8`の徹底
+		- (普段の開発においては、個人的には`black`も使用し、diffを見比べるようにしている。)
+- **rope (or cord)**という、文字列へのinsertions, deletions, and concatenationsが効率的に行えるdata structureがある。これは発展的な知識だが、存在自体は気に留めておいても損はないと思うので記憶しておく。
+- 基本的にはスタイルガイド (PythonにおけるPEP8) に従っておく。そこに至った合理性があるはずなので。時と場合に応じて臨機応変に対応する姿勢も忘れずに。 [ref](https://docs.google.com/document/d/11HV35ADPo9QxJOpJQ24FcZvtvioli770WWdZZDaLOfg/edit?tab=t.0#heading=h.9xjrags8izok)
+- [str.startswith()](https://docs.python.org/3/library/stdtypes.html#str.startswith)はtupleを引数に取ることができる
+	- "Return True if string starts with the *prefix*, otherwise return False. *prefix* can also be a tuple of prefixes to look for."
+	- ちょっと実装が気になってCPythonのGitHub repositoryを覗いてみたが現在の私の理解力の範疇を超えていた。今度リトライ。
+
+---
+
+次回（も）気をつけようと思うこと
+
+- TODO: PEP8流し見・徹底
+- `key_to_value`という`dict`の命名アプローチ
+- 1行の情報量は少なく
+- return early
