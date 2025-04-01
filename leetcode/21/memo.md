@@ -22,3 +22,7 @@
 他の方々のPRもいくつか流し見したが、step 1の間に考えた可換な処理を抜き出すことは逆にコードを複雑にしそうだと思った。
 
 TODO: Check recursive approaches on LeetCode solutions
+
+## Step 3
+
+- `curr = curr.next`を忘れがち
