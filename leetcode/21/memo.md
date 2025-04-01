@@ -21,7 +21,22 @@
 
 他の方々のPRもいくつか流し見したが、step 1の間に考えた可換な処理を抜き出すことは逆にコードを複雑にしそうだと思った。
 
-TODO: Check recursive approaches on LeetCode solutions
+## [niits's solution on LeetCode](https://leetcode.com/problems/merge-two-sorted-lists/solutions/6048156/video-using-dummy-pointer-and-recursion-solution-as-a-bonus)
+
+```
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1 or not list2:
+            return list1 if list1 else list2
+
+        if list1.val > list2.val:
+            list1, list2 = list2, list1
+
+        list1.next = self.mergeTwoLists(list1.next, list2)
+        return list1
+```
+
+recursiveはこんな簡潔に書けたのか。
 
 ## Step 3
 
