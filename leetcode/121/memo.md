@@ -65,7 +65,7 @@ Out[3]: float
 - [StackOverflow - What is the point of float('inf') in Python?](https://stackoverflow.com/questions/34264710/what-is-the-point-of-floatinf-in-python)
 - [Reddit - float('inf') is bad practice](https://www.reddit.com/r/Python/comments/1c4x7b7/floatinf_is_bad_practice/?rdt=41431)
 
-匿名・意見が偏っている可能性が否めないが、ざっと眺める限り使用自体に忌避感を示す人は少なそう
+匿名で、意見が偏っている可能性が否めないが、ざっと眺める限り使用自体に忌避感を示す人は少なそう
 
 `sys.maxsize`もあるようだが、Pythonのintが保持できる数の上限はないから
 
