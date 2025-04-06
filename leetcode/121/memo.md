@@ -51,3 +51,39 @@ import math
 		- `min()`や`max()`がif 文を吸収してしまっていることにわかりにくさがあるように感じた。
 - [olsen-blueさんのPR](https://github.com/olsen-blue/Arai60/pull/37)
 - [hroc135さんのPR](https://github.com/hroc135/leetcode/pull/35)
+
+## float("inf"), math.inf
+
+```
+In [1]: import math
+
+In [2]: math.inf == float("inf")
+Out[2]: True
+
+In [3]: type(math.inf)
+Out[3]: float
+```
+
+- [StackOverflow - What is the point of float('inf') in Python?](https://stackoverflow.com/questions/34264710/what-is-the-point-of-floatinf-in-python)
+- [Reddit - float('inf') is bad practice](https://www.reddit.com/r/Python/comments/1c4x7b7/floatinf_is_bad_practice/?rdt=41431)
+
+匿名・意見が偏っている可能性が否めないが、ざっと眺める限り使用自体に忌避感を示す人は少なそう
+
+`sys.maxsize`もあるようだが、Pythonのintが保持できる数の上限はないから
+
+```python
+In [1]: import sys
+
+In [2]: sys.maxsize
+Out[2]: 9223372036854775807
+
+In [3]: n = sys.maxsize + 1
+
+In [3]: n
+Out[3]: 9223372036854775808
+
+In [4]: n > sys.maxsize
+Out[4]: True
+```
+
+とあり、infinityとして扱うのは不適かと思われる。
