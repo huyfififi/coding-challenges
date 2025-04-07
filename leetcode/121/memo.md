@@ -89,3 +89,9 @@ Out[4]: True
 # Step 3
 
 Step 2 と解法が変わらなかったので省略
+
+# Feedback
+
+- `float("inf")`, `math.inf`は広く使用されているので使っていっても問題ない
+	- https://source.chromium.org/search?q=float%5C(%5B%27%22%5Dinf%20file:.py$&sq=
+- `tmp_` という修飾があまり情報を持たない可能性がある。
