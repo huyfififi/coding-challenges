@@ -15,6 +15,18 @@ Space Complexity: O(n)
 - そもそも素直に問題文通りの処理を書き、`chars_to_validate`を保持しなくても、両端からポインタを動かしてチェックできるのでは？
 - Valid ParenthesesのようにStackで解けないか？ -> Valid Parenthesesとの違いは、回文では必ずしも全ての要素が対応するわけではない（真ん中に一文字残る場合も回文）。
 - recursiveな解法でも解けるが、alphanumeric以外を無視する操作を考えると、また新しいstringを作ってしまうとその分memory spaceが必要になるのでそれを避けると、綺麗には書けない
+- 一行が持つ情報が多くなるのでlist comprehension避けたが、これくらいの複雑さならlist comprehensionの方が、個人的にはわかりやすく感じた。Two pointersの解法だと行数がある程度ありtypoしがち・何をしているかパッと見ではわからない・ポインタの動きを脳内で想像しないといけないのでやや負荷がかかる。
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        normalized_chars = [c.lower() for c in s if c.isalnum()]
+        return normalized_chars == normalized_chars[::-1]
+```
+
+```python
+normalized_chars = [c.lower() for c in s if c.isalnum()]
+```
 
 ## Solution b
 
