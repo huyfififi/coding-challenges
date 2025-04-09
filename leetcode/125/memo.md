@@ -2,7 +2,7 @@
 
 ## Solution a
 
-問題文の通り、大文字を小文字に変換し、アルファベット・数字以外の文字を除外した文字列を反対から読んでも同じかどうか確認する方法。
+問題文の通り、大文字を小文字に変換し、アルファベット・数字以外の文字を除外した文字列を、反対から読んでも同じかどうか確認する方法。
 
 Time Complexity: O(n)
 Space Complexity: O(n)
@@ -14,6 +14,7 @@ Space Complexity: O(n)
 	- `normalized_chars`? `filtered_chars`は、私の解法の場合大文字->小文字変換もしているのでfilterだけではないような気がして避けた。
 - そもそも素直に問題文通りの処理を書き、`chars_to_validate`を保持しなくても、両端からポインタを動かしてチェックできるのでは？ -> 2つ目の解法
 	- Two pointersの解法だと行数がある程度ありtypoしがち・何をしているかパッと見ではわからない・ポインタの動きを脳内で想像しないといけないのでやや負荷がかかる。
+		- 入力文字列がメモリに対して十分に小さいことが確認できるなら、Two pointersの解法は避けたいな、と感じた。
 - recursiveな解法も書くことができるが、alphanumeric以外を無視する操作を考えると、また新しいstringを作ってしまうとその分memory spaceが必要になるのでそれを避けると、綺麗には書けない
 - 一行が持つ情報が多くなるのでlist comprehension避けたが、これくらいの複雑さならlist comprehensionの方が、個人的にはわかりやすく感じた。
 
@@ -27,6 +28,9 @@ class Solution:
 ## Solution b
 
 両端から、[アルファベットまたは数字]以外の文字を無視して、全ての文字の対応（真ん中に一文字残るのも許容）が確認できれば回文。
+
+Time Complexity: O(n)
+Space Complexity: O(1)
 
 # Step 2
 
