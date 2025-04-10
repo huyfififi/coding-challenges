@@ -47,3 +47,21 @@ Space Complexity: O(1)
 # Step 3
 
 step 1, step 2 と変わらなかったので省略。
+
+# Feedback
+
+[`str.isalnum()`](https://docs.python.org/3/library/stdtypes.html#str.isalnum)は`str.isalpha()`, `str.isdecimal()`, `str.isdigit()`, and `str.isnumeric()`から成り立っている。なので
+
+```
+In [1]: "四".isalnum()
+Out[1]: True
+
+In [2]: "²".isalnum()
+Out[2]: True
+```
+
+というケースも`True`を返し、これは[a-Az-Z0-9]という直感に反する。ここは面接時に面接官とすり合わせを行った方がいいだろう。
+
+---
+
+s = re.sub(r'[^a-zA-Z0-9]', '', s)というやり方も覚えておこう。正規表現は業務でも使う頻度が高い。
