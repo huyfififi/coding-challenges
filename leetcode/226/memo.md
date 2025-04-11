@@ -21,3 +21,9 @@
 [colorbox-san](https://github.com/colorbox/leetcode/pull/8)
 [Kitaken0107-san](https://github.com/Kitaken0107/GrindEasy/pull/9)
 	- 私も最初左右のreferencesをswapさせる際、古くから使われている（と記憶している）一時的な変数をおくことを考えたが、PRを見ると`a, b = b, a`という表記はわかりやすく、値を待避させるだけの変数を省けるので、積極的に使って良いとの印象を受けた。
+
+コードは step 1 と変わらなかったので省略
+
+# Step 3
+
+コードは、step 1, step 2と変わらなかったので省略
