@@ -1,5 +1,14 @@
 # Step 1
 
+`n`をnodeの個数、`h`を木の高さ、`w`を木の最大幅とする。
+
+- DFS
+	- Time Complexity: O(n) (n 個の node に訪問するため)
+	- Space Complexity: O(h) (call stack に積まれる最大量)
+- BFS
+	- Time Complexity: O(n) (n 個の node に訪問するため)
+	- Space Complexity: O(w) (木の最大幅分のノードがqueueに入るため)
+
 # Step 2
 
 [rihib-san](https://github.com/rihib/leetcode/pull/26)
