@@ -1,10 +1,5 @@
 # Step 1
 
-## 解法1. 入力文字列をソートして比較
-
-- Time Complexity: O(nlogn) (ソートのため)
-- Space Complexity: O(n) (新しい文字列を作っているため)
-
 - 解法1. 入力文字列をソートして比較
 	- Time Complexity: O(nlogn) (ソートのため)
 	- Space Complexity: O(n) (新しい文字列を作っているため)
