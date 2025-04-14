@@ -11,9 +11,11 @@ len(s)をn、len(t)をmとすると
 - 解法3. Hash Tableで各文字の個数をカウントして比較
 	- 解法2では入力にlowercaseのalphabetを想定しているが、文字一般をサポートすることができない。
 	- Time Complexity: O(n + m) (1回ずつ文字列を走査するため)
-	- Space Complexity: O(n + m) (ユニークな文字が最大でn種類ある場合)
+	- Space Complexity: O(n + m) (ユニークな文字が最大でn + m種類ある場合)
 
 len(s)とlen(t)が異なる場合にすぐ`return False`することで、time/space complexityのbest caseをO(1)にできる。暗黙でlen(s) == len(t)である可能性もあり、step 1では行数を減らすことを優先したが。
+
+2重ループで各文字の個数を比較するやり方なら空間計算量をO(1)に抑えられるが、個数のmapを作って比較する方がわかりやすく感じる。
 
 # Step 2
 
