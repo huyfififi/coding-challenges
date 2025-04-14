@@ -42,3 +42,11 @@ Out[3]: False
 - [azriel1rf-san](https://github.com/azriel1rf/leetcode-prep/pull/2)
 	- `collections.Counter`を使った手法
 	- [GoogleのStyle Guide](https://google.github.io/styleguide/pyguide.html#316-naming)で"Avoid abbreviation."とされているのは知らなかった。`count`を`cnt`としているコードをよく見かけるが、省ける文字数もそこまで大きくなく、普通に省略せず書いた方がわかりやすい、というのは私も同意見である。
+
+Unicode 正規化には‘NFC’, ‘NFKC’, ‘NFD’, and ‘NFKD’の方式があるよう。詳しく調べるとかなり時間がかかりそうなので一旦スキップ。
+
+```python
+s = unicodedata.normalize("NFKC", s)
+t = unicodedata.normalize("NFKC", t)
+return Counter(s) == Counter(t)
+```
