@@ -12,3 +12,5 @@ len(s)をn、len(t)をmとすると
 	- 解法2では入力にlowercaseのalphabetを想定しているが、文字一般をサポートすることができない。
 	- Time Complexity: O(n + m) (1回ずつ文字列を走査するため)
 	- Space Complexity: O(n + m) (ユニークな文字が最大でn種類ある場合)
+
+len(s)とlen(t)が異なる場合にすぐ`return False`することで、time/space complexityのbest caseをO(1)にできる。暗黙でlen(s) == len(t)である可能性もあり、step 1では行数を減らすことを優先したが。
