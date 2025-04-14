@@ -50,3 +50,7 @@ s = unicodedata.normalize("NFKC", s)
 t = unicodedata.normalize("NFKC", t)
 return Counter(s) == Counter(t)
 ```
+
+# Step 3
+
+`step2_collections_counter.py`と変わらなかったのでコードは省略。
