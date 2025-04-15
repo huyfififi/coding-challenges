@@ -56,3 +56,27 @@ return Counter(s) == Counter(t)
 # Step 3
 
 `step2_collections_counter.py`と変わらなかったのでコードは省略。
+
+# Feedback
+
+- 早く処理を終えられるような解法にも意識を向けるように
+- 同じことを2回行ったら関数に抜き出すことも考えるように
+- Pythonでは変数とそれが指すObjectが`dict`に保存されている、らしい（軽く調べた限りでは明確に言及したものは見つからなかった）
+
+```python
+a = 1
+b = 101
+
+print(globals())
+# {'__name__': '__main__', '__doc__': None, ..., 'a': 1, 'b': 101}
+
+
+def add(num1: int, num2: int) -> int:
+    result = num1 + num2
+    print(locals())
+    # {'num1': 1, 'num2': 2, 'result': 3}
+    return result
+
+
+add(1, 2)
+```
