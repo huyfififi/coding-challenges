@@ -1,5 +1,5 @@
 class Solution(object):
-    def search(self, nums, target):
+    def search(self, nums: list[int], target: int) -> int:
         return self._binary_search(nums, target, 0, len(nums) - 1)
 
     def _binary_search(self, nums, target, start_i, end_i):
