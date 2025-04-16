@@ -4,7 +4,16 @@
 
 # Step 2
 
-- [kzhra-san](https://github.com/kzhra/Grind41/pull/9)
-	- [nodchipさんTweet](https://x.com/nodchip/status/1765579286646530148)
+Grind 75をやっている方々が少ないように見受けられる。
+
+- [kzhraさん](https://github.com/kzhra/Grind41/pull/9)
+	- [nodchipさんのTweet](https://x.com/nodchip/status/1765579286646530148)
 		- 約2/3の人が、ループの方が末尾再帰よりも読みやすいと投票している。母集団が偏っている可能性はあるにせよ、逆に約1/3の人が末尾再帰の方を好むのは面白い。
 	- C++の`lower_bound()`の実装を調べられている。
+- [Kitaken0107さん](https://github.com/Kitaken0107/GrindEasy/pull/11)
+- [colorboxさん](https://github.com/colorbox/leetcode/pull/10)
+	- `right`の初期値が大きい場合`int`で表現できる範囲を超えてしまうので、それを避ける方法として`int middle = (right - left) / 2;`
+- [rihibさん](https://github.com/rihib/leetcode/pull/27)
+
+みなさん `left`, `right`, `mid`という変数名を用いていたが、`left`だけで左側のポジションを指す変数って瞬時に判断できるのかなぁという疑問を抱いた。スコープが小さいので別にいいのだろうが、個人的には`left_i`の方がarrayのindexであることがわかりやすく感じる。
+	- ちょっとネットサーフィンしたら、`lo & hi`や`start & end`という書き方もある :thinking\_face:
