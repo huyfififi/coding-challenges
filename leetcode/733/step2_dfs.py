@@ -16,6 +16,7 @@ class Solution:
                 return
 
             image[row][col] = color
+
             for row_offset, col_offset in directions:
                 _flood_fill_helper(row + row_offset, col + col_offset)
 

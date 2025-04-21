@@ -32,3 +32,5 @@ directions + for loopは、個人的に冗長に書き下す方法よりも（�
 
 - `queue`への`tuple`の挿入で`queue.append((r, c))`とすべきところを`queue.append(r, c)`としてしまった。
 - 色の塗り忘れ 
+
+3回passするようになると、コードがちょうどいい抽象度で頭に収まるような実感がある。

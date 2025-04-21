@@ -21,6 +21,7 @@ class Solution:
                 continue
 
             image[row][col] = color
+
             queue.append((row - 1, col))
             queue.append((row + 1, col))
             queue.append((row, col - 1))
