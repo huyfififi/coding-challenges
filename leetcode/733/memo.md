@@ -30,4 +30,5 @@ directions + for loopは、個人的に冗長に書き下す方法よりも（�
 
 ## 3回passするまでにミスしたところ
 
-- `queue.append((r, c))`とすべきところを`queue.append(r, c)`としてしまった。
+- `queue`への`tuple`の挿入で`queue.append((r, c))`とすべきところを`queue.append(r, c)`としてしまった。
+- 色の塗り忘れ 

@@ -5,8 +5,8 @@ class Solution:
     def floodFill(
         self, image: list[list[int]], sr: int, sc: int, color: int
     ) -> list[list[int]]:
-        color_to_update = image[sr][sc]
-        if color_to_update == color:
+        color_to_replace = image[sr][sc]
+        if color_to_replace == color:
             return image
 
         queue = deque([(sr, sc)])
@@ -17,7 +17,7 @@ class Solution:
 
             if not (0 <= row < num_rows and 0 <= col < num_cols):
                 continue
-            if image[row][col] != color_to_update:
+            if image[row][col] != color_to_replace:
                 continue
 
             image[row][col] = color
