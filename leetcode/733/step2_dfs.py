@@ -6,17 +6,18 @@ class Solution:
         if color_to_update == color:
             return image
 
-        num_rows = len(image)
-        num_cols = len(image[0])
+        num_rows, num_cols = len(image), len(image[0])
+        directions = ((-1, 0), (0, -1), (1, 0), (0, 1))
 
-        image[sr][sc] = color
-        if sr > 0 and image[sr - 1][sc] == color_to_update:
-            self.floodFill(image, sr - 1, sc, color)
-        if sr < num_rows - 1 and image[sr + 1][sc] == color_to_update:
-            self.floodFill(image, sr + 1, sc, color)
-        if sc > 0 and image[sr][sc - 1] == color_to_update:
-            self.floodFill(image, sr, sc - 1, color)
-        if sc < num_cols - 1 and image[sr][sc + 1] == color_to_update:
-            self.floodFill(image, sr, sc + 1, color)
+        def _flood_fill_helper(row: int, col: int) -> None:
+            if not (0 <= row < num_rows and 0 <= col < num_cols):
+                return
+            if image[row][col] != color_to_update:
+                return
 
+            image[row][col] = color
+            for row_offset, col_offset in directions:
+                _flood_fill_helper(row + row_offset, col + col_offset)
+
+        _flood_fill_helper(sr, sc)
         return image

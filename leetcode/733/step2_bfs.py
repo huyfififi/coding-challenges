@@ -9,21 +9,21 @@ class Solution:
         if color_to_update == color:
             return image
 
-        num_rows = len(image)
-        num_cols = len(image[0])
-
         queue = deque([(sr, sc)])
+        num_rows, num_cols = len(image), len(image[0])
+
         while queue:
             row, col = queue.popleft()
-            image[row][col] = color
 
-            if row > 0 and image[row - 1][col] == color_to_update:
-                queue.append((row - 1, col))
-            if row < num_rows - 1 and image[row + 1][col] == color_to_update:
-                queue.append((row + 1, col))
-            if col > 0 and image[row][col - 1] == color_to_update:
-                queue.append((row, col - 1))
-            if col < num_cols - 1 and image[row][col + 1] == color_to_update:
-                queue.append((row, col + 1))
+            if not (0 <= row < num_rows and 0 <= col < num_cols):
+                continue
+            if image[row][col] != color_to_update:
+                continue
+
+            image[row][col] = color
+            queue.append((row - 1, col))
+            queue.append((row + 1, col))
+            queue.append((row, col - 1))
+            queue.append((row, col + 1))
 
         return image
