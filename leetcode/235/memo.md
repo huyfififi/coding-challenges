@@ -73,3 +73,7 @@ Binary Search Treeであるという制約を利用することで、balanced BS
 	- シンプルな`small, large = min(p.val, q.val), max(p.val, q.val)`という命名
 
 半日ほど時間をおいてみて、いざコードを書いてみると、先ほどは`root is p or root is q`と`min(p.val, q.val) < root.val < max(p.val, q.val)`は別のパターンであって同じ条件内に内包してしまうとわかりづらい、と主張したのだが、`p`・`q`が左右どちらかに寄っている場合は早めにループや関数から抜けていて、そこまでわかりづらくもないような気もしてきた。
+
+# Step 3
+
+Iterativeな解法もrecursionを使用した解法もほぼ同じ。同じ走査をループでやるかスタックに積むかの違いしかないから当然といえば当然か。
