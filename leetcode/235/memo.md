@@ -46,3 +46,20 @@ Recursiveな解法: 時間計算量 O(N), 空間計算量 O(N) (worst case, 再�
 - `p_q_low`よりもいい変数名はないか
 - while文はどう書いたら一番わかりやすいか。`while not (p_q_min <= root.val <= p_q_max)`は試したが、`root.val in (p_q_min, p_q_max)`と`p_q_min < root.val < p_q_max`という別の条件を合わせていて理解しづらい、かといって別々に書き下すとやや冗長に感じる。
 - 問題文に"p and q will exist in the BST."とあるので、rootもあるだろうと仮定した。
+
+# Step 2
+
+- [rihibさんのPR](https://github.com/rihib/leetcode/pull/29)
+	- 私のstep1の解法のようにわざわざ`max(p.val, q.val)`をとらずに書き下してもわかりやすいなと感じた。
+		- [先に大小関係を見ておくと冗長度が減らせる](https://github.com/rihib/leetcode/pull/29/files#r1742231005)という意見もある :eyes:
+	- Go言語でどのようにエラーハンドリングするか考察されていた。
+	- 私の`step1_2_recursive.py`では、明示的に`root`が`p`か`q`と重なった場合に対処していたが、これは`low <= root.val <= high`という条件に内包されているので、なくてもよかったなと気付かされた。
+		- 私の頭の中の感覚だとあるnodeに対して`p`と`q`が左右に分かれている画と、nodeが`p`か`q`と重なっている画は別物なので分けて考えたい気持ちもあるが、少し時間を寝かせてみる。
+- [thonda28さんのPR](https://github.com/thonda28/leetcode/pull/12)
+	- ここでも、先に大小関係を見ておいてもいいんじゃないかという指摘。
+- [Kitaken0107さんのPR](https://github.com/Kitaken0107/GrindEasy/pull/13)
+	- 私は主語を1つ目のoperandにしたい気持ちがあるが、他の方々がどう思うかはまだ感覚がない。
+- [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/12)
+	- pとqをswapさせてp.val < q.valを保証する方法は思いついていなかった。
+- [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/22)
+	- 私は、iterativeで書いたとしても、部分問題を解いている感覚があるので`root`を別の変数におかず直接更新していく方が好みだが、少数派かもしれない。
