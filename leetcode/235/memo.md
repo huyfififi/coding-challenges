@@ -12,9 +12,9 @@
 
 木が一直線に伸びている状況を考えると、各ノードで部分木を全探索してしまうと (n - 1) (深さ0のとき)  + (n - 2) (深さ1のとき) + (n - 3) + ... で時間計算量が O(n^2)になりそう。
 
-## Step 1-3
+## Step 1-2
 
-よく考えたら、せっかくBinary Search Treeが与えられているのに、その性質を利用していなかった。`root`, `p`, と`q`の位置関係はvalueを見るだけでわかるから、それを使えば直感的に書けそう。
+よく考えたら、せっかくBinary Search Treeが与えられているのに、その性質を利用していなかった。`root`, `p`, と`q`の位置関係はvalueを見るだけでわかるから、それを使えば直感的に書けそう （アハ体験（死語？））。
 
 > All Node.val are unique.
 
@@ -45,3 +45,4 @@ Recursiveな解法: 時間計算量 O(N), 空間計算量 O(N) (worst case, 再�
 
 - `p_q_low`よりもいい変数名はないか
 - while文はどう書いたら一番わかりやすいか。`while not (p_q_min <= root.val <= p_q_max)`は試したが、`root.val in (p_q_min, p_q_max)`と`p_q_min < root.val < p_q_max`という別の条件を合わせていて理解しづらい、かといって別々に書き下すとやや冗長に感じる。
+- 問題文に"p and q will exist in the BST."とあるので、rootもあるだろうと仮定した。
