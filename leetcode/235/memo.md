@@ -71,3 +71,5 @@ Binary Search Treeであるという制約を利用することで、balanced BS
 - [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/22)
 	- 私は、iterativeで書いたとしても、部分問題を解いている感覚があるので`root`を別の変数におかず直接更新していく方が好みだが、少数派かもしれない。
 	- シンプルな`small, large = min(p.val, q.val), max(p.val, q.val)`という命名
+
+半日ほど時間をおいてみて、いざコードを書いてみると、先ほどは`root is p or root is q`と`min(p.val, q.val) < root.val < max(p.val, q.val)`は別のパターンであって同じ条件内に内包してしまうとわかりづらい、と主張したのだが、`p`・`q`が左右どちらかに寄っている場合は早めにループや関数から抜けていて、そこまでわかりづらくもないような気もしてきた。
