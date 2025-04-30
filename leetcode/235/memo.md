@@ -63,3 +63,4 @@ Recursiveな解法: 時間計算量 O(N), 空間計算量 O(N) (worst case, 再�
 	- pとqをswapさせてp.val < q.valを保証する方法は思いついていなかった。
 - [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/22)
 	- 私は、iterativeで書いたとしても、部分問題を解いている感覚があるので`root`を別の変数におかず直接更新していく方が好みだが、少数派かもしれない。
+	- シンプルな`small, large = min(p.val, q.val), max(p.val, q.val)`という命名
