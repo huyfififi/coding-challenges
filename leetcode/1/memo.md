@@ -32,3 +32,4 @@ Solutionsを確認したところ、hash tableの利用で time complexity: O(n)
 - Remember that time/space complexity is not the highest priority—programs exist to serve end users.
 - `li` and `ri` are ambiguous. `left_i` and `right_i` might be better options.
 - `binary searchという選択肢
+- [手作業でやるなら本当に二重ループの方法をとるか？という指摘](https://github.com/Satorien/LeetCode/pull/11/files#r2067725547)
