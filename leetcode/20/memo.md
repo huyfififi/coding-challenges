@@ -64,3 +64,12 @@ None
 - `key_to_value`という`dict`の命名アプローチ
 - 1行の情報量は少なく
 - return early
+
+---
+
+20250429
+
+TODO:
+
+- 再帰下降
+	- [ref](https://github.com/5ky7/arai60/pull/7#discussion_r2067704642)
