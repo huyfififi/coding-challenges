@@ -76,4 +76,4 @@ Binary Search Treeであるという制約を利用することで、balanced BS
 
 # Step 3
 
-Iterativeな解法もrecursionを使用した解法もほぼ同じ。同じ走査をループでやるかスタックに積むかの違いしかないから当然といえば当然か。
+Iterativeな解法もrecursionを使用した解法もほぼ同じになった。
