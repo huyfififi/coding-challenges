@@ -6,13 +6,15 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        node_to_results = {None: (0, True)}  # {node: (depth, is_balanced)}
-        stack = [(root, False)]  # [(node, visited)]
+        # Post-order traversal
+        # First visit: the node is used to push direct children to a stack
+        # Second visit: both children have been processed, so we can check the node's height balance
 
+        node_to_height = {None: 0}
+        stack = [(root, False)]  # [(node, visited)]
         while stack:
             node, visited = stack.pop()
-
-            if node in node_to_results:
+            if node is None:
                 continue
 
             if not visited:
@@ -21,14 +23,11 @@ class Solution:
                 stack.append((node.right, False))
                 continue
 
-            left_depth, left_is_balanced = node_to_results[node.left]
-            right_depth, right_is_balanced = node_to_results[node.right]
-            depth = max(left_depth, right_depth) + 1
-            is_balanced = (
-                left_is_balanced
-                and right_is_balanced
-                and abs(left_depth - right_depth) <= 1
-            )
-            node_to_results[node] = (depth, is_balanced)
+            left_height = node_to_height[node.left]
+            right_height = node_to_height[node.right]
+            if abs(node_to_height[node.left] - node_to_height[node.right]) > 1:
+                return False
+            height = max(left_height, right_height) + 1
+            node_to_height[node] = height
 
-        return node_to_results[root][1]
+        return True
