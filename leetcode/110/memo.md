@@ -6,15 +6,15 @@
 
 ノードの数をn、木の高さをhとして
 
-時間計算量: O(n), 全てのノードを一度訪れるため。
-空間計算量: O(h), 再帰関数呼び出しのスタックの最大量
+時間計算量: O(n), 全てのノード（とNoneの子ノード）を一度訪れるため。
+空間計算量: O(h), 再帰関数呼び出しのスタックの最大量は h + 1
 
 ## `step1_iterative.py`
 
 何日か脳内で寝かせてできたのがiterativeな解法。再帰をstackで表現することはわかったが、左右の結果が必要とのことでpost-order traversalをstackで表現することがしっくりくるまで数日要した。
 
-時間計算量: O(n), 全てのノードを二度訪れるため。（が、early returnできている）
-空間計算量: O(n), 全てのノードにおける部分木の高さをhash tableに収めているため。
+時間計算量: O(n), 各ノード（とNoneの子ノード）に対して定数時間の操作を行うため。（が、early returnはできる）
+空間計算量: O(n), 全てのノードにおいての部分木の高さをhash tableに収めているため。
 
 # Step 2
 
@@ -50,4 +50,10 @@ class BalanceStatus(NamedTuple):
 
 - helper関数呼び忘れ (iterative)
 - `node_to_height`の更新忘れ (recursive)
-- あまり考えずに書いたらbase case (leaf)の時になぜか`is_balanced=False`を返してしまった
+- あまり考えずに書いたらbase case (None node)の時になぜか`is_balanced=False`を返してしまった (recursive)
+- type annotation 内の`TreeNode`を`Treenode`にtypo (recursive)
+- stackに3回同じnodeを入れてしまった (iterative)
+- helper関数呼び出し時に`is_balanced_helper(root)[1]`を`is_blanced_helper(root)[1]`とtypo (recursive)
+- `left_height`を入れるべきところに`left_is_balanced`を入れてしまった。
+
+気持ちゆっくりめにタイピングし、行の意味をある程度見直すようにしても、なかなかtypoが避けられなく、厳しい。
