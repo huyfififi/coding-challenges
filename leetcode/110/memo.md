@@ -2,7 +2,7 @@
 
 ## `step1_recursive.py`
 
-再帰関数を用いる解法は特に引っかかることもなく書けた。左右片方でも既にアンバランスならearly returnできるが、depthを返すと約束した以上、ダミーの値を返すのはやや抵抗感があった。
+再帰関数を用いる解法は特に引っかかることもなく書けた。左右片方でも既にアンバランスならearly returnできるが、heightを返すと約束した以上、ダミーの値を返すのはやや抵抗感があった。
 
 ノードの数をn、木の高さをhとして
 
@@ -35,7 +35,7 @@ helper関数の命名だけ、少し考える必要があるかも。他は先�
 
 ```
 class BalanceStatus(NamedTuple):
-    depth: int
+    height: int
     is_balanced: bool
 ```
 

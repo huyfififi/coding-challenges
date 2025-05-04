@@ -8,17 +8,17 @@ class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         def is_balanced_helper(
             node: Optional[TreeNode],
-        ) -> tuple[int, bool]:  # (depth, is balanced) of a tree starting from node
+        ) -> tuple[int, bool]:  # (height, is balanced) of a tree starting from node
             if node is None:
                 return 0, True
 
-            left_depth, left_is_balanced = is_balanced_helper(node.left)
-            right_depth, right_is_balanced = is_balanced_helper(node.right)
+            left_height, left_is_balanced = is_balanced_helper(node.left)
+            right_height, right_is_balanced = is_balanced_helper(node.right)
 
-            depth = max(left_depth, right_depth) + 1
+            height = max(left_height, right_height) + 1
 
             if not left_is_balanced or not right_is_balanced:
-                return depth, False
-            return depth, abs(left_depth - right_depth) <= 1
+                return height, False
+            return height, abs(left_height - right_height) <= 1
 
         return is_balanced_helper(root)[1]
