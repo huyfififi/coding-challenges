@@ -54,6 +54,8 @@ class BalanceStatus(NamedTuple):
 - type annotation 内の`TreeNode`を`Treenode`にtypo (recursive)
 - stackに3回同じnodeを入れてしまった (iterative)
 - helper関数呼び出し時に`is_balanced_helper(root)[1]`を`is_blanced_helper(root)[1]`とtypo (recursive)
-- `left_height`を入れるべきところに`left_is_balanced`を入れてしまった。
+- `left_height`を入れるべきところに`left_is_balanced`を入れてしまった。(recursive)
+- stackにvisitedフラグを入れ忘れた (iterative)
+- `node_to_height[node.left]`を`node_to_height(node.left)`としてしまった (iterative)
 
 気持ちゆっくりめにタイピングし、行の意味をある程度見直すようにしても、なかなかtypoが避けられなく、厳しい。
