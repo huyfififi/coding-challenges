@@ -9,7 +9,7 @@
 時間計算量: O(n), 全てのノードを一度訪れるため。
 空間計算量: O(h), 再帰関数呼び出しのスタックの最大量
 
-## `step2_iterative.py`
+## `step1_iterative.py`
 
 何日か脳内で寝かせてできたのがiterativeな解法。再帰をstackで表現することはわかったが、左右の結果が必要とのことでpost-order traversalをすることがしっくりくるまで数日要した。
 
