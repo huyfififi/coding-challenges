@@ -42,10 +42,11 @@ class BalanceStatus(NamedTuple):
 を置いてみたが、あんまりいい抽象ができたようには思えなかった。結局`tuple`を見たら順番に意味があるのだとPythonに慣れている人なら理解するし、難しいことはせず必要ならコメントを残せばわかりやすいと思う。
 	- 昔、プロジェクトの先輩に、コメントは更新忘れとかがあるから過信せず、コメントを残すくらいならとにかく実際の実装をわかりやすくするべき、という指摘を受けた記憶が蘇ってくる。
 
-一応、関数名がisBalancedだったので、helper関数内の変数を`is_balanced`とするのは将来的に関数名をsnake_caseにした時に事故が起こりやすいような気がして、`_is_balanced`にしておいた。
+一応、関数名がisBalancedだったので、helper関数内の変数を`is_balanced`とするのは将来的に関数名をsnake\_caseにした時に事故が起こりやすいような気がして、`_is_balanced`にしておいた。
 
 # Step 3
 
 ## ミスしたところ
 
-- helper関数呼び忘れ
+- helper関数呼び忘れ (iterative)
+- `node_to_height`の更新忘れ (recursive)
