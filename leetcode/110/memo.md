@@ -50,3 +50,4 @@ class BalanceStatus(NamedTuple):
 
 - helper関数呼び忘れ (iterative)
 - `node_to_height`の更新忘れ (recursive)
+- あまり考えずに書いたらbase case (leaf)の時になぜか`is_balanced=False`を返してしまった
