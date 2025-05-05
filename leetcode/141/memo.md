@@ -44,4 +44,8 @@ Floyd's cycle-finding algorithmという名前があるらしい。どれくら�
 - [rieukyさん](https://github.com/rieuky/arai60/pull/1)
 - [tokuhiratさん](https://github.com/tokuhirat/LeetCode/pull/1)
 
-コードの量自体は大したことないが、知識（経験）問題かもしれない。普通の人間が限られた時間内で0からslow_runnerとfast_runnerを使用する方法を思いつけるとは思えない。
+## もう一度振り返って
+
+- コードの量自体は大したことないが、知識（経験）問題かもしれない。普通の人間が限られた時間内で0からslow_runnerとfast_runnerを使用する方法を思いつけるとは思えない。
+
+- while文の条件は今回の場合あまり可読性に関わらなさそう。単に注目することを入れ替えているだけでコードも大きく変化しないので。
