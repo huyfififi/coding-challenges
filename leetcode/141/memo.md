@@ -34,10 +34,6 @@ k進むには、片方をheadから、もう片方を合流点から1ステッ�
 
 Floyd's cycle-finding algorithmという名前があるらしい。どれくらい一般常識なのだろうか。
 
-### 与太話
-
-ヘッジファンドに就職した友人が、学生時代にそこでインターンした際に、多くの同期がCracking the Coding Interviewをほぼ丸暗記していて驚いた、と言っていて、私が到達し得ない世界の存在を感じた記憶がある。
-
 ## 他の方々のPRを見てみる
 
 - [potrueさん](https://github.com/potrue/leetcode/pull/1)
