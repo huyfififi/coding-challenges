@@ -2,7 +2,7 @@
 
 FILOのStack一つだけでFIFOのQueueを実装できるとは思えないので、Stackを二つ使用することを考えた。In hindsight, 問題のタイトルが「Implement Queue using Stacks」とStackが複数形だったので、複数のStackを用いることは仄めかされていた。
 
-2つのStackを用意し、片方の底をQueueの先頭、もう片方の底をQueueの末尾とすればうまくいきそう。
+2つのStackを用意し、片方の底をQueueの先頭、もう片方の底をQueueの末尾、ある場面においてどちらか片方に全ての要素が入っている、とすれば実装できそう。
 
 Queue: [1, 2, 3, 4]
 
@@ -33,16 +33,16 @@ Queueの先頭からPopする時は、全ての要素をQueueの末尾側に移�
 push か (pop または peek) が連続して呼ばれているとき、Stack内の要素の移し替えが発生せず、どちらかの一番上にアクセスするだけで良いので O(1)。
 逆に、pushの次に (pop または peek)か呼ばれるとき (また、pop/peekの次にpushの場合)、仮想Queue内要素数(nとする)分移し替えが発生するので、O(n)。
 
-償却計算量の分析として、n回の操作のうち、最初の(n-a)回はO(1)で、残りのa回はO(n)の操作が必要だと見積もると、総操作回数はだいたい
+償却計算量の分析として、n回の操作のうち、(n-a)回はO(1)で、残りのa回はO(n)の移し替え操作が必要だと見積もると、総計算量は
 
-(n - a) * 1 + a * n = n - a + a * n
+(n - a) * O(1) + a * O(n) = O(n - a + a * n)
 
 n回の操作の平均を取ると
 
-(n - a + a * n) / n = 1 - a/n + a
+O(n - a + a * n) / n = O(1 - a/n + a)
 
-aが定数の場合、この式は定数に収束するため、償却計算量はO(1)となる。
-aがnに対して無視できない大きさ (例えばa = n/2など) の場合、償却計算量はO(n)となる。
+aがnに対して十分小さい時は、O(1)
+aがnに対して無視できない大きさの場合、償却計算量はO(n)となる。
 
 償却計算量の見積もりをどのように展開すれば良いのかわからないので、他の方々のPRを見ることにする。
 
@@ -70,7 +70,7 @@ input   output
 
 ### 発見
 
-- Queueの並びを保持するStackと、それを崩さないための待避用Stackというコンビネーションは思いつかなかった。確かにこの設定なら誰に対しても説明しやすいように感じる。
+- Queueの並びを常に維持するStackと、それを崩さないための待避用Stackというコンビネーションは思いつかなかった。確かにこの設定なら誰に対しても説明しやすいように感じる。
 - peekとpopで似たような処理をするので、pop()内でpeek()をすることで共通化されている。
 
 ### 純粋関数型言語におけるQueueの実装
@@ -87,6 +87,10 @@ OdaさんがcolorboxさんのPRに残したPDFのリンクと同じものに辿�
 
 > A common representation for purely functional queues [Gri81, HM81, Bur82] is as a pair of lists, F and R, where F contains the front elements of the queue in the correct order and R contains the rear elements of the queue in reverse order.
 
+> Elements are added to R and removed from F , so they must somehow migrate from one list to the other.
+> This is accomplished by reversing R and installing the result as the new F whenever F would otherwise become empty, simultaneously setting the new R to [ ].
+> The goal is to maintain the invariant that F is empty only if R is also empty (i.e., the entire queue is empty).
+
 なるほど。業界でこの実装が有名ならば、「実装が直感的に説明できるか」を深く考えず、こちらの実装を頭に入れておいた方が良さそうだ。
 
 Banker's Method: 実際にはかかっていない計算量をかかったとみなして貯金し、必要に応じてそれを使う。
@@ -94,7 +98,7 @@ Banker's Method: 実際にはかかっていない計算量をかかったとみ
 今回の問題の例では、
 
 push() -> 実際には操作は1回だが、2回としておく
-pop() -> 基本的には1回。rearのstackが空の時、frontのstackからmの要素を移してくるのだが、frontにm個要素がある -> 既にpush()がm回呼ばれている -> mの貯金があるので、それを使用して1回の操作とみなせる。  # TODO: Fix front <-> rear
+pop() -> 基本的には1回。frontのstackが空の時、rearのstackからmの要素を移してくるのだが、rearにm個要素がある -> 既にpush()がm回呼ばれている -> mの貯金があるので、それを使用して1回の操作とみなせる。
 
 そうすると、全てならして、時間計算量はO(1)になる。
 
