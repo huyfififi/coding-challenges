@@ -63,3 +63,26 @@ input   output
 と表現する方法なら、私の方法よりも少ない操作回数で同じメソッドを実装できるよう。
 実装してみると、確かに、peek/popにおいてoutputに使用するStackが空だった場合のみ移し替えが発生するので、操作の回数がかなり省けている。
 このメモを書いている時点では、私の方法の方がQueueが今どのような状況なのか説明しやすく直感的にわかりやすいと思うが、少し脳内で寝かせてみることにする。
+
+# Step 2
+
+## [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/15)
+
+Queueの並びを保持するStackと、それを崩さないための待避用Stackというコンビネーションは思いつかなかった。確かにこの設定なら誰に対しても説明しやすいように感じる。
+peekとpopで似たような処理をするので、pop()内でpeek()をすることで共通化されている。
+
+純粋関数型言語が言及されていたので軽くHaskell、QueueあたりでGoogle検索したら次のStackOverflowが出てきた。
+[StackOverflow - Efficient queue in Haskell](https://stackoverflow.com/a/1740603/16193058)
+
+> Alternatively, a well-known implementation of a purely functional queue is to use two lists. One for enqueue and another for dequeue.
+> Enqueue would simply cons with the enqueue list. Dequeue takes the head of the dequeue list.
+> When the dequeue list is shorter than the enqueue list, refill it by reversing the enqueue list.
+> See [Chris Okasaki's Purely Functional Datastructures](https://www.cs.cmu.edu/%7Erwh/students/okasaki.pdf).
+
+OdaさんがcolorboxさんのPRに残したPDFのリンクと同じものに辿り着いた。
+
+> A common representation for purely functional queues [Gri81, HM81, Bur82] is as a pair of lists, F and R, where F contains the front elements of the queue in the correct order and R contains the rear elements of the queue in reverse order.
+
+なるほど。業界でこの実装が有名ならば、「実装が直感的に説明できるか」を深く考えず、こちらの実装を頭に入れておいた方が良さそうだ。
+
+# TODO: PDFの計算量のところを読んで理解・メモする。
