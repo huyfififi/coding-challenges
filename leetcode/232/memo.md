@@ -42,7 +42,7 @@ n回の操作の平均を取ると
 (n - a + a * n) / n = 1 - a/n + a
 
 aが定数の場合、この式は定数に収束するため、償却計算量はO(1)となる。
-aがnに対して無視できない大きさ（例えばa = n/2など）の場合、償却計算量はO(n)となる。
+aがnに対して無視できない大きさ (例えばa = n/2など) の場合、償却計算量はO(n)となる。
 
 償却計算量の見積もりをどのように展開すれば良いのかわからないので、他の方々のPRを見ることにする。
 
@@ -68,10 +68,14 @@ input   output
 
 ## [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/15)
 
-Queueの並びを保持するStackと、それを崩さないための待避用Stackというコンビネーションは思いつかなかった。確かにこの設定なら誰に対しても説明しやすいように感じる。
-peekとpopで似たような処理をするので、pop()内でpeek()をすることで共通化されている。
+### 発見
 
-純粋関数型言語が言及されていたので軽くHaskell、QueueあたりでGoogle検索したら次のStackOverflowが出てきた。
+- Queueの並びを保持するStackと、それを崩さないための待避用Stackというコンビネーションは思いつかなかった。確かにこの設定なら誰に対しても説明しやすいように感じる。
+- peekとpopで似たような処理をするので、pop()内でpeek()をすることで共通化されている。
+
+### 純粋関数型言語におけるQueueの実装
+
+純粋関数型言語がcolorboxさんのPR上で言及されていたので軽くHaskell、QueueあたりでGoogle検索したら次のStackOverflowが出てきた。
 [StackOverflow - Efficient queue in Haskell](https://stackoverflow.com/a/1740603/16193058)
 
 > Alternatively, a well-known implementation of a purely functional queue is to use two lists. One for enqueue and another for dequeue.
@@ -85,4 +89,17 @@ OdaさんがcolorboxさんのPRに残したPDFのリンクと同じものに辿�
 
 なるほど。業界でこの実装が有名ならば、「実装が直感的に説明できるか」を深く考えず、こちらの実装を頭に入れておいた方が良さそうだ。
 
-# TODO: PDFの計算量のところを読んで理解・メモする。
+Banker's Method: 実際にはかかっていない計算量をかかったとみなして貯金し、必要に応じてそれを使う。
+
+今回の問題の例では、
+
+push() -> 実際には操作は1回だが、2回としておく
+pop() -> 基本的には1回。rearのstackが空の時、frontのstackからmの要素を移してくるのだが、frontにm個要素がある -> 既にpush()がm回呼ばれている -> mの貯金があるので、それを使用して1回の操作とみなせる。
+
+そうすると、全てならして、時間計算量はO(1)になる。
+
+面白い勉強になった。とにかくこの問題は、有名な実装に従ってStep 2、Step 3を作成しよう。
+
+# Step 3
+
+個人的には、pop()を呼んだ時にわざわざpeek()のロジックまで確認しに行かないといけないのがやや混乱するので共通化はしなかった。
