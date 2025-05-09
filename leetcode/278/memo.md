@@ -1,6 +1,6 @@
 # Step 1
 
-1から順に確認していけば O(n) でできるが、Binary Searchを使えば O(log(2)n) で済むなというのはすぐに思いついた。
+1から順に確認していけば O(n) でできるが、Binary Searchを使えば O(logn) で済むなというのはすぐに思いついた。
 
 [git-bisect](https://git-scm.com/docs/git-bisect)という、Binary Searchでbugを探すコマンドを知っていたので、まんまだな、と思った。
 
