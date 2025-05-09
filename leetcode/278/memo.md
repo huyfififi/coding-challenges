@@ -7,3 +7,13 @@
 > git-bisect - Use binary search to find the commit that introduced a bug
 
 Binary Searchの変化形はいまだに、完全にはしっくり頭に収まらないが、一旦前に進むことにする。
+
+# Step 2
+
+- [rihibさんのPR](https://github.com/rihib/leetcode/pull/33)
+    - `isBadVersion()`が重たい処理である可能性がある、という観点が私から抜けていた。
+- [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/25)
+- [colorboxさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/25)
+    - Pythonでは気にしなくてもいいが、煽れないように`int mid = left + (right - left) / 2;`とする方法は覚えておこうと思う。
+
+やはり閉区間・半開区間の扱いがなかなか難しいが、一旦自分のわかりやすい形で先に進み、頭の中で寝かせておくことにする。
