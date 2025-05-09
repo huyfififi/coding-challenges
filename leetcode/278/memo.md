@@ -18,4 +18,4 @@ assertを入れたのは、while文から抜けたら`left_i == right_i`にな�
 - [colorboxさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/25)
     - Pythonでは気にしなくてもいいが、煽れないように`int mid = left + (right - left) / 2;`とする方法は覚えておこうと思う。
 
-やはり閉区間・半開区間の扱いがなかなか難しいが、一旦自分のわかりやすい形で先に進み、頭の中で寝かせておくことにする。
+やはり閉区間・半開区間を切り替えた場合の扱いが難しいが、一旦自分のわかりやすい閉区間で先に進み、頭の中で寝かせておくことにする。
