@@ -8,6 +8,8 @@
 
 Binary Searchの変化形はいまだに、完全にはしっくり頭に収まらないが、一旦前に進むことにする。
 
+assertを入れたのは、while文から抜けたら`left_i == right_i`になっているはずだ、ということを読み手に共有、また、自分だったら、`right_i`だけ返されているのを見ると、`left_i`ではいけない理由を考えてしまうため、`right_i == left_i`の関係であるとすぐ上で明記されるとわかりやすい気がする。
+
 # Step 2
 
 - [rihibさんのPR](https://github.com/rihib/leetcode/pull/33)
