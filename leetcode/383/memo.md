@@ -10,10 +10,10 @@ Pythonのcollectionsは便利な関数が揃っているが、どこまでが知
 # Step 2
 
 [rihibさんのPR](https://github.com/rihib/leetcode/pull/34)
-    - なるほど、counterを一つだけにして、ransomNoteで+、magazineで-する方法もあったか。あとでやってみよう。
+    - なるほど、counterを一つだけにして、magazineで+、ransomNoteで-する方法もあったか。あとでやってみよう。
 [Kitaken0107さんのPR](https://github.com/Kitaken0107/GrindEasy/pull/28)
 [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/26)
-    - 上のお二方と同様、magazineで-していくやり方。
+    - 上のお二方と同様、magazineで+、ransomNoteで-していくやり方。
 [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/17)
 
-言われてみれば、必要な文字の数を数えてメモし、次に使える文字を見つけてはメモにある数を減らしていく方法の方が少ない手間で済むか。
+言われてみれば、使える文字の数を数えてメモし、次に使用する文字を見つけてはメモにある数を減らしていく方法の方が少ない手間で済むか。
