@@ -1,6 +1,6 @@
 # Step 1
 
-必要な文字カウントと、与えられている文字カウントを出して比較。
+自分で手作業でやるとしたら、まず必要な文字の数を数えてメモ、次に使える文字の数を数えてメモ、最後に必要な文字分使える文字があるかどうか確認、かなと思い実装。
 
 `n = len(ransomNote)`, `m = len(magazine)`として、時間計算量は O(n + m)、空間計算量は O(1)、入力の文字列がEnglishのlowercaseしかないため。
 
@@ -15,3 +15,5 @@ Pythonのcollectionsは便利な関数が揃っているが、どこまでが知
 [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/26)
     - 上のお二方と同様、magazineで-していくやり方。
 [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/17)
+
+言われてみれば、必要な文字の数を数えてメモし、次に使える文字を見つけてはメモにある数を減らしていく方法の方が少ない手間で済むか。
