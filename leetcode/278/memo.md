@@ -15,7 +15,7 @@ assertを入れたのは、while文から抜けたら`left_i == right_i`にな�
 - [rihibさんのPR](https://github.com/rihib/leetcode/pull/33)
     - `isBadVersion()`が重たい処理である可能性がある、という観点が私から抜けていた。
 - [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/25)
-- [colorboxさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/25)
+- [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/16/)
     - Pythonでは気にしなくてもいいが、溢れないように`int mid = left + (right - left) / 2;`とする方法は覚えておこうと思う。
 
 やはり閉区間・半開区間を切り替えた場合の扱いが難しいが、一旦自分のわかりやすい閉区間で先に進み、頭の中で寝かせておくことにする。
