@@ -59,8 +59,6 @@ class Solution:
         def _climb_stairs_helper(m: int) -> tuple[int, int]:
             if m == 1:
                 return 1, 1
-            if m == 2:
-                return 2, 1
 
             prev_1, prev_2 = _climb_stairs_helper(m - 1)
             return prev_1 + prev_2, prev_1
@@ -80,6 +78,7 @@ m=5
 m=4
 m=3
 m=2
+m=1
 ```
 
 例えを用いるなら、メモ化再帰は、部下全員が更新する共通のホワイトボードがあって、各人間が部下に(n-1)と(n-2)の仕事を託す際にホワイトボードのメモを見て、まだ埋まっていなかったら部下に仕事を投げる方法。
