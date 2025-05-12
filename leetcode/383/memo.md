@@ -17,3 +17,7 @@ Pythonのcollectionsは便利な関数が揃っているが、どこまでが知
 [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/17)
 
 言われてみれば、使える文字の数を数えてメモし、次に使用する文字を見つけてはメモにある数を減らしていく方法の方が少ない手間で済むか。
+
+# Feedback
+
+小文字以外が入力される場合のこと（拡張性）も念頭に置くように
