@@ -1,6 +1,6 @@
 # Step 1
 
-典型的な動的計画法の問題。再帰で書くと
+典型的な動的計画法の問題。n=0の入力は制約上あり得ないが、便宜上0stepの位置にいる場合の数は1通りだとして、再帰で書くと
 
 ```python
 class Solution:
@@ -34,3 +34,41 @@ class Solution:
 ```
 
 しかし今回の場合、あるステップの答えは、1つ前ののステップと2つ前のステップにのみ依存しているので、それら二つさえ保持していれば答えが出せて、空間計算量を O(1) にできる。
+
+# Step 2
+
+[NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/30)
+[rihibさんのPR](https://github.com/rihib/leetcode/pull/35)
+    - 結果をペアで返す方法については思い至らなかった。こういう感じだろうか。
+
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        def _climb_stairs_helper(m: int) -> tuple[int, int]:
+            if m == 1:
+                return 1, 1
+            if m == 2:
+                return 2, 1
+
+            prev_1, prev_2 = _climb_stairs_helper(m - 1)
+            return prev_1 + prev_2, prev_1
+
+        return _climb_stairs_helper(n)[0]
+```
+
+`m`の値をprintしてみると線形時間で解けているよう。
+
+```
+m=10
+m=9
+m=8
+m=7
+m=6
+m=5
+m=4
+m=3
+m=2
+```
+
+例えを用いるなら、メモ化再帰は、部下全員が更新する共通のホワイトボードがあって、各人間が部下に(n-1)と(n-2)の仕事を託す際にホワイトボードのメモを見て、まだ埋まっていなかったら部下に仕事を投げる方法。
+対して、ペアを返す方法は、部下に自分の結果と、自分の部下の結果を報告するようにお願いすれば、直接やりとりする部下が一人で済む。
