@@ -7,8 +7,22 @@
 
 # Step 2
 
+## 先駆者の方々
+
 [Kitaken0107さんのPR](https://github.com/Kitaken0107/GrindEasy/pull/27)
 	- `+= val if val % 2 else val - 1`の代わりに`+= 2 * (val // 2)`という書き方は思いつかなかった。 
 	- Longest Palindromic Substringを線型時間で求めるManacher’s Algorithmというものがあるらしい。今回の問題設定では使用できないが、LeetCode 5. Longest Palindromic Substring を後で見てみようかと思う。
 	- そうか、最後の最後で、奇数のものがあったら+1、なかったらそのまま途中経過を返せばいいのか。そうすればfor文の中の条件分岐が一つ減らせる。
 [NobukiFukuiさんのPR](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/31)
+
+お二方のように、`is_odd_added`のようなフラグで+1する操作を最後に回せば綺麗に書けそう。
+
+## Solutions on LeetCode
+
+[https://leetcode.com/problems/longest-palindrome/solutions/6642768/unlock-palindrome-frequency-tricks-to-build-the-longest-one-possible](https://leetcode.com/problems/longest-palindrome/solutions/6642768/unlock-palindrome-frequency-tricks-to-build-the-longest-one-possible)
+	- 「奇数があるか」という情報に対して、フラグを持つ代わりに、もし奇数の文字があったら出来上がった回文の長さが入力で与えられた文字列の長さより小さくなる、ということを使用している。
+
+[https://leetcode.com/problems/longest-palindrome/solutions/5255173/faster-less-mem-detailed-approach-set-approach-python-java-c](https://leetcode.com/problems/longest-palindrome/solutions/5255173/faster-less-mem-detailed-approach-set-approach-python-java-c)
+	- ループを2回回す代わりに、1回だけ文字列をチェックしていく。`set`に入れていって、2個見つかり次第、回文の長さとして足していく。
+
+LeetCodeに載っている解法は驚きと発見を与えてくれるが、誰もが思いつくような解法を安定して出力できるようになりたい気持ちが強いので、一旦これらの解法は脳内の隅に留めるくらいにしておく。
