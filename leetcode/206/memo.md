@@ -4,6 +4,38 @@
 
 `prev`, `curr`, `next`だと、reverseしたlistにおける"前"や"次"なのか、元のlistにおける"前"や"次"なのか少し混乱する。
 
+また、処理をどうグループ化するかも悩ましい。4つの処理をスペース無しで並べると、それらに順序的な関係がないような印象を覚えてしまうので (偏った感覚？)、スペースを入れたいのだが
+
+```python
+while node:
+    # 次に処理するnodeを待避
+    next_node_to_reverse = node.next
+
+    # 繋ぎかえて reversed listを伸ばす    
+    node.next = reversed_head
+    reversed_head = node
+
+    # 処理するnodeを進める
+    node = next_node_to_reverse
+```
+
+と見るか
+
+```python
+while node:
+    # 次に処理するnodeを待避
+    next_node_to_reverse = node.next
+
+    # 処理中のnodeのreferenceをひっくり返す
+    node.next = reversed_head
+
+    # referenceの更新
+    reversed_head = node
+    node = next_node_to_reverse
+```
+
+と見るかで少し悩んだ。
+
 ## 他の方々のPRを見る
 
 [h1rosakaさんのPR](https://github.com/h1rosaka/arai60/pull/10)
