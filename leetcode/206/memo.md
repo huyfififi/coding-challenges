@@ -42,7 +42,7 @@ while node:
 	- helper関数に二つNodeを渡してしまうやり方は考えつかなかったな。この問題に関しては、様々な書き方がありそう。
 [potrueさんのPR](https://github.com/potrue/leetcode/pull/7)
 	- 残されたコメントを見る限り、再帰的な解法では、せっかく問題を分解しているのだから、reverseしたlistの先頭と末尾を返して1つのステップを簡潔にする方法が自然...なのだろうか。
-[5ky7さんのPR](https://github.com/potrue/leetcode/pull/7)
+[5ky7さんのPR](https://github.com/5ky7/arai60/pull/8)
 [irohafternoonさんのPR](https://github.com/irohafternoon/LeetCode/pull/9)
 [garunituleさんのPR](https://github.com/garunitule/coding_practice/pull/7)
 
