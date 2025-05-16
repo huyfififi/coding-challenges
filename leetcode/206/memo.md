@@ -2,6 +2,8 @@
 
 変数名がなかなか悩みどころ。
 
+`prev`, `curr`, `next`だと、reverseしたlistにおける"前"や"次"なのか、元のlistにおける"前"や"次"なのか少し混乱する。
+
 ## 他の方々のPRを見る
 
 [h1rosakaさんのPR](https://github.com/h1rosaka/arai60/pull/10)
