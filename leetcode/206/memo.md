@@ -48,7 +48,7 @@ while node:
 
 ## 再帰的な解法
 
-どの解法も納得感があるが、現時点で言語化できない個人的な好みにより、step3はstep1のペアを返す方法で実装することにする。
+どの解法も納得感があるが、現時点で言語化できない個人的な好みにより、step3はstep1と同様にペアを返す方法で実装することにする。
 - 最近、再帰関数でペアを返すことで解ける問題の幅が広いことに気づいた。
     - "If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail."
 
