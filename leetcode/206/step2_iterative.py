@@ -12,8 +12,8 @@ class Solution:
             next_node_to_reverse = node.next
 
             node.next = reversed_head
-
             reversed_head = node
+
             node = next_node_to_reverse
 
         return reversed_head
