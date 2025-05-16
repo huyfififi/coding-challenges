@@ -29,7 +29,7 @@ while node:
     # 処理中のnodeのreferenceをひっくり返す
     node.next = reversed_head
 
-    # referenceの更新
+    # 次に進むためのreferenceの更新
     reversed_head = node
     node = next_node_to_reverse
 ```
@@ -41,14 +41,16 @@ while node:
 [h1rosakaさんのPR](https://github.com/h1rosaka/arai60/pull/10)
 	- helper関数に二つNodeを渡してしまうやり方は考えつかなかったな。この問題に関しては、様々な書き方がありそう。
 [potrueさんのPR](https://github.com/potrue/leetcode/pull/7)
-	- 残されたコメントを見る限り、再帰的な解法では、せっかく問題を分解しているのだから、reverseしたlistの先頭と末尾を返して1つのステップ、直接隣り合ったNodeだけ操作する方法の方が自然...なのだろうか。
+	- 残されたコメントを見る限り、再帰的な解法では、せっかく問題を分解しているのだから、reverseしたlistの先頭と末尾を返して1つのステップを簡潔にする方法が自然...なのだろうか。
 [5ky7さんのPR](https://github.com/potrue/leetcode/pull/7)
 [irohafternoonさんのPR](https://github.com/irohafternoon/LeetCode/pull/9)
 [garunituleさんのPR](https://github.com/garunitule/coding_practice/pull/7)
 
 ## 再帰的な解法
 
-どの解法も納得感があるが、最近再帰関数でペアを返すことで解ける問題の幅が広いことに気づき、もう少し練習したいという思い、一つのステップでやる操作が直感的、(また、現時点で言語化できない個人的な好みにより)、step 3はstep1のペアを返す方法で実装することにする。
+どの解法も納得感があるが、現時点で言語化できない個人的な好みにより、step3はstep1のペアを返す方法で実装することにする。
+- 最近、再帰関数でペアを返すことで解ける問題の幅が広いことに気づいた。
+    - "If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail."
 
 ### 別解1
 
