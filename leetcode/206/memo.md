@@ -1,0 +1,105 @@
+# Step 1
+
+Linked List系の問題は、referenceの操作が正しくできるかどうかが測られているので、(dummy以外)新しいNodeを作らない解法が求められているのだろう、と予想する。
+
+# Step 2
+
+変数名がなかなか悩みどころ。
+
+`prev`, `curr`, `next`だと、reverseしたlistにおける"前"や"次"なのか、元のlistにおける"前"や"次"なのか少し混乱する。
+
+また、処理をどうグループ化するかも悩ましい。while文の中に4つの短い処理をスペース無しで並べると、それらに順序的な関係がないような印象を覚えてしまうので (偏った感覚？)、スペースを入れたいのだが
+
+```python
+while node:
+    # 次に処理するnodeを待避
+    next_node_to_reverse = node.next
+
+    # 繋ぎかえて reversed listを伸ばす    
+    node.next = reversed_head
+    reversed_head = node
+
+    # 処理するnodeを進める
+    node = next_node_to_reverse
+```
+
+と見るか
+
+```python
+while node:
+    # 次に処理するnodeを待避
+    next_node_to_reverse = node.next
+
+    # 処理中のnodeのreferenceをひっくり返す
+    node.next = reversed_head
+
+    # 次に進むためのreferenceの更新
+    reversed_head = node
+    node = next_node_to_reverse
+```
+
+と見るかで少し悩んだ。
+
+## 他の方々のPRを見る
+
+[h1rosakaさんのPR](https://github.com/h1rosaka/arai60/pull/10)
+	- helper関数に二つNodeを渡してしまうやり方は考えつかなかったな。この問題に関しては、様々な書き方がありそう。
+[potrueさんのPR](https://github.com/potrue/leetcode/pull/7)
+	- 残されたコメントを見る限り、再帰的な解法では、せっかく問題を分解しているのだから、reverseしたlistの先頭と末尾を返して1つのステップを簡潔にする方法が自然...なのだろうか。
+[5ky7さんのPR](https://github.com/5ky7/arai60/pull/8)
+[irohafternoonさんのPR](https://github.com/irohafternoon/LeetCode/pull/9)
+[garunituleさんのPR](https://github.com/garunitule/coding_practice/pull/7)
+
+## 再帰的な解法
+
+どの解法も納得感があるが、現時点で言語化できない個人的な好みにより、step3はstep1と同様にペアを返す方法で実装することにする。
+- 最近、再帰関数でペアを返すことで解ける問題の幅が広いことに気づいた。
+    - "If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail."
+
+### 別解1
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None:
+            return None
+        if head.next is None:
+            return head
+
+        reversed_head = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None  # for reversed tail
+        return reversed_head
+```
+
+### 別解2
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def reverse_list_helper(
+            prev_node: Optional[ListNode], curr_node: Optional[ListNode]
+        ) -> Optional[ListNode]:
+            if curr_node is None:
+                return prev_node
+
+            reversed_head = reverse_list_helper(curr_node, curr_node.next)
+            curr_node.next = prev_node
+            return reversed_head
+
+        return reverse_list_helper(None, head)
+```
+
+# Step 3
+
+Step 3までやってようやくしっくりきたのだが、私のiterativeな解法は元のリストを先頭→末尾に進みながら繋ぎかえが発生するが、recursiveだと元のリストの末尾→先頭の順で繋ぎかえが発生している(Stackを用いているため逆順になるのは当たり前だが)。
