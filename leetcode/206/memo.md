@@ -95,3 +95,7 @@ class Solution:
 
         return reverse_list_helper(None, head)
 ```
+
+# Step 3
+
+Step 3までやってようやくしっくりきたのだが、私のiterativeな解法は元のリストを先頭→末尾に進みながら繋ぎかえが発生するが、recursiveだと元のリストの末尾→先頭の順で繋ぎかえが発生している(Stackを用いているため逆順になるのは当たり前だが)。
