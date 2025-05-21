@@ -194,3 +194,7 @@ def factorial(n: int, accumulated: int = 1) -> int:
 - `reversing`, `appending`という命名
 - PEP8の (sparingly) というニュアンスに気づかなかった "Extra blank lines may be used (sparingly) to separate groups of related functions."
 - `rest*`, `*_tails`
+
+## TODO:
+
+- いただいたフィードバック（変数名・空行・再帰 <-> ループ）に気を遣いながらもう数回やり直してみる。
