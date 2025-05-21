@@ -103,3 +103,86 @@ class Solution:
 # Step 3
 
 Step 3までやってようやくしっくりきたのだが、私のiterativeな解法は元のリストを先頭→末尾に進みながら繋ぎかえが発生するが、recursiveだと元のリストの末尾→先頭の順で繋ぎかえが発生している(Stackを用いているため逆順になるのは当たり前だが)。
+
+# Step 4
+
+## Tail Recursion
+
+末尾再帰 (tail recursion)とは、再帰のパターンの一種で、再帰関数において再起呼び出しが処理の末尾にあり、その戻り値をそのまま関数全体の戻り値として使用しているパターンを指す。
+末尾再帰の利点は、通常の再帰と異なり、再起呼び出しの後に追加の計算がないため、呼び出し側のスタックフレームを保持する必要がなくなる点にある。
+そうすると、ループ構造に機械的に書き換えられる、または末尾呼び出し最適化(tail call optimization)によってスタックフレームを積まずに済む。
+
+```python
+def reverse_the_first_and_append_the_second(reversing, appending):
+    if reversing is None:
+        return appending
+    reversing_tails = reversing.next
+    reversing.next = appending
+    return reverse_the_first_and_append_the_second(reversing_tails, reversing)
+```
+
+```python
+ def reverse_the_first_and_append_the_second(reversing, appending):
+    while reversing is not None:
+        reversing_tails = reversing.next
+        reversing.next = appending
+        reversing, appending = reversing_tails, reversing
+    return appending
+```
+
+### Resources
+
+[Tail recursion - HaskellWiki](https://wiki.haskell.org/index.php?title=Tail_recursion)
+
+> A recursive function is tail recursive if the final result of the recursive call is the final result of the function itself. If the result of the recursive call must be further processed (say, by adding 1 to it, or consing another element onto the beginning of it), it is not tail recursive.
+> In many programming languages, calling a function uses stack space, so a function that is tail recursive can build up a large stack of calls to itself, which wastes memory. Since in a tail call, the containing function is about to return, its environment can actually be discarded and the recursive call can be entered without creating a new stack frame. This trick is called tail call elimination or tail call optimisation and allows tail-recursive functions to recur indefinitely.
+
+[3.1.1.5. Tail Recursion · Functional Programming in OCaml](https://courses.cs.cornell.edu/cs3110/2021sp/textbook/data/tail_recursion.html?q=)
+
+[github.com/ocaml - ocaml/stdlib/list.ml](https://github.com/ocaml/ocaml/blob/d325f299896417c5f1d477171135acfdf402e770/stdlib/list.ml#L57)
+
+```ocaml
+let rec rev_append l1 l2 =
+  match l1 with
+    [] -> l2
+  | a :: l -> rev_append l (a :: l2)
+
+let rev l = rev_append l []
+```
+
+これはOdaさんにいただいた末尾再帰のReverse Linked Listのコードとほぼ一致する。
+
+```python
+def reverse_the_first_and_append_the_second(reversing, appending):
+    if reversing is None:
+        return appending
+    reversing_tails = reversing.next
+    reversing.next = appending
+    return reverse_the_first_and_append_the_second(reversing_tails, reversing)
+```
+
+### Examples
+
+階乗を求めるプログラム(末尾再帰ではない形)。この方法では、再起呼び出しの結果にnをかけている。
+
+```python
+def factorial(n: int) -> int:
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
+
+末尾再帰で書くと
+
+```python
+def factorial(n: int, accumulated: int = 1) -> int:
+    if n == 0:
+        return accumulated
+    return factorial(n - 1, accumulated * n)
+```
+
+この方法では、関数内で最後にやることが再起呼び出しの結果を返すことになっている。
+
+## Feedback
+
+TODO: Add feedback from reviewers here
