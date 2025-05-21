@@ -185,4 +185,12 @@ def factorial(n: int, accumulated: int = 1) -> int:
 
 ## Feedback
 
-TODO: Add feedback from reviewers here
+- **再帰 <-> ループ間変形**
+    - 末尾再帰
+- 変数の末尾にコメントを書くとフォーマットが大変なので、素直にdocstringに書いた方がいいかも
+- 意味ではなく操作の順番からの命名 (previous) に気を付ける、パズルを作らないように
+- 四行くらいしかないなら空行を入れても読みやすさは変わらないかも
+    - どうせ空行を入れるなら、コメントを積極的に入れてもいいかも
+- `reversing`, `appending`という命名
+- PEP8の (sparingly) というニュアンスに気づかなかった "Extra blank lines may be used (sparingly) to separate groups of related functions."
+- `rest*`, `*_tails`
