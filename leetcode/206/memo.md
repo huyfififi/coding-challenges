@@ -191,10 +191,45 @@ def factorial(n: int, accumulated: int = 1) -> int:
 - 意味ではなく操作の順番からの命名 (previous) に気を付ける、パズルを作らないように
 - 四行くらいしかないなら空行を入れても読みやすさは変わらないかも
     - どうせ空行を入れるなら、コメントを積極的に入れてもいいかも
+    - もう一度書いてみると、確かに空行なくてもいいかな、と思った。仕事だと、長いscript的なものを書くと空行でブロックを区切るが、そこまでの量でもない。
+    	- 私の脳内回路がまだ組み変わっていないのか、書き下すとまだ少し違和感が残るが、少し時間をおいてみよう。
 - `reversing`, `appending`という命名
 - PEP8の (sparingly) というニュアンスに気づかなかった "Extra blank lines may be used (sparingly) to separate groups of related functions."
 - `rest*`, `*_tails`
 
-## TODO:
+```python
+# Step 4 tail recursion
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def reverse_append(reversing, appending):
+            if reversing is None:
+                return appending
+            reversing_tails = reversing.next
+            reversing.next = appending
+            return reverse_append(reversing_tails, reversing)
 
-- いただいたフィードバック（変数名・空行・再帰 <-> ループ）に気を遣いながらもう数回やり直してみる。
+        return reverse_append(head, None)
+```
+
+```python
+# Step 4 tail recursion -> iterative
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        appending = None
+        reversing = head
+        while reversing:
+            reversing_tails = reversing.next
+            reversing.next = appending
+            reversing, appending = reversing_tails, reversing
+        return appending
+```
