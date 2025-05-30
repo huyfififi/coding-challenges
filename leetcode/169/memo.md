@@ -38,3 +38,12 @@ k番目に小さい数を見つけるなら、Quickselectもあるな、と記�
 # Step 2
 
 LeetCodeのSolutionsを覗いてみる。そういえば、Boyer-Moore Voting Algorithmというものがあったな。
+
+先駆者の方々のPRを見てみる。
+
+- [kitakenさんのPR](https://github.com/Kitaken0107/GrindEasy/pull/19)
+- [rihibさんのPR](https://github.com/rihib/leetcode/pull/37)
+
+TODO
+https://discord.com/channels/1084280443945353267/1192728121644945439/1244612442852556822
+https://x.com/shironshiro0/status/1927688181614358758
