@@ -44,6 +44,12 @@ LeetCodeのSolutionsを覗いてみる。そういえば、Boyer-Moore Voting Al
 - [kitakenさんのPR](https://github.com/Kitaken0107/GrindEasy/pull/19)
 - [rihibさんのPR](https://github.com/rihib/leetcode/pull/37)
 
+Discord上での、Boyer–Moore majority vote algorithmが常識的なものかどうかについての情報
+
+- [https://discord.com/channels/1084280443945353267/1084283898617417748/1193461706857390100](https://discord.com/channels/1084280443945353267/1084283898617417748/1193461706857390100)
+- [https://discord.com/channels/1084280443945353267/1084283898617417748/1194299632201777172](https://discord.com/channels/1084280443945353267/1084283898617417748/1194299632201777172)
+
+常識には含まれないが、GoogleのSWEの中では知っている方が多いらしい :eyes:
+
 TODO
-https://discord.com/channels/1084280443945353267/1192728121644945439/1244612442852556822
-https://x.com/shironshiro0/status/1927688181614358758
+- try 2 times more
