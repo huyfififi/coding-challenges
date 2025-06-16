@@ -39,7 +39,7 @@ k番目に小さい数を見つけるなら、Quickselectもあるな、と記�
 
 # Step 2
 
-LeetCodeのSolutionsを覗いてみる。そういえば、Boyer–Moore majority vote algorithmというものがあったな。
+LeetCodeのSolutionsを覗いてみる。そういえば、Boyer–Moore majority vote algorithmというものがあったな。違う要素が出るたびに相殺し続けても、全体の過半数は最後まで"残りカウント"を失わない。
 
 先駆者の方々のPRを見てみる。
 
