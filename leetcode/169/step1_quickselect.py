@@ -9,13 +9,13 @@ class Solution:
 
             pivot_index = random.randint(left, right)
             pivot_value = nums[pivot_index]
-            nums[pivot_index], nums[right] = nums[right], nums[pivot_index]
             store_index = left
+            nums[right], nums[pivot_index] = nums[pivot_index], nums[right]
             for i in range(left, right):
-                if nums[i] >= pivot_value:
+                if nums[i] < pivot_value:
                     nums[i], nums[store_index] = nums[store_index], nums[i]
                     store_index += 1
-            nums[right], nums[store_index] = nums[store_index], nums[right]
+            nums[store_index], nums[right] = nums[right], nums[store_index]
 
             if store_index == k:
                 return nums[store_index]
