@@ -90,6 +90,8 @@ Out[3]: 3
 
 `reversed()`と`rjust()`の存在をstep 1の段階で忘れていた。`[::-1]`でリストをひっくり返したり、`"0" * n`で文字列を繰り返したりするのは、Pythonを普段扱わない方には自明ではないだろうと思うので、`reversed()`や`rjust()`の方が関数名から処理を推定しやすくていいかな、と考えた。
 
+[`reversed()`](https://docs.python.org/3/library/functions.html#reversed)は`iterator`を返すので、新しいリストを返す`l[::-1]`よりも、一つ一つの値にアクセスしていく場合などでメモリ使用量が少なく抑えられる。
+
 ### `itertools.zip_longest()`
 
 ChatGPTとやりとりしていたら、`zip_longest`を提案された。そういえばFluent Pythonの助けもあり一回は`itertools`に目を通した記憶があり、読むのには困らないが、自分でコードを書く上では思いつきづらい。過去一緒に働いたことのある方々を思い出すと、チームによって好ましく思うかどうか分かれそうだが、偏ったサンプルである可能性は否定できない。
@@ -124,4 +126,3 @@ for i in range(len(a)):
 ともできるな、と思ったが、特に読みやすさに差がないように思える。range()の中身はシンプルになったが、0-indexedの普通のインデックスに対して、負のインデックスは後ろから1-indexedなのでやや混乱するように感じるし、カッコが多くなって対応が見辛くなってしまっている気がする。
 
 TODO: Step 3
-TODO: Are there any differences between reversed() and [::-1]?
