@@ -111,4 +111,10 @@ for i in range(len(a)):
 
 [divmod()](https://docs.python.org/3/library/functions.html#divmod)という関数があることを初めて知った。今までの人生で出会ったことがないが、この使用を他の方々はどう思うんだろう。少し驚いてドキュメントを確認する手間が入る思うのだけれど...
 
+```python
+for digit_a, digit_b in zip_longest(reversed(a), reversed(b), fillvalue="0"):
+    carry, bit = divmod(int(digit_a) + int(digit_b) + carry, 2)
+    answer.append(str(bit))
+```
+
 TODO: Step 3
