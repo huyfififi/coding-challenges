@@ -91,3 +91,4 @@ Out[3]: 3
 `reversed()`と`rjust()`の存在をstep 1の段階で忘れていた。`[::-1]`でリストをひっくり返したり、`"0" * n`で文字列を繰り返したりするのは、Pythonを普段扱わない方には自明ではないだろうと思うので、`reversed()`や`rjust()`の方が関数名から処理を推定しやすくていいかな、と考えた。
 
 TODO: Step 3
+TODO: Are there any differences between reversed() and [::-1]?
