@@ -96,24 +96,6 @@ Out[3]: 3
 
 ChatGPTとやりとりしていたら、`zip_longest`を提案された。そういえばFluent Pythonの助けもあり一回は`itertools`に目を通した記憶があり、読むのには困らないが、自分でコードを書く上では思いつきづらい。過去一緒に働いたことのある方々を思い出すと、チームによって好ましく思うかどうか分かれそうだが、偏ったサンプルである可能性は否定できない。
 
-```python
-from itertools import zip_longest
-
-
-class Solution:
-    def addBinary(self, a: str, b: str) -> str:
-        answer: list[str] = []
-        carry = 0
-        for digit_a, digit_b in zip_longest(reversed(a), reversed(b), fillvalue="0"):
-            total = int(digit_a) + int(digit_b) + carry
-            answer.append(str(total % 2))
-            carry = total // 2
-
-        if carry == 1:
-            answer.append("1")
-        return "".join(reversed(answer))
-```
-
 ### negative indices
 
 Pythonは負のインデックスをサポートしているので、`step1_padding.py`のループは
