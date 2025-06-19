@@ -112,5 +112,16 @@ class Solution:
         return "".join(reversed(answer))
 ```
 
+### negative indices
+
+Pythonは負のインデックスをサポートしているので、`step1_padding.py`のループは
+
+```
+for i in range(len(a)):
+    total = int(a[-(i+1)]) + int(b[-(i+1)]) + carry
+```
+
+ともできるな、と思ったが、特に読みやすさに差がないように思える。range()の中身はシンプルになったが、0-indexedの普通のインデックスに対して、負のインデックスは後ろから1-indexedなのでやや混乱するように感じるし、カッコが多くなって対応が見辛くなってしまっている気がする。
+
 TODO: Step 3
 TODO: Are there any differences between reversed() and [::-1]?
