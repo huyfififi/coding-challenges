@@ -90,5 +90,27 @@ Out[3]: 3
 
 `reversed()`と`rjust()`の存在をstep 1の段階で忘れていた。`[::-1]`でリストをひっくり返したり、`"0" * n`で文字列を繰り返したりするのは、Pythonを普段扱わない方には自明ではないだろうと思うので、`reversed()`や`rjust()`の方が関数名から処理を推定しやすくていいかな、と考えた。
 
+### `itertools.zip_longest()`
+
+ChatGPTとやりとりしていたら、`zip_longest`を提案された。そういえばFluent Pythonの助けもあり一回は`itertools`に目を通した記憶があり、読むのには困らないが、自分でコードを書く上では思いつきづらい。過去一緒に働いたことのある方々を思い出すと、チームによって好ましく思うかどうか分かれそうだが、偏ったサンプルかもしれない。
+
+```python
+from itertools import zip_longest
+
+
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        answer: list[str] = []
+        carry = 0
+        for digit_a, digit_b in zip_longest(reversed(a), reversed(b), fillvalue="0"):
+            total = int(digit_a) + int(digit_b) + carry
+            answer.append(str(total % 2))
+            carry = total // 2
+
+        if carry == 1:
+            answer.append("1")
+        return "".join(reversed(answer))
+```
+
 TODO: Step 3
 TODO: Are there any differences between reversed() and [::-1]?
