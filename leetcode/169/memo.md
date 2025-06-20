@@ -52,3 +52,7 @@ Discord上での、Boyer–Moore majority vote algorithmが常識的なものか
 - [https://discord.com/channels/1084280443945353267/1084283898617417748/1194299632201777172](https://discord.com/channels/1084280443945353267/1084283898617417748/1194299632201777172)
 
 常識には含まれないが、GoogleのSWEの中では知っている方が多いらしい :eyes:
+
+# Feedback
+
+There is no feedback on this pull request.
