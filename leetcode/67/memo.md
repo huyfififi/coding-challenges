@@ -117,4 +117,6 @@ for digit_a, digit_b in zip_longest(reversed(a), reversed(b), fillvalue="0"):
     answer.append(str(bit))
 ```
 
-TODO: Step 3
+# Step 3
+
+3回書いているうちに、`digit_a`, `digit_b`という変数名よりも、`bit_a`, `bit_b`の方が、基数が2である今回の問題設定だと正確かな、と考え始めた。
