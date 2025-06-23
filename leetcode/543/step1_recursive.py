@@ -20,9 +20,7 @@ class Solution:
             right_diameter, right_max_depth = check_diameter_and_max_depth(node.right)
 
             return (
-                max(
-                    left_max_depth + right_max_depth, max(left_diameter, right_diameter)
-                ),
+                max(left_max_depth + right_max_depth, left_diameter, right_diameter),
                 max(left_max_depth, right_max_depth) + 1,
             )
 
