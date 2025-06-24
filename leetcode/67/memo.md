@@ -124,4 +124,5 @@ for digit_a, digit_b in zip_longest(reversed(a), reversed(b), fillvalue="0"):
 # Feedback
 
 - 関連する処理は近くに置く、その方が読みやすいから
+	- 前もOdaさんに軽く指摘された記憶があるな
 - 既に使われている変数名を使い回さない、混乱の元となるから
