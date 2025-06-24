@@ -11,8 +11,10 @@ class TreeNode:
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        node_to_diameter_and_height: dict[TreeNode, tuple[int, int]] = {None: (0, 0)}
-        node_and_visited_stack: list[tuple[TreeNode, bool]] = [(root, False)]
+        node_to_diameter_and_height: dict[Optional[TreeNode], tuple[int, int]] = {
+            None: (0, 0)
+        }
+        node_and_visited_stack: list[tuple[Optional[TreeNode], bool]] = [(root, False)]
 
         while node_and_visited_stack:
             node, visited = node_and_visited_stack.pop()
