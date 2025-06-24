@@ -21,3 +21,10 @@ height = max depth (depth of the deepest node(s))
 - [NobukiFukuiさん](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/36)
 	- `calculate_diameter_and_depth`という命名いいな、真似しよう
 - [Kitaken0107さん](https://github.com/Kitaken0107/GrindEasy/pull/17)
+
+## Type Hints
+
+Type Hintsを律儀に書いてみたが、変数の中身が複雑なので、逆に読みづらくなってしまうような感覚を受けた。
+LeetCodeが`Optional`を使用しているので、それに合わせているが、いつもなら`| None`と書いている。
+また、[FastAPIのドキュメント](https://fastapi.tiangolo.com/it/python-types/#using-union-or-optional)で`Optional[A]`はわかりづらいから、`Union[A, None]`と書け、と目にしたことがある。
+が、Python 3.10以前についてであり、今では`A | None`が主流だろうか。
