@@ -120,3 +120,8 @@ for digit_a, digit_b in zip_longest(reversed(a), reversed(b), fillvalue="0"):
 # Step 3
 
 3回書いているうちに、`digit_a`, `digit_b`という変数名よりも、`bit_a`, `bit_b`の方が、基数が2である今回の問題設定だと正確かな、と考え始めた。
+
+# Feedback
+
+- 関連する処理は近くに置く、その方が読みやすいから
+- 既に使われている変数名を使い回さない、混乱の元となるから
