@@ -13,6 +13,10 @@
 height = max depth (depth of the deepest node(s))
 ```
 
+## Iterativeな解法
+
+post-order traversalなので行きと帰りで別の操作を行う必要があり、pre-order traversalで解ける、例えば[LeetCode 226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)のようには素直なiterative解法が書けない。
+
 # Step 2
 
 ## 先駆者の方々のPR
