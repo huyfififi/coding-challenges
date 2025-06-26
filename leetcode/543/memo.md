@@ -22,8 +22,9 @@ post-order traversalなので行きと帰りで別の操作を行う必要があ
 ## 先駆者の方々のPR
 
 - [Jikuharaさん](https://github.com/Jikuhara/LeetCode/pull/5)
+	- Helper関数の命名について、"また、計算はしているとは言えないため、 calculate で始めるのは違和感があります。"、確かに。
 - [NobukiFukuiさん](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/36)
-	- `calculate_diameter_and_depth`という命名いいな、真似しよう
+	- `calculate_diameter_and_depth`という命名
 - [Kitaken0107さん](https://github.com/Kitaken0107/GrindEasy/pull/17)
 
 ## Type Hints
@@ -31,3 +32,13 @@ post-order traversalなので行きと帰りで別の操作を行う必要があ
 Type Hintsを律儀に書いてみたが、変数の中身が複雑なので、逆に読みづらくなってしまうような感覚を受けた。
 LeetCodeが`Optional`を使用しているので、それに合わせているが、いつもなら`| None`と書いている。
 また、[FastAPIのドキュメント](https://fastapi.tiangolo.com/it/python-types/#using-union-or-optional)で`Optional[A]`はわかりづらいから、`Union[A, None]`と書け、と目にしたことがある。が、Python 3.10以前についての記述であり、今では`A | None`が主流だろうか。
+
+## Helper関数の命名
+
+野田さんのご指摘の通り、計算しているわけではないので`calculate_*`は不適に思うが、良い代替案が思い浮かばない。
+
+`get_*`はどうかな？と思ったが、The Art of Readable Codeに
+
+> Many programmers are used to the convention that methods starting with `get` are *"lightweight accessors"* that simply return an internal member...
+
+とされていて、時間計算量がO(1)かつ簡潔な処理で値が返る場合しか`get_*`を使いたくない気持ちがある。本の中では`compute_*`が代替案として例示されているが、これは結局`calculate`と変わらないだろう。
