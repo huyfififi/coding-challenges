@@ -41,4 +41,4 @@ LeetCodeが`Optional`を使用しているので、それに合わせている�
 
 > Many programmers are used to the convention that methods starting with `get` are *"lightweight accessors"* that simply return an internal member...
 
-とされていて、時間計算量がO(1)かつ簡潔な処理で値が返る場合しか`get_*`を使いたくない気持ちがある。本の中では`compute_*`が代替案として例示されているが、これは結局`calculate`と変わらないだろう。
+とされていて、時間計算量がO(1) (データの大きさに実行時間が依存しない) かつ簡潔な処理で値が返る場合しか`get_*`を使いたくない気持ちがある。本の中では`compute_*`が代替案として例示されているが、これは結局`calculate`と変わらないだろう。
