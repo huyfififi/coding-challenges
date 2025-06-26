@@ -8,4 +8,14 @@
 
 ## Linked Listの長さを測る方法
 
-まず、一回Linked Listを走査して長さを測り、半分の長さがわかったら、二回目の走査で半分まで行ってそこのNodeを返す方法もあるなと考えた。
+まず、一回Linked Listを走査して長さを測り、半分の長さがわかったら、二回目の走査で半分まで行ってそこのNodeを返す方法もあるなと考えた。こちらの方法も、上の方法と同時に思いついた。
+
+# Step 2
+
+## 他の方々のPRを見てみる
+
+- [NobukiFukuiさん](https://github.com/NobukiFukui/Grind75-ProgrammingTraining/pull/37)
+	- 確かに、真ん中まで移動するカウントの変数名をどうするかは、議論されている通りに迷った。
+	- 解法のバリエーションは私のStep 1と同じ。
+- [rihibさん](https://github.com/rihib/leetcode/pull/40)
+	- 長さを数える方法の方が素直らしい。
