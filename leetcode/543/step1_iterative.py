@@ -28,7 +28,7 @@ class Solution:
             left_diameter, left_height = node_to_diameter_and_height[node.left]
             right_diameter, right_height = node_to_diameter_and_height[node.right]
             node_to_diameter_and_height[node] = (
-                max(left_height + right_height, max(left_diameter, right_diameter)),
+                max(left_height + right_height, left_diameter, right_diameter),
                 max(left_height, right_height) + 1,
             )
 
