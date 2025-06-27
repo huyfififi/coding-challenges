@@ -19,3 +19,7 @@
 	- 解法のバリエーションは私のStep 1と同じ。
 - [rihibさん](https://github.com/rihib/leetcode/pull/40)
 	- 長さを数える方法の方が素直らしい。
+
+## その他
+
+`move_count_to_middle`の代替案を考えていたが、上手いものが思いつかなかった。`middle_index`は、0から始まるのか1から始まるのか、わかりづらい気がするし...。
