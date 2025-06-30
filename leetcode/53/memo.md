@@ -82,13 +82,20 @@ tokuhiratさんのPRでも言及されていたが、別の問題のPRをレビ�
 class Solution:
     def maxSubArray(self, nums: list[int]) -> int:
         max_subarray_sum = -float("inf")
-        ending_subarray_sum = 0
+        max_ending_subarray_sum = 0
         for num in nums:
-            ending_subarray_sum = max(ending_subarray_sum + num, num)
-            max_subarray_sum = max(max_subarray_sum, ending_subarray_sum)
+            max_ending_subarray_sum = max(max_ending_subarray_sum + num, num)
+            max_subarray_sum = max(max_subarray_sum, max_ending_subarray_sum)
         return max_subarray_sum
 ```
 
-## その他 - Divide and Conquer
+## その他
+
+### Divide and Conquer
 
 LeetCodeのSolutionsをざっと眺めて、一晩寝てもよくわからなかった。LeetCodeのSolutions上に残してあるコメントや、一社内のPRを見て予想するに、多くの人は分割統治法を思いつけない・書けないし、現在の私の理解力を超えているように思うので、一旦スキップすることにする。後で戻ってきた時にわかるようになっているかも。
+
+### 変数名
+
+Kadane's Algorithmの解法の変数に対して、端的で明確な名付けができなかった。変数名がやけに長くなってもしょうがないし、ある程度短いものにして、あとは処理から推測してもらう方がいいだろうか。
+
