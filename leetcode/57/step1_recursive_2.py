@@ -2,7 +2,7 @@ class Solution:
     def insert(
         self, intervals: list[list[int]], newInterval: list[int]
     ) -> list[list[int]]:
-        intervals_after_insertion: list[int] = []
+        intervals_after_insertion: list[list[int]] = []
 
         def insert_helper(i: int, interval_to_insert: list[int]) -> None:
             if i == len(intervals):
