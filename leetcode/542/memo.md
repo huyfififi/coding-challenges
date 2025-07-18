@@ -48,3 +48,42 @@ ChatGPTに最低限のヒントをお願いしたところ、call stackではな
 一社Discord内に先駆者が見つからなかったので、LeetCodeのSolutionsを眺めてみる。
 
 私はqueueに「最短距離未更新のセル」を入れていたが、ぱっと眺めてみると、queueに最短距離更新済みのセル」を入れている解法が多かった。確かにこれなら処理が各0から伸ばして重なった範囲で止まる。
+
+また、目を通した限り全ての解法で、queueに追加されるセルの数を抑えるために、queueに入れる前に範囲をチェックする方法が採られていた。実行時間・メモリ使用量を少しでも抑えるためなのか、今回の問題ではそちらの方が読みやすくなるからあえてなのかはわかりかねる。
+
+queueに何を入れるのか約束できている限り、範囲チェックを後でやる方法でも、LeetCodeのSolutions（や、一社内のPR）でよくみられるでもどちらでも良さそうだ。
+
+```python
+from collections import deque
+
+
+class Solution:
+    def updateMatrix(self, mat: list[list[int]]) -> list[list[int]]:
+        num_rows = len(mat)
+        num_cols = len(mat[0])
+
+        queue: deque[tuple[int, int]] = deque()
+        for row in range(num_rows):
+            for col in range(num_cols):
+                if mat[row][col] == 0:
+                    queue.append((row, col))
+                else:
+                    mat[row][col] = float("inf")
+
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+
+        while queue:
+            row, col = queue.popleft()
+            for row_diff, col_diff in directions:
+                row_update = row + row_diff
+                col_update = col + col_diff
+                if (
+                    0 <= row_update < num_rows
+                    and 0 <= col_update < num_cols
+                    and mat[row_update][col_update] > mat[row][col] + 1
+                ):
+                    queue.append((row_update, col_update))
+                    mat[row_update][col_update] = mat[row][col] + 1
+
+        return mat
+```
