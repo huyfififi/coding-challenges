@@ -1,3 +1,4 @@
+import math
 from collections import deque
 
 
@@ -12,7 +13,7 @@ class Solution:
                 if mat[row][col] == 0:
                     queue.append((row, col))
                 else:
-                    mat[row][col] = float("inf")
+                    mat[row][col] = math.inf
 
         directions: tuple[tuple[int, int], ...] = ((1, 0), (-1, 0), (0, 1), (0, -1))
         while queue:
@@ -26,7 +27,7 @@ class Solution:
                 if (
                     0 <= row_update < num_rows
                     and 0 <= col_update < num_cols
-                    and mat[row_update][col_update] > distance
+                    and mat[row_update][col_update] > distance + 1
                 ):
                     mat[row_update][col_update] = distance + 1
                     queue.append((row_update, col_update))
