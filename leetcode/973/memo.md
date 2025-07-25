@@ -14,3 +14,7 @@ Pythonのheapqはmin heapだが、入力する値に`-1`をかければmax heap�
 ## ソート
 
 単純に全ての距離 (の二乗) を計算、その値を用いてソートし、小さい順にk個取ってくればいい。
+
+# Step 2
+
+LeetCode勉強会のDiscordには、PRが見当たらなかった。LeetCodeのSolutionsを眺めてみる。
