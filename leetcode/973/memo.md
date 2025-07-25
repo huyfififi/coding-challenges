@@ -15,6 +15,33 @@ Pythonのheapqはmin heapだが、入力する値に`-1`をかければmax heap�
 
 単純に全ての距離 (の二乗) を計算、その値を用いてソートし、小さい順にk個取ってくればいい。
 
+TODO: 時間・空間計算量
+
 # Step 2
 
 LeetCode勉強会のDiscordには、PRが見当たらなかった。LeetCodeのSolutionsを眺めてみる。
+
+Sortする方法・Heapを用いる方法以外に、Quickselectをする方法もあった。最悪O(n^2)かかるのでTLEするだろうが、確かにk番目に小さい値を見つけたら、Quickselectのpartition操作により、arr[:k]を返せば答えになりそう。-> `step2_quickselect_tle.py` (TODO)
+
+Heapの解法についてだが、Step 1では
+
+```
+if len(heap) < k:
+    heapq.heappush(dist_and_point)
+else:
+    heapq.heappushpop(dist_and_point)
+```
+
+としたが、どちらにせよheapにpushしているので
+
+```
+heapq.heappush(heap, dist_and_point)
+if len(heap) > k:
+    heapq.heappop()
+```
+
+とする解法もあった。どちらにせよしなければならない処理を条件分岐から出すことで、若干私の脳への収まりがよくなったが、どちらの方が人気だろう。
+
+また、max heapではなくmin heapを使う方法もあって、確かに、そういう方法もあるな、と新鮮さを感じた。一応こちらもやってみる。
+
+距離の二乗を保持する変数の名前をどうするか悩んだ。`distance`としてしまうと、厳密には違うような気がするのだが、修飾語をつけるとかなり冗長になってしまい逆に読みづらくなってしまうような気がする。コメントなどで補足するのがいいだろうか...。
