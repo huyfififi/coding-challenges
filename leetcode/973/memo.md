@@ -45,3 +45,10 @@ if len(heap) > k:
 また、max heapではなくmin heapを使う方法もあって、確かに、そういう方法もあるな、と新鮮さを感じた。一応こちらもやってみる。
 
 距離の二乗を保持する変数の名前をどうするか悩んだ。`distance`としてしまうと、厳密には違うような気がするのだが、修飾語をつけるとかなり冗長になってしまい逆に読みづらくなってしまうような気がする。コメントなどで補足するのがいいだろうか...。
+
+## min heap
+
+max heapにk個の点だけ入れる方法と異なり、まず全ての点の (距離, 座標) を入れたリストをヒープ化し、そこからk個取り出す解法。
+
+時間計算量: O(n + klogn), [heapq.heapify(x): Transform list x into a heap, in-place, in linear time.](https://docs.python.org/3/library/heapq.html#heapq.heapify)
+空間計算量: O(n)
