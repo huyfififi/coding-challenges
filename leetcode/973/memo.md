@@ -62,7 +62,7 @@ LeetCodeのSolutionsを眺めていたら、SortやHeapを用いる方法以外�
 
 ## heapq.nsmallest() -> `step2_heapq_nsmallest.py`
 
-そういえば、この前[703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/description/)をレビューさせていただいたとき、`nlargest()`を用いた解法に出会ったのを思い出した。さすがに面接では、`heapq.nsmallest()`や`heapq.nlargest()`を実装してほしいという話になるだろうが、一応頭の片隅に入れるために使用してみてメモしておく。
+そういえば、この前[703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/description/)をレビューさせていただいたとき、`nlargest()`を用いた解法に出会ったのを思い出した。さすがに面接では、`heapq.nsmallest()`や`heapq.nlargest()`のロジックを実装してほしいという話になるだろうが、一応頭の片隅に入れるために使用してみてメモしておく。
 
 [Python Documentation - heapq.nsmallest](https://docs.python.org/3/library/heapq.html#heapq.nsmallest)
 
@@ -111,7 +111,7 @@ def nsmallest(n, iterable, key=None):
 
 なるほど、結局私 (やみなさんの) max heapを用いた解法とやっていることは変わらないな。
 
-時間計算量: O((n + k)logk), 多めに見積もってn回のheap操作 O(logk) でO(nlogk)、最後にソートもしていてO(klogk)。
+時間計算量: O(nlogk), 多めに見積もってn回のheap操作 O(logk) でO(nlogk)。最後にソートしている (O(klogk)) が、`k <= n`で、合わせてO(nlogk)。
 空間計算量: O(k)
 
 ## その他悩んだこと

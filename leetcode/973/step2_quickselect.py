@@ -31,9 +31,9 @@ class Solution:
                 distance_and_points[store_index],
             )
 
-            if store_index == k:
+            if store_index == k - 1:
                 return
-            elif store_index < k:
+            elif store_index < k - 1:
                 move_k_closest_points_to_left(store_index + 1, right)
             else:
                 move_k_closest_points_to_left(left, store_index - 1)
