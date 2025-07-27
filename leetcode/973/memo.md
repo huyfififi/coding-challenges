@@ -119,3 +119,13 @@ def nsmallest(n, iterable, key=None):
 距離の二乗を保持する変数の名前をどうするか悩んだ。`distance`としてしまうと、厳密には違うような気がするのだが、修飾語をつけるとかなり冗長になってしまい逆に読みづらくなってしまうような気がする。コメントなどで補足するのがいいだろうか...。
 
 heapの変数名にも悩んだ。heapであることを強調すべきか、heapなのは処理から明らかなので中身を表すべきか。
+
+後から思ったが、quickselectの解法で使用した関数`move_k_closest_points_to_left()`が`left`と`right`を引数にとるのがやや不思議な感じがする。呼び出し側からしたらなぜ必要なのかぱっと見わからないので、呼んだあとinner関数側で設定してほしいような気持ちがある。
+
+```
+def move_k_closest_points_to_left_helper(left: int, right: int) -> None:
+    pass
+
+def move_k_closest_points_to_left() -> None:
+    move_k_closest_points_to_left_helper(0, len(arr) - 1)
+```
