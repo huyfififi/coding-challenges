@@ -6,7 +6,8 @@ class Solution:
         distance_and_points = []
         for x, y in points:
             square_distance = x * x + y * y
-            heapq.heappush(distance_and_points, (square_distance, [x, y]))
+            distance_and_points.append((square_distance, [x, y]))
+        heapq.heapify(distance_and_points)
 
         answer = []
         for _ in range(k):
