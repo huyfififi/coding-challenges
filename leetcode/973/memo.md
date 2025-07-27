@@ -60,6 +60,58 @@ LeetCodeのSolutionsを眺めていたら、SortやHeapを用いる方法以外�
 時間計算量: 平均O(n), 最悪O(n^2)
 空間計算量: O(n)
 
+## heapq.nsmallest() -> `step2_heapq_nsmallest.py`
+
+そういえば、この前[703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/description/)をレビューさせていただいたとき、`nsmallest()`を用いた解法に出会ったのを思い出した。さすがに面接では、それを実装してほしいという話になるだろうが、一応頭の片隅に入れるために使用してみてメモしておく。
+
+[Python Documentation - heapq.nsmallest](https://docs.python.org/3/library/heapq.html#heapq.nsmallest)
+
+> Return a list with the n smallest elements from the dataset defined by iterable...Equivalent to: `sorted(iterable, key=key)[:n]`.
+
+実装によっては最小のn個をとってくるだけでその順序は保証しないと (なぜか) 思い込んでいたが、結果のn個の値も昇順で並ぶのか。
+
+[python/cpython/Lib/heapq.py](https://github.com/python/cpython/blob/a852c7bdd48979218a0c756ff1a5586d91cff607/Lib/heapq.py#L479)
+
+```python
+def heapreplace_max(heap, item):
+    """Maxheap version of a heappop followed by a heappush."""
+
+# ...
+
+def heapify_max(x):
+    """Transform list into a maxheap, in-place, in O(len(x)) time."""
+
+# ...
+
+def nsmallest(n, iterable, key=None):
+    # ...omitted...
+
+    # General case, slowest method
+    it = iter(iterable)
+    result = [(key(elem), i, elem) for i, elem in zip(range(n), it)]
+    if not result:
+        return result
+    heapify_max(result)
+    top = result[0][0]
+    order = n
+    _heapreplace = heapreplace_max
+    for elem in it:
+        k = key(elem)
+        if k < top:
+            _heapreplace(result, (k, order, elem))
+            top, _order, _elem = result[0]
+            order += 1
+    result.sort()
+    return [elem for (k, order, elem) in result]
+```
+
+最初にiterableの[:n]でmax heapを作って、iterableの[n:]の値を一つずつ比較・入れ替えしていき、最後に順序を保証するために`sort()`を呼んでいる。
+
+なるほど、結局私 (やみなさんの) max heapを用いた解法とやっていることは変わらないな。
+
+時間計算量: O((n + k)logk), 多めに見積もってn回のheap操作 O(logk) でO(nlogk)、最後にソートもしていてO(klogk)。
+空間計算量: O(k)
+
 ## その他悩んだこと
 
 距離の二乗を保持する変数の名前をどうするか悩んだ。`distance`としてしまうと、厳密には違うような気がするのだが、修飾語をつけるとかなり冗長になってしまい逆に読みづらくなってしまうような気がする。コメントなどで補足するのがいいだろうか...。
