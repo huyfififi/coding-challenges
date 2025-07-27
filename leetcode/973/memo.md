@@ -62,7 +62,7 @@ LeetCodeのSolutionsを眺めていたら、SortやHeapを用いる方法以外�
 
 ## heapq.nsmallest() -> `step2_heapq_nsmallest.py`
 
-そういえば、この前[703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/description/)をレビューさせていただいたとき、`nsmallest()`を用いた解法に出会ったのを思い出した。さすがに面接では、それを実装してほしいという話になるだろうが、一応頭の片隅に入れるために使用してみてメモしておく。
+そういえば、この前[703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/description/)をレビューさせていただいたとき、`nlargest()`を用いた解法に出会ったのを思い出した。さすがに面接では、`heapq.nsmallest()`や`heapq.nlargest()`を実装してほしいという話になるだろうが、一応頭の片隅に入れるために使用してみてメモしておく。
 
 [Python Documentation - heapq.nsmallest](https://docs.python.org/3/library/heapq.html#heapq.nsmallest)
 
@@ -71,6 +71,8 @@ LeetCodeのSolutionsを眺めていたら、SortやHeapを用いる方法以外�
 実装によっては最小のn個をとってくるだけでその順序は保証しないと (なぜか) 思い込んでいたが、結果のn個の値も昇順で並ぶのか。
 
 [python/cpython/Lib/heapq.py](https://github.com/python/cpython/blob/a852c7bdd48979218a0c756ff1a5586d91cff607/Lib/heapq.py#L479)
+
+以下 CPythonのリポジトリからコピペ。
 
 ```python
 def heapreplace_max(heap, item):
@@ -116,3 +118,4 @@ def nsmallest(n, iterable, key=None):
 
 距離の二乗を保持する変数の名前をどうするか悩んだ。`distance`としてしまうと、厳密には違うような気がするのだが、修飾語をつけるとかなり冗長になってしまい逆に読みづらくなってしまうような気がする。コメントなどで補足するのがいいだろうか...。
 
+max heapを用いる解法において、`heap`という変数名にも少し悩んだ。厳密に言えばmin heapだし、でもmax heapとして用いているのも本当なので、`min_heap`や`max_heap`は誤解を生みかねない、そもそも`min_*`や`max_*`を追加してもそこまで読みやすさに影響しないように思った。`distance_and_points`として、途中のheap処理からheapだと考えてもらうのもアリだろうか。
