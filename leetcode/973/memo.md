@@ -129,3 +129,9 @@ def move_k_closest_points_to_left_helper(left: int, right: int) -> None:
 def move_k_closest_points_to_left() -> None:
     move_k_closest_points_to_left_helper(0, len(arr) - 1)
 ```
+
+# Feedback
+
+- 距離にマイナスをかけてmin heapをmax heapにしていることが非自明なのでコメントで説明した方がいい
+- `pow()` を使用すると、二項演算だけの場合に比べて 関数呼び出しに伴うオーバーヘッド が余計に必要になる
+- `x * x`の方が`pow(x, 2)`よりも読みやすい
