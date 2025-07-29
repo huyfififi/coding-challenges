@@ -9,7 +9,7 @@
 
 "abcabcbb" を先頭から眺めて i = 3 の "a" にたどり着いたとき、i = 0 の "a" を捨てて、i = 1 の "b" から始まる文字列を考えればいいな。また、i = 4 の "b" に進んだときは、i = 1 の "b" を捨ててその次からなる部分文字列を考えればいい。 -> (もう少し問題で挙げられている例を考えてみて) -> 既に出会った文字に遭遇した場合、前に出会った場所の位置情報があればいいのか。`set`ではなく`dict`を使用するべきだったんだな、と気づいた。-> `step1.py`
 
-一つ引っかかった点は
+一つつまづいた点は
 
 ```python
 start = max(start, char_to_last_index[char] + 1)
@@ -51,8 +51,8 @@ start = char_to_last_index[char] + 1
     - `left_i`, `right_i`よりも`left`, `right`とする方が簡潔で読みやすいのか。私もいつも悩む点だ。Discussionがあると参考になってありがたい。
         - 私も[Odaさんに同じようなフィードバックを受けた](https://github.com/huyfififi/coding-challenges/pull/14#discussion_r2082999110)ことを思い出した。
     - 私も自分の解答を書いているとき、`start`, `end`がinclusiveなのかexclusiveなのか伝わりづらいなと思ったが、冗長になっても仕方がないので、処理から理解してもらう方がいいかなと思った。
-    - 二つのポインタの命名に関して言及されていたので、リーダブルコードを確認してみたが、inclusive rangeには`first` & `last`、exclusive rangeには (C++の標準ライブラリなどで広く使われている)`begin` & `end`が良いらしい。
-        - 個人的には、どのみち英語の文法的にはinclusiveかexclusiveか定まらないのだから、どちらでも、`start` & `end` でもいいような気がするのだが。
+    - 二つのポインタの命名に関して言及されていたので、リーダブルコードを確認してみたが、inclusive rangeには`first` & `last`、inclusive/exclusive rangeには (C++の標準ライブラリなどで広く使われている)`begin` & `end`が良いらしい。
+        - `first` & `last`はあまり見かけないな。`begin` & `end` もLeetCode勉強会では少数派？ `window_start` & `window_end`はたまに見る。
 - [KentaroJayさんのPR](https://github.com/KentaroJay/Leetcode/pull/4)
     - Hungarian Notationというものがあるのか。[Joel on Software - Making Wrong Code Look Wrong](https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/) -> 元気がある時に見てみよう。
         - Joelさんのブログだと、昔[Fire And Motion](https://www.joelonsoftware.com/2002/01/06/fire-and-motion/)を読んで感銘を受けた記憶がある。(モチベーション向上は短期的にしか続かなかったが...)
@@ -61,6 +61,7 @@ start = char_to_last_index[char] + 1
     - 私と同じ`start` & `end`という命名だ。
     - なるほど、入力がASCIIだとするとそれが取りうる値の分だけリストを用意すればいいのか。
 - [ryosuketcさんのPR](https://github.com/ryosuketc/leetcode_arai60/pull/37)
-    - 私も、左のポインタを右にしか動かしてはいけないはずが、左に動かしてしまってエラーになった。この問題の低いAcceptance Rateは、ここにあるのかな。
+    - 私も、左のポインタを右にしか動かしてはいけないはずが、左に動かしてしまってエラーになった。この問題の低いAcceptance Rateは、この落とし穴にあるのかな。
 
 みなさん初見ですんなり解けているのすごいなぁ。
+私は数年前に一度解いたことがあるはずなのだが、記憶からさっぱり抜け落ちていた。
