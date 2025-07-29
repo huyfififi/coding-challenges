@@ -23,7 +23,7 @@
 
 > 尺取り法とは端的に言うと、区間の左端と右端を尺取り虫のように動かすことで、条件を満たす区間を高速に見つける、というアルゴリズムです。
 
-そう考えると、`dict`の代わりに`set`を用いても、条件を満たさない場合に左のポインタを動かし続けるということをすれば、解答が書ける。 -> `step1_syakutori.py`
+そう考えると、`dict`の代わりに`set`を用いても、条件を満たさない場合に左のポインタを動かし続けるということをすれば、解答が書ける。 -> `step1_set.py`
 
 どちらにせよ、多めに見積もっても二つのポインタを先頭から末尾に動かしているだけなので、時間計算量はO(n)、空間計算量はO(1) なぜなら、出てくる文字の種類が "English letters, digits, symbols and spaces" に限られているため。
 
@@ -42,7 +42,7 @@
 - [KentaroJayさんのPR](https://github.com/KentaroJay/Leetcode/pull/4)
     - Hungarian Notationというものがあるのか。[Joel on Software - Making Wrong Code Look Wrong](https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/) -> 元気がある時に見てみよう。
         - Joelさんのブログだと、昔[Fire And Motion](https://www.joelonsoftware.com/2002/01/06/fire-and-motion/)を読んで感銘を受けた記憶がある。(モチベーション向上は短期的にしか続かなかったが...)
-    - 私の`step1_syakutori.py`でも、`s[end]`がループ内で二度アクセスされていて、大事な値なので、変数をおいた方がいいのだろうか...。
+    - 私の`step1_set.py`でも、`s[end]`がループ内で二度アクセスされていて、大事な値なので、変数をおいた方がいいのだろうか...。
 - [FuminitonさんのPR](https://github.com/Fuminiton/LeetCode/pull/50)
     - 私と同じ`start` & `end`という命名だ。
     - なるほど、入力がASCIIだとするとそれが取りうる値の分だけリストを用意すればいいのか。
