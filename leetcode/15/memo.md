@@ -1,5 +1,27 @@
 # Step 1
 
+素直に問題を分割すると、三つの値のうち一番左のものを固定して[Two Sum](https://leetcode.com/problems/two-sum/description/)をする方法が思いつく。
+
+## Two Sum - Hash Mapを使用した解法の応用 -> `step1_two_sum_seen_tle.py`
+
+Two Sumで真っ先に思い出したのは、出会った値をhash mapに入れていって、(target - 今見ている値) がhash mapに存在している (既に出会っている) ならば、その値と今見ている値 (のインデックス) を返せばいい、という方法だった。
+
+今回の問題では、インデックスのことは考えなくても良いので、`dict`ではなく`set`でいいなと考えた。また、
+
+> Notice that the solution set must not contain duplicate triplets.
+
+という制約があるので、3つの値の組みをソート -> `tuple`に変換 -> `set`に登録をすることで、被りを回避した。
+
+時間計算量: O(n^2)
+空間計算量: O(n)
+
+TODO: Consider why this solution results in TLE
+
+## Two Sum - Sorting + Two Pointersを使用した解法の応用 -> `step1_two_sum_sort.py`
+
+時間計算量: O(n^2)
+空間計算量: O(n)
+
 # Step 2
 
 (Step 2に進む時点では) Discord内に前例は見つからなかった。LeetCodeのSolutionsをざっと眺めてみる。
