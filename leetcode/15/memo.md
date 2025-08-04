@@ -60,3 +60,19 @@ sorted_nums = sorted(nums)
 ### `nums[left]`, `nums[right]`, `len(nums)`に名前をつけるか迷った
 
 一つのループ内で複数回登場するので、名前を置いても良いかなと思っていたが、逆に行数が増えて読みにくくなるような感覚があったのでそのまま`nums[left]`、`nums[right]`、また`len(nums)`とする。見慣れたアクセスの仕方なので、読むのに苦労しない、ように思う。
+
+# Step 3
+
+PRを作り終えて、見直してから気づいたのだが、`total == 0`の場合の処理が`total < 0` や `total > 0`の場合と比べると複雑で、このブロックこそネストを浅くしたいなと思った。leftとrightの操作も対照に見えやすく、読みやすい。
+
+```
+if total < 0:
+    left += 1
+    continue
+
+if total > 0:
+    right -= 1
+    continue
+
+# total == 0 の時の処理
+```
