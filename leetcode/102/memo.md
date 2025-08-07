@@ -19,7 +19,7 @@
 ## 勉強会参加者の方々のPR
 
 - [ryosuketcさんのPR](https://github.com/ryosuketc/leetcode_arai60/pull/26)
-    - 確かに、level-order traversal -> BFSの先入観が強く、`queue`を使用したが、(Pythonだったら) 普通に`for`ループでいいのか。ハッとさせられた。
+    - 確かに、level-order traversal -> BFSの先入観が強く、`queue`を使用したが、普通に`for`ループでいいのか。ハッとさせられた。
     - Step 1の発想自体はほぼ同じ。ネストを下げてでもlevelごとに処理する方法の方がわかりやすいのではという指摘がなされている。
 - [tokuhiratさんのPR](https://github.com/tokuhirat/LeetCode/pull/26)
     - `current`という語を使うことを意図的に避けられていて、関連リンクも貼られている。
@@ -29,7 +29,7 @@
         - 私はStep 1では、良い名前が思いつかなかったので、短い関数であることもあって、返す値に`answer`と命名してしまっていた。
 - [irohafternoonさんのPR](https://github.com/irohafternoon/LeetCode/pull/29)
     - なるほど、[`std::vector<T,Allocator>::emplace_back`](https://en.cppreference.com/w/cpp/container/vector/emplace_back)という関数を用いて各階層でのvectorを作成しているのか。
-    - TODO: 私の方法とどちらが良いのか。
+        - vectorを作成してそのまま[`push_back()`](https://en.cppreference.com/w/cpp/container/vector/push_back)するとコピーが発生するので、この方法の方が処理が減らせそう。
 - [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/40)
     - [Range-based for loop](https://en.cppreference.com/w/cpp/language/range-for.html)というものがあるよう。
 - [Ryotaro25さんのPR](https://github.com/Ryotaro25/leetcode_first60/pull/28)
@@ -40,7 +40,7 @@
 
 みなさんのPRを眺めていて、私の「ファーストチョイスとしてqueueやstackにnullやinvalidな値を積んでしまう」クセに気がついた。あまり記憶がないが、多少余分な処理を行なってしまうにせよ、条件分岐が少なめに抑えられる、という経験則からだろうか。
 
-## その他考えたこと
+## その他調べたこと
 
 ### `while (true)`について
 
@@ -51,3 +51,7 @@
 - [`while True:` と書くと無限ループになっていないか不安になります。...](https://github.com/fuga-98/arai60/pull/23#discussion_r2161159864)
 
 ざっとGoogleした結果も似たような感じか。できるだけ避けていこう。
+
+### [Content preview from C++ In a Nutshell - Lvalues and Rvalues](https://www.oreilly.com/library/view/c-in-a/059600298X/ch03s01.html)
+
+こういう用語があるのか。Discord内で検索してもあまりヒットしないが、頭の片隅に入れておこう。
