@@ -27,6 +27,9 @@
     - ryosuketcさんと同じく、queueを用いずにforループでBFSを処理されている。みなさんこのパターンがすんなり書けるようなので、私も選択肢として持っておいた方がいいな。
     - `level_ordered_values`、多少長いが何が入っているのかわかりやすい。
         - 私はStep 1では、良い名前が思いつかなかったので、短い関数であることもあって、返す値に`answer`と命名してしまっていた。
+- [irohafternoonさんのPR](https://github.com/irohafternoon/LeetCode/pull/29)
+    - なるほど、[`std::vector<T,Allocator>::emplace_back`](https://en.cppreference.com/w/cpp/container/vector/emplace_back)という関数を用いて各階層でのvectorを作成しているのか。
+    - TODO: 私の方法とどちらが良いのか。
 
 また、みなさんのPRを眺めていて、私の「ファーストチョイスとしてqueueやstackにnullやinvalidな値を積んでしまう」クセに気がついた。あまり記憶がないが、多少余分な処理を行なってしまうにせよ、条件分岐が少なめに抑えられる、という経験則からだろうか。現時点ではどちらのパターンが明確に優れているのか、判断しかねる。
 
