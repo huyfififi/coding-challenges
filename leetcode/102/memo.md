@@ -30,6 +30,8 @@
 - [irohafternoonさんのPR](https://github.com/irohafternoon/LeetCode/pull/29)
     - なるほど、[`std::vector<T,Allocator>::emplace_back`](https://en.cppreference.com/w/cpp/container/vector/emplace_back)という関数を用いて各階層でのvectorを作成しているのか。
     - TODO: 私の方法とどちらが良いのか。
+- [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/40)
+    - [Range-based for loop](https://en.cppreference.com/w/cpp/language/range-for.html)というものがあるよう。
 
 また、みなさんのPRを眺めていて、私の「ファーストチョイスとしてqueueやstackにnullやinvalidな値を積んでしまう」クセに気がついた。あまり記憶がないが、多少余分な処理を行なってしまうにせよ、条件分岐が少なめに抑えられる、という経験則からだろうか。現時点ではどちらのパターンが明確に優れているのか、判断しかねる。
 
