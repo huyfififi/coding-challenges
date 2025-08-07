@@ -4,15 +4,15 @@
 
 今回は試しにC++で書いてみることにする。
 
-ずっとスタートアップ畑のバックエンドエンジニアとしてPythonをメイン扱っていたので、Pythonはある程度不自由なく扱える (根拠のない？) 自信がある。
+ずっとスタートアップ畑のバックエンドエンジニアとしてPythonをメイン扱っていたので、Pythonはある程度不自由なく扱える (根拠のない) 自信がある。これ以上の大きな成長は、LeetCodeの問題をPythonで解くことからは得られなさそう。
 
 また、Discordで
 
 > [(サーチにいたので) C++ は5割で Java は4割という感覚です。...](https://discord.com/channels/1084280443945353267/1250696040701497367/1399699477899509893)
 
-という話を見た時、確かに求人を眺めてもかなりC++やJavaのポジションが多い (一方、Pythonの求人はあまり見かけない肌感覚) と感じたことを思い出したので、少し試してみようという気持ちになったからだ。
+という話を見た時、確かに求人を眺めてもかなりC++やJavaのポジションが多い (一方、Pythonの求人はあまり見かけない肌感覚) と感じたことを思い出したので、少し試してみようという気持ちになった。
 
-他にも、[Linusさんのインタビュー動画](https://youtube.com/shorts/ndZW7044PI8?si=g-3NGT8lJ3V4m7Ty)を観て、うまく言語化できないが、Pythonはコンピュータの内部の挙動から距離が遠く、C (今回はC++を使うが) を勉強すればコンピュータへの理解が深まる、ような気がした。
+他にも、[Linusさんのインタビュー動画](https://youtube.com/shorts/ndZW7044PI8?si=g-3NGT8lJ3V4m7Ty)を観て、うまく言語化できないが、Pythonはコンピュータの内部の挙動から距離が遠く、C (今回はC++を使うが) を勉強すればコンピュータへの理解が深まる、ような気がした。(TODO: Refine this wording)
 
 # Step 2
 
@@ -32,8 +32,13 @@
     - TODO: 私の方法とどちらが良いのか。
 - [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/40)
     - [Range-based for loop](https://en.cppreference.com/w/cpp/language/range-for.html)というものがあるよう。
+- [Ryotaro25さんのPR](https://github.com/Ryotaro25/leetcode_first60/pull/28)
+    - [C++では参照を受け取ってそこへ直接書き込むことも出来ますね。ご参考までに。`vector<int>& values = level_to_values.emplace_back();`](https://github.com/Ryotaro25/leetcode_first60/pull/28/files#r1729662913)
+        - なるほど、こういうことができるのか。
+    - 私と同じく、queueにnullptr (? TODO: Check if this is the right word) を入れてしまう方法だが、レビュワーの方々からの評判は悪そう。今回の場合、queueにnullptrを入れない方がコードがスッキリ収まる。
+    - `level_to_values`という命名もいいな。
 
-また、みなさんのPRを眺めていて、私の「ファーストチョイスとしてqueueやstackにnullやinvalidな値を積んでしまう」クセに気がついた。あまり記憶がないが、多少余分な処理を行なってしまうにせよ、条件分岐が少なめに抑えられる、という経験則からだろうか。現時点ではどちらのパターンが明確に優れているのか、判断しかねる。
+みなさんのPRを眺めていて、私の「ファーストチョイスとしてqueueやstackにnullやinvalidな値を積んでしまう」クセに気がついた。あまり記憶がないが、多少余分な処理を行なってしまうにせよ、条件分岐が少なめに抑えられる、という経験則からだろうか。
 
 ## その他考えたこと
 
