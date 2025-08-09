@@ -15,10 +15,9 @@ while queue:  # Outer loop to check queue is not empty
         # append node.left and node.right to next_queue
 ```
 
-のような形になり、outer loopとinner loopが同じ条件なのに違う目的で使われることが、やや奇妙で混乱の元になるかなと考えたからだ。が、杞憂かもしれない。
+のような形になり、outer loopとinner loopが同じ条件なのに違う目的で使われることが、やや奇妙で混乱の元になるかなと考えたからだ。
 また、今回の場合問題にはならないだろうが、inner loopでouter loopの条件に用いられている変数を変更してしまっていることも、バグの元になりそうで怖かった。
-
-Step 2で他の方々のPRを見てわかったのだが、for loopを使用するかnull pointersをqueueに入れない形なら、うまくまとまりそうだ。
+が、他の方々をPRを見てみると、杞憂かもしれないな。
 
 # Step 2
 
