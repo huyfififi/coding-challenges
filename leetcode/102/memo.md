@@ -2,7 +2,7 @@
 
 Level order traversalといえばBFSというのはすぐに思いついた。C++を書くのが初めてだったので、vectorとqueueのドキュメントを確認しながら書いたが、大きな引っ掛かりは覚えなかった。
 
-Outer loopを `while (true)` とした理由は、例えばPythonで書くと
+Outer loopを `while (true)` とした理由は、例えば外側を`while (!queue.empty())`とすると
 
 ```python
 queue = deque([root])
@@ -42,6 +42,7 @@ Step 2で他の方々のPRを見てわかったのだが、for loopを使用す�
 - [Ryotaro25さんのPR](https://github.com/Ryotaro25/leetcode_first60/pull/28)
     - [C++では参照を受け取ってそこへ直接書き込むことも出来ますね。ご参考までに。`vector<int>& values = level_to_values.emplace_back();`](https://github.com/Ryotaro25/leetcode_first60/pull/28/files#r1729662913)
         - なるほど、こういうことができるのか。
+        - [Return value: (none) (until c++17), A reference to the inserted element. (since C++17)](https://en.cppreference.com/w/cpp/container/vector/emplace_back)とあるので、これをする時はバージョンに気をつけた方がいいな。
     - レビュワーの方々から、queueにnull pointersを入れない方がわかりやすく収まるとのフィードバックをいただいている。
     - `level_to_values`という命名がわかりやすい。
 
