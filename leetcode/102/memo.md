@@ -2,6 +2,24 @@
 
 Level order traversalといえばBFSというのはすぐに思いついた。C++を書くのが初めてだったので、vectorとqueueのドキュメントを確認しながら書いたが、大きな引っ掛かりは覚えなかった。
 
+Outer loopを `while (true)` とした理由は、例えばPythonで書くと
+
+```python
+queue = deque([root])
+while queue:  # Outer loop to check queue is not empty
+    next_queue = deque()
+    while queue:  # Inner loop to pop all nodes in each level
+        node = queue.popleft()
+        if node is None:
+            continue
+        # append node.left and node.right to next_queue
+```
+
+のような形になり、outer loopとinner loopが同じ条件なのに違う目的で使われることが、やや奇妙で混乱の元になるかなと考えたからだ。が、杞憂かもしれない。
+また、今回の場合問題にはならないだろうが、inner loopでouter loopの条件に用いられている変数を変更してしまっていることも、バグの元になりそうで怖かった。
+
+Step 2で他の方々のPRを見てわかったのだが、for loopを使用するかnull pointersをqueueに入れない形なら、うまくまとまりそうだ。
+
 # Step 2
 
 ## 勉強会参加者の方々のPRを5つ眺めてみる
