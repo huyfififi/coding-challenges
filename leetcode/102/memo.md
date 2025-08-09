@@ -75,3 +75,7 @@ while queue:  # Outer loop to check queue is not empty
 [Nodaさんのコメント2](https://github.com/konnysh/arai60/pull/7#discussion_r1845470928)
 
 `if (p)`か`if (p != nullptr)`どちらでもいいらしい。私は明示するのが好きなので`nullptr`を使用する方がしっくりくる (が、今のところ好みを強く論じるほどの知識・経験がない)。
+
+### TODO: Avoid reallocation with `reserve()`
+
+### TODO: `size_t`
