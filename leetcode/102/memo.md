@@ -38,6 +38,7 @@ Step 2で他の方々のPRを見てわかったのだが、for loopを使用す�
         - vectorを別で作成してそのまま[`push_back()`](https://en.cppreference.com/w/cpp/container/vector/push_back)するとコピーが発生するので、この方法の方が処理が減らせそう。
 - [colorboxさんのPR](https://github.com/colorbox/leetcode/pull/40)
     - [Range-based for loop](https://en.cppreference.com/w/cpp/language/range-for.html)というものがあるよう。
+    - `vector`と`queue`どちらを使うか、私も迷いどころだった :eyes:
 - [Ryotaro25さんのPR](https://github.com/Ryotaro25/leetcode_first60/pull/28)
     - [C++では参照を受け取ってそこへ直接書き込むことも出来ますね。ご参考までに。`vector<int>& values = level_to_values.emplace_back();`](https://github.com/Ryotaro25/leetcode_first60/pull/28/files#r1729662913)
         - なるほど、こういうことができるのか。
@@ -57,3 +58,20 @@ Step 2で他の方々のPRを見てわかったのだが、for loopを使用す�
 - [`while True:` と書くと無限ループになっていないか不安になります。...](https://github.com/fuga-98/arai60/pull/23#discussion_r2161159864)
 
 ざっとGoogleした結果も似たような感じか。できるだけ避けていこう。
+
+### null pointer との比較
+
+[Google C++ Style Guide - 0 and nullptr/NULL](https://google.github.io/styleguide/cppguide.html#0_and_nullptr/NULL)
+
+> For pointers (address values), use nullptr, as this provides type-safety.
+
+[C++ Core Guidelines - ES.87: Don’t add redundant == or != to conditions](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es87-dont-add-redundant--or--to-conditions)
+
+> `if (p != nullptr) { ... } // redundant !=nullptr, not recommended`
+> Often, if (p) is read as “if p is valid” which is a direct expression of the programmers intent, whereas if (p != nullptr) would be a long-winded workaround.
+
+[Odaさんのコメント](https://github.com/nktr-cp/leetcode/pull/3#issuecomment-2840973072)
+[Nodaさんのコメント1](https://github.com/ntanaka1984/leetcode/pull/1#discussion_r2179905618)
+[Nodaさんのコメント2](https://github.com/konnysh/arai60/pull/7#discussion_r1845470928)
+
+`if (p)`か`if (p != nullptr)`どちらでもいいらしい。私は明示するのが好きなので`nullptr`を使用する方がしっくりくる (が、今のところ好みを強く論じるほどの知識・経験がない)。
