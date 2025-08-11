@@ -10,36 +10,36 @@
  * };
  */
 #include <vector>
-#include <queue>
-
 
 class Solution {
 public:
     std::vector<std::vector<int>> levelOrder(TreeNode* root) {
         std::vector<std::vector<int>> level_to_values;
-        if (!root) {
+        if (root == nullptr) {
             return level_to_values;
         }
 
-        std::queue<TreeNode*> nodes;
-        nodes.push(root);
-        while (!nodes.empty()) {
-            const size_t n = nodes.size();
-            level_to_values.emplace_back();
-            std::vector<int>& values = level_to_values.back();
-            values.reserve(n);
+        std::vector<TreeNode*> nodes;
+        nodes.push_back(root);
+        std::vector<TreeNode*> next_nodes;  // buffer to reuse
 
-            for (size_t i = 0; i < n; ++i) {
-                TreeNode* node = nodes.front();
-                nodes.pop();
+        while (!nodes.empty()) {
+            std::vector<int>& values = level_to_values.emplace_back();
+            values.reserve(nodes.size());
+            next_nodes.clear();
+            next_nodes.reserve(2 * nodes.size());  // upper bound for binary tree
+
+            for (TreeNode* node : nodes) {
                 values.push_back(node->val);
-                if (node->left) {
-                    nodes.push(node->left);
+                if (node->left != nullptr) {
+                    next_nodes.push_back(node->left);
                 }
-                if (node->right) {
-                    nodes.push(node->right);
+                if (node->right != nullptr) {
+                    next_nodes.push_back(node->right);
                 }
             }
+
+            nodes.swap(next_nodes);
         }
 
         return level_to_values;
