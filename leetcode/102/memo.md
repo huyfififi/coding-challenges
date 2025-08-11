@@ -74,7 +74,7 @@ while queue:  # Outer loop to check queue is not empty
 [Nodaさんのコメント1](https://github.com/ntanaka1984/leetcode/pull/1#discussion_r2179905618)
 [Nodaさんのコメント2](https://github.com/konnysh/arai60/pull/7#discussion_r1845470928)
 
-`if (p)`か`if (p != nullptr)`どちらでもいいらしい。私は明示するのが好きなので`nullptr`を使用する方がしっくりくる (が、今のところ好みを強く論じるほどの知識・経験がない)。
+`if (p)`か`if (p != nullptr)`どちらでもいいらしい。私は明示するのが好き (Zen of Python: Explicit is better than implicit.) なので`nullptr`を使用する方がしっくりくる (が、今のところ好みを強く論じるほどの知識・経験がない)。
 
 ### Avoid reallocation with `reserve()`
 
@@ -89,3 +89,7 @@ while queue:  # Outer loop to check queue is not empty
 `std::vector` は、保持している要素数が現在の capacity を超えると、より大きな連続メモリ領域を確保し、既存の要素を移動させる（reallocation）。最大要素数が事前にわかっている場合、reserve() であらかじめ必要なメモリ領域を確保しておけば、その範囲内であれば、無駄な reallocation を防ぐことができる。
 
 ### TODO: `size_t`
+
+# Step 3
+
+みなさんのPRやコメントを見ると、BFSをfor loopで行う方法が多く選ばれていたので、queueを使わない方法で慣れてみようと思う。
