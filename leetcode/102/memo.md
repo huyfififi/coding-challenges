@@ -76,6 +76,16 @@ while queue:  # Outer loop to check queue is not empty
 
 `if (p)`か`if (p != nullptr)`どちらでもいいらしい。私は明示するのが好きなので`nullptr`を使用する方がしっくりくる (が、今のところ好みを強く論じるほどの知識・経験がない)。
 
-### TODO: Avoid reallocation with `reserve()`
+### Avoid reallocation with `reserve()`
+
+[cppreference.com - `std::vector`](https://en.cppreference.com/w/cpp/container/vector.html)
+
+> Reallocations are usually costly operations in terms of performance. The reserve() function can be used to eliminate reallocations if the number of elements is known beforehand.
+
+[cppreference.com - `std::vector<T,Allocator>::capacity`](https://en.cppreference.com/w/cpp/container/vector/capacity.html)
+
+> Returns the number of elements that the container has currently allocated space for.
+
+`std::vector` は、保持している要素数が現在の capacity を超えると、より大きな連続メモリ領域を確保し、既存の要素を移動させる（reallocation）。最大要素数が事前にわかっている場合、reserve() であらかじめ必要なメモリ領域を確保しておけば、その範囲内であれば、無駄な reallocation を防ぐことができる。
 
 ### TODO: `size_t`
