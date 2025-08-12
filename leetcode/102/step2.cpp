@@ -19,8 +19,7 @@ public:
             return level_to_values;
         }
 
-        std::vector<TreeNode*> nodes;
-        nodes.push_back(root);
+        std::vector<TreeNode*> nodes{root};
         std::vector<TreeNode*> next_nodes;  // buffer to reuse
 
         while (!nodes.empty()) {
