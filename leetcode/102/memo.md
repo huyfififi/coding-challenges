@@ -95,5 +95,5 @@ while queue:  # Outer loop to check queue is not empty
 PRを作成してから気になったのだが、制約の範囲内では問題ではないが、大きい木を扱う時に`reserve(2 * nodes.size())`ということをして大丈夫なのかな。
 
 [`std::vector<T>::size()`は `std::vector<T>::size_type` (多くの場合`std::size_t`)を返すよう。](https://en.cppreference.com/w/cpp/container/vector.html)そして、[std::vector<T>::reserve()](https://en.cppreference.com/w/cpp/container/vector/reserve.html)も引数として`std::vector<T>::size_type`を受け取る。`2 * nodes.size()`が`std::size_t`の範囲に収まらなかったら、overflowして実際に必要な分よりも少ない容量しか`reserve()`しなくなってしまう懸念がある。
-が、そもそもそういった巨大な木を扱う場合、`std::vector<T>` が保持できる最大要素数（`vector::max_size()`。これは通常 `std::size_t` の最大値より小さい TODO: あとでもう少し詳しく調べる）を超えてしまうため、正しい結果を得ることは不可能だと思われる。
-今回の場合は、reserve() または push_back() が投げる例外をそのまま伝播させ、そのままプログラム終了となる挙動でいい...のだろうか (?)。
+しかし、`reserve()`が少ない値で呼ばれても、追加するNodeの数が`std::vector::max_size()`を超えない限りは、多少reallocationが起こっても、プログラムは動き続けるように思う。
+TODO: この辺の扱いをどうするべきか、あとでもう少し調べてみよう。
