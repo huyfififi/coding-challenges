@@ -97,3 +97,10 @@ PRを作成してから気になったのだが、制約の範囲内では問題
 [`std::vector<T>::size()`は `std::vector<T>::size_type` (多くの場合`std::size_t`)を返すよう。](https://en.cppreference.com/w/cpp/container/vector.html)そして、[std::vector<T>::reserve()](https://en.cppreference.com/w/cpp/container/vector/reserve.html)も引数として`std::vector<T>::size_type`を受け取る。`2 * nodes.size()`が`std::size_t`の範囲に収まらなかったら、overflowして実際に必要な分よりも少ない容量しか`reserve()`しなくなってしまう懸念がある。
 しかし、`reserve()`が少ない値で呼ばれても、追加するNodeの数が`std::vector::max_size()`を超えない限りは、多少reallocationが起こっても、プログラムは動き続けるように思う。
 TODO: この辺の扱いをどうするべきか、あとでもう少し調べてみよう。
+
+# Feedback
+
+- `return {};`の方がシンプル。
+    - `return {};` returns a value-initialized object of the function’s declared return type. (TODO: Continue checking the documentation).
+- `while True`はChromiumのコードベースでも多用されているし、明確に避けられている感じはしないらしい。主役があるなら、それをwhile文の中身にするべきだが。
+- 基本的に、定数倍の速度が求められない限りは、Code Complexityを減らすことを優先すべき。実行時間を減らすにしても、定量的な正当化を行うべき。
