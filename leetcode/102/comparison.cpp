@@ -1,0 +1,218 @@
+#include <chrono>
+#include <iostream>
+#include <cstring>
+#include <vector>
+
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+    ~TreeNode() {
+        delete left;
+        delete right;
+    }
+
+    int CountNodes() {
+        int count = 1;
+        if (left != nullptr) {
+            count += left->CountNodes();
+        }
+        if (right != nullptr) {
+            count += right->CountNodes();
+        }
+        return count;
+    }
+};
+
+// imitate LeetCode's input range: The number of nodes in the tree is in the range [0, 2000].
+// 2^11 - 1 = 2047 ~= 2000
+TreeNode* CreateCompleteBT(int height = 11) {
+    if (height == 0) {
+        return nullptr;
+    }
+    return new TreeNode(height, CreateCompleteBT(height - 1), CreateCompleteBT(height - 1));
+}
+
+class Solution {
+public:
+    std::vector<std::vector<int>> levelOrderWithReserveLevelValues(TreeNode* root) {
+        if (root == nullptr) {
+            return {};
+        }
+
+        std::vector<std::vector<int>> level_to_values;
+        std::vector<TreeNode*> nodes{root};
+
+        while (!nodes.empty()) {
+            std::vector<int>& values = level_to_values.emplace_back();
+            values.reserve(nodes.size());
+            std::vector<TreeNode*> next_nodes;
+
+            for (TreeNode* node : nodes) {
+                values.push_back(node->val);
+                if (node->left != nullptr) {
+                    next_nodes.push_back(node->left);
+                }
+                if (node->right != nullptr) {
+                    next_nodes.push_back(node->right);
+                }
+            }
+
+            nodes.swap(next_nodes);
+        }
+
+        return level_to_values;
+    }
+
+    std::vector<std::vector<int>> levelOrderWithoutReserveLevelValues(TreeNode* root) {
+        if (root == nullptr) {
+            return {};
+        }
+
+        std::vector<std::vector<int>> level_to_values;
+        std::vector<TreeNode*> nodes{root};
+
+        while (!nodes.empty()) {
+            std::vector<int>& values = level_to_values.emplace_back();
+            std::vector<TreeNode*> next_nodes;
+
+            for (TreeNode* node : nodes) {
+                values.push_back(node->val);
+                if (node->left != nullptr) {
+                    next_nodes.push_back(node->left);
+                }
+                if (node->right != nullptr) {
+                    next_nodes.push_back(node->right);
+                }
+            }
+            nodes.swap(next_nodes);
+        }
+
+        return level_to_values;
+    }
+
+    int GetTotalCopyLevelOrderWithoutReserveLevelValues(TreeNode* root) {
+        if (root == nullptr) {
+            return 0;
+        }
+
+        std::vector<std::vector<int>> level_to_values;
+        std::vector<TreeNode*> nodes{root};
+
+        int total_copy = 0;
+        while (!nodes.empty()) {
+            std::vector<int>& values = level_to_values.emplace_back();
+            std::vector<TreeNode*> next_nodes;
+
+            for (TreeNode* node : nodes) {
+                if (values.size() >= values.capacity()) {
+                    total_copy += values.size();
+                }
+
+                values.push_back(node->val);
+
+                if (node->left != nullptr) {
+                    next_nodes.push_back(node->left);
+                }
+                if (node->right != nullptr) {
+                    next_nodes.push_back(node->right);
+                }
+            }
+            nodes.swap(next_nodes);
+        }
+
+        return total_copy;
+    }
+};
+
+void TestPureIntCopy() {
+    const int count = 1000000;
+    const int size = 1000;
+    int *src = new int[size];
+    int *dst = new int[size];
+
+    for (int i = 0; i < size; i++) {
+        src[i] = i;
+    }
+
+    auto start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < count; i++) {
+        memcpy(dst, src, size * sizeof(int));
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
+    float average_time_per_iteration_ns = static_cast<float>(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) / count;
+    std::cout << "Average time per iteration: " << average_time_per_iteration_ns << "ns" << std::endl;
+    const int CLOCK_RATE_PER_NANOSECOND = 3; // 3e9 cycles per second * 1e-9 seconds per nanosecond
+    const float CLOCK_CYCLES_PER_ITERATION = average_time_per_iteration_ns * CLOCK_RATE_PER_NANOSECOND;
+    const float BYTES_COPYABLE_IN_THEORY = CLOCK_CYCLES_PER_ITERATION * 8; // 8 bytes (64 bits) per cycle
+    const int BYTES_COPIED_IN_THEORY = size * 4; // 4 bytes (32 bits) per int
+    // Bytes copied integers: 4000
+    std::cout << "Bytes copied integers: " << BYTES_COPIED_IN_THEORY << std::endl;
+    // Bytes copyable in additional time: 1675.67
+    std::cout << "Bytes copyable in additional time: " << BYTES_COPYABLE_IN_THEORY << std::endl;
+    // The numbers are close but I'm not very sure this is a valid comparison.
+    // The difference may be due to optimized memcpy implementation?
+
+    delete[] src;
+    delete[] dst;
+}
+
+void TestLevelOrderWithReserveLevelValues() {
+    TreeNode* root = CreateCompleteBT();
+    // Number of nodes: 2047
+    std::cout << "Number of nodes: " << root->CountNodes() << std::endl;
+
+    int count = 1000000;
+
+    auto start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < count; i++) {
+        Solution().levelOrderWithReserveLevelValues(root);
+    }
+    auto end = std::chrono::high_resolution_clock::now();
+    // Time taken: 70543510us
+    std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
+    // Average time per iteration: 70.5435us
+    float average_time_per_iteration_with_reserve = static_cast<float>(std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / count;
+    std::cout << "Average time per iteration: " << average_time_per_iteration_with_reserve << "us" << std::endl;
+
+    start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < count; i++) {
+        Solution().levelOrderWithoutReserveLevelValues(root);
+    }
+    end = std::chrono::high_resolution_clock::now();
+    // Time taken: 75461182us
+    std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
+    // Average time per iteration: 75.4612us
+    float average_time_per_iteration_without_reserve = static_cast<float>(std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / count;
+    std::cout << "Average time per iteration: " << average_time_per_iteration_without_reserve << "us" << std::endl;
+
+    float additional_time_per_iteration_us = average_time_per_iteration_without_reserve - average_time_per_iteration_with_reserve;
+    // Additional time per iteration: 4.91767us
+    std::cout << "Additional time per iteration: " << additional_time_per_iteration_us << "us" << std::endl;
+
+    int total_copy = Solution().GetTotalCopyLevelOrderWithoutReserveLevelValues(root);
+    // Total copy: 2036
+    std::cout << "Total copy: " << total_copy << std::endl;
+
+    const int CLOCK_RATE_PER_MICROSECOND = 3.0e9 / 1e6;
+    const float CLOCK_CYCLES_IN_ADDITIONAL_TIME = additional_time_per_iteration_us * CLOCK_RATE_PER_MICROSECOND;
+    const float BYTES_COPYABLE_IN_ADDITIONAL_TIME = CLOCK_CYCLES_IN_ADDITIONAL_TIME * 8; // 8 bytes (64 bits) per cycle
+    int BYTES_COPIED_INTEGERS = total_copy * 4; // 4 bytes (32 bits) per int
+    // Bytes copied integers: 8144
+    std::cout << "Bytes copied integers: " << BYTES_COPIED_INTEGERS << std::endl;
+    // Bytes copyable in additional time(?): 118024
+    std::cout << "Bytes copyable in additional time(?): " << BYTES_COPYABLE_IN_ADDITIONAL_TIME << std::endl;
+    // The difference may be due to memory allocation overhead? I will continue to check.
+
+    delete root;
+}
+
+int main() {
+    // TestPureIntCopy();
+    TestLevelOrderWithReserveLevelValues();
+    return 0;
+}
