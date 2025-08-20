@@ -104,3 +104,7 @@ TODO: この辺の扱いをどうするべきか、あとでもう少し調べ�
     - `return {};` returns a value-initialized object of the function’s declared return type. (TODO: Continue checking the documentation).
 - `while True`はChromiumのコードベースでも多用されているし、明確に避けられている感じはしないらしい。主役があるなら、それをwhile文の中身にするべきだが。
 - 基本的に、定数倍の速度が求められない限りは、Code Complexityを減らすことを優先すべき。実行時間を減らすにしても、定量的な正当化を行うべき。
+
+# Step 4
+
+- [GCCに最適化オプションがあり](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)、`-O3`という強い実行時間への最適化を行うフラグがある。
