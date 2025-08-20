@@ -143,19 +143,18 @@ void TestPureIntCopy() {
         memcpy(dst, src, size * sizeof(int));
     }
     auto end = std::chrono::high_resolution_clock::now();
+    // -O0: Time taken: 65661416ns
     std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns" << std::endl;
     float average_time_per_iteration_ns = static_cast<float>(std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()) / count;
+    // -O0: Average time per iteration: 65.6614ns
+    // -O3: Average time per iteration: 8.3e-05ns
     std::cout << "Average time per iteration: " << average_time_per_iteration_ns << "ns" << std::endl;
     const int CLOCK_RATE_PER_NANOSECOND = 3; // 3e9 cycles per second * 1e-9 seconds per nanosecond
     const float CLOCK_CYCLES_PER_ITERATION = average_time_per_iteration_ns * CLOCK_RATE_PER_NANOSECOND;
-    const float BYTES_COPYABLE_IN_THEORY = CLOCK_CYCLES_PER_ITERATION * 8; // 8 bytes (64 bits) per cycle
-    const int BYTES_COPIED_IN_THEORY = size * 4; // 4 bytes (32 bits) per int
-    // Bytes copied integers: 4000
-    std::cout << "Bytes copied integers: " << BYTES_COPIED_IN_THEORY << std::endl;
-    // Bytes copyable in additional time: 1675.67
-    std::cout << "Bytes copyable in additional time: " << BYTES_COPYABLE_IN_THEORY << std::endl;
-    // The numbers are close but I'm not very sure this is a valid comparison.
-    // The difference may be due to optimized memcpy implementation?
+    float clock_cycles_per_int = CLOCK_CYCLES_PER_ITERATION / size;
+    // -O0: Clock cycles per int: 0.196984
+    // -O3: Clock cycles per int: 2.49e-07
+    std::cout << "Clock cycles per int: " << clock_cycles_per_int << std::endl;
 
     delete[] src;
     delete[] dst;
@@ -173,25 +172,30 @@ void TestLevelOrderWithReserveLevelValues() {
         Solution().levelOrderWithReserveLevelValues(root);
     }
     auto end = std::chrono::high_resolution_clock::now();
-    // Time taken: 70543510us
-    std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
-    // Average time per iteration: 70.5435us
+    // -O0: Time taken with reserve: 71284419us
+    // -O3: Time taken with reserve: 5424370us
+    std::cout << "Time taken with reserve: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
+    // -O0: Average time per iteration with reserve: 71.2844us
+    // -O3: Average time per iteration with reserve: 5.42437us
     float average_time_per_iteration_with_reserve = static_cast<float>(std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / count;
-    std::cout << "Average time per iteration: " << average_time_per_iteration_with_reserve << "us" << std::endl;
+    std::cout << "Average time per iteration with reserve: " << average_time_per_iteration_with_reserve << "us" << std::endl;
 
     start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < count; i++) {
         Solution().levelOrderWithoutReserveLevelValues(root);
     }
     end = std::chrono::high_resolution_clock::now();
-    // Time taken: 75461182us
-    std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
-    // Average time per iteration: 75.4612us
+    // -O0: Time taken without reserve: 76226269us
+    // -O3: Time taken without reserve: 6664478us
+    std::cout << "Time taken without reserve: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << "us" << std::endl;
+    // -O0: Average time per iteration without reserve: 76.2263us
+    // -O3: Average time per iteration without reserve: 6.66448us
     float average_time_per_iteration_without_reserve = static_cast<float>(std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()) / count;
-    std::cout << "Average time per iteration: " << average_time_per_iteration_without_reserve << "us" << std::endl;
+    std::cout << "Average time per iteration without reserve: " << average_time_per_iteration_without_reserve << "us" << std::endl;
 
     float additional_time_per_iteration_us = average_time_per_iteration_without_reserve - average_time_per_iteration_with_reserve;
-    // Additional time per iteration: 4.91767us
+    // -O0: Additional time per iteration: 4.94186us
+    // -O3: Additional time per iteration: 1.24011us
     std::cout << "Additional time per iteration: " << additional_time_per_iteration_us << "us" << std::endl;
 
     int total_copy = Solution().GetTotalCopyLevelOrderWithoutReserveLevelValues(root);
@@ -200,19 +204,18 @@ void TestLevelOrderWithReserveLevelValues() {
 
     const int CLOCK_RATE_PER_MICROSECOND = 3.0e9 / 1e6;
     const float CLOCK_CYCLES_IN_ADDITIONAL_TIME = additional_time_per_iteration_us * CLOCK_RATE_PER_MICROSECOND;
-    const float BYTES_COPYABLE_IN_ADDITIONAL_TIME = CLOCK_CYCLES_IN_ADDITIONAL_TIME * 8; // 8 bytes (64 bits) per cycle
-    int BYTES_COPIED_INTEGERS = total_copy * 4; // 4 bytes (32 bits) per int
-    // Bytes copied integers: 8144
-    std::cout << "Bytes copied integers: " << BYTES_COPIED_INTEGERS << std::endl;
-    // Bytes copyable in additional time(?): 118024
-    std::cout << "Bytes copyable in additional time(?): " << BYTES_COPYABLE_IN_ADDITIONAL_TIME << std::endl;
-    // The difference may be due to memory allocation overhead? I will continue to check.
+    float clock_cycles_per_int = CLOCK_CYCLES_IN_ADDITIONAL_TIME / total_copy;
+    // -O0: Clock cycles per int: 7.28171
+    // -O3: Clock cycles per int: 1.82727 (close to the theoretical value 4 bytes (32 bits) / 8 bytes (64 bits) per cycle = 0.5)
+    std::cout << "Clock cycles per int: " << clock_cycles_per_int << std::endl;
 
     delete root;
 }
 
+// clang++ comparison.cpp -O0
+// clang++ comparison.cpp -O3
 int main() {
-    // TestPureIntCopy();
+    TestPureIntCopy();
     TestLevelOrderWithReserveLevelValues();
     return 0;
 }
