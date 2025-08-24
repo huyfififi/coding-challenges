@@ -23,4 +23,14 @@ Discord内にこの問題をレビューに回された方はいなさそう (St
 - `-> Node*` -> 戻り値の型を明示 (ラムダでは型推論できる場合は省略可能)
 - `{ ... }` -> 関数の中身
 
-そもそもテストnested functionを使用するかどうかだが、私はスコープが減らせることの方がテストのしやすさ (後で調べる) よりも今回の場合嬉しく感じるが、まだ強く意見を持つほどの知識と経験がない。
+そもそもlambdaを使用するかどうかだが、私はスコープが減らせることの方がテストのしやすさ (後で調べる) よりも今回の場合嬉しく感じるが、まだ強く意見を持つほどの知識と経験がない。
+
+また、他に気になったこととして、lambdaで作成した関数はlocal variableなので、function nameのではなくvariable nameのスタイルガイドに従うべきなのか、という点。
+
+[Chrome Code Searchを眺めると](https://source.chromium.org/chromium/chromium/src/+/main:ash/wm/desks/desk.cc;l=889?q=%5C%5B%26%5C%5D&ss=chromium%2Fchromium%2Fsrc)
+
+```cpp
+auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
+```
+
+とあり、GoogleのStyle Guideに従うならsnake\_caseが良いか。
