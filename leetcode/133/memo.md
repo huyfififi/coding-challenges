@@ -41,7 +41,7 @@ auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
 
 ### "clone"
 
-`clone_neighbor`が関数名のように聞こえるし、英語的少し変 (？) な感じがする、step 2では`neighbor_clone`とした。`cloned_neighbor`も良さげだろうか。
+`clone_neighbor`が関数名のように聞こえるし、英語的に少し変 (？) な感じがする、step 2では`neighbor_clone`とした。`cloned_neighbor`も良さげだろうか。
 
 ### `node` as 引数
 
