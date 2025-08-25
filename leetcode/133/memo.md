@@ -46,3 +46,5 @@ auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
 ### `node` as 引数
 
 step 1で、`cloneGraph()`に与えられている引数の`node`と、lambdaの引数の`node`が同じ名前を使用しているので、混乱の元になると心配になった。`cloning`、`original`、`src`などが思いついたが、自分では判断がつかないので一旦`original`で先に進んでみる。
+
+## TODO: 実行時間を測ってみて、1秒で10^9ステップに近いかどうか確認してみる。
