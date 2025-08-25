@@ -25,7 +25,13 @@ Discord内にこの問題をレビューに回された方はいなさそう (St
 
 そもそもlambdaを使用するかどうかだが、私はスコープが減らせることの方がテストのしやすさ (後で調べる) よりも今回の場合嬉しく感じるが、まだ強く意見を持つほどの知識と経験がない。
 
-また、他に気になったこととして、lambdaで作成した関数はlocal variableなので、function nameのではなくvariable nameのスタイルガイドに従うべきなのか、という点。
+とあり、GoogleのStyle Guideに従うならsnake\_caseが良いか。
+
+## 命名
+
+### lambdaのスタイル
+
+lambdaで作成した関数はlocal variableなので、function nameのではなくvariable nameのスタイルガイドに従うべきなのだろうか。
 
 [Chrome Code Searchを眺めると](https://source.chromium.org/chromium/chromium/src/+/main:ash/wm/desks/desk.cc;l=889?q=%5C%5B%26%5C%5D&ss=chromium%2Fchromium%2Fsrc)
 
@@ -33,4 +39,10 @@ Discord内にこの問題をレビューに回された方はいなさそう (St
 auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
 ```
 
-とあり、GoogleのStyle Guideに従うならsnake\_caseが良いか。
+### "clone"
+
+`clone_neighbor`が関数名のように聞こえるし、英語的少し変 (？) な感じがする、step 2では`neighbor_clone`とした。`cloned_neighbor`も良さげだろうか。
+
+### `node` as 引数
+
+step 1で、`cloneGraph()`に与えられている引数の`node`と、lambdaの引数の`node`が同じ名前を使用しているので、混乱の元になると心配になった。`cloning`、`original`、`src`などが思いついたが、自分では判断がつかないので一旦`original`で先に進んでみる。
