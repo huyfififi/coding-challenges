@@ -39,14 +39,13 @@ public:
             Node* clone = node_to_clone[original];
 
             for (Node* neighbor : original->neighbors) {
-                Node* neighbor_clone = nullptr;
-                if (!node_to_clone.contains(neighbor)) {
+                Node* neighbor_clone = node_to_clone[neighbor];
+                if (neighbor_clone == nullptr) {
                     neighbor_clone = new Node(neighbor->val);
                     node_to_clone[neighbor] = neighbor_clone;
                     nodes.push(neighbor);
-                } else {
-                    neighbor_clone = node_to_clone[neighbor];
                 }
+
                 clone->neighbors.push_back(neighbor_clone);
             }
         }
