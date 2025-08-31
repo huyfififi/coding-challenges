@@ -23,27 +23,27 @@ public:
 
 class Solution {
 public:
-    Node* cloneGraph(Node* node) {
-        if (node == nullptr) {
+    Node* cloneGraph(Node* start) {
+        if (start == nullptr) {
             return nullptr;
         }
 
         std::map<Node*, Node*> node_to_clone;
 
-        std::function<Node* (Node*)> clone_graph = [&](Node* original) -> Node* {
-            if (node_to_clone.contains(original)) {
-                return node_to_clone[original];
+        std::function<Node* (Node*)> clone_graph = [&](Node* node) -> Node* {
+            if (node_to_clone.contains(node)) {
+                return node_to_clone[node];
             }
 
-            Node* clone = new Node(original->val);
-            node_to_clone[original] = clone;
-            for (Node* neighbor : original->neighbors) {
+            Node* clone = new Node(node->val);
+            node_to_clone[node] = clone;
+            for (Node* neighbor : node->neighbors) {
                 Node* neighbor_clone = clone_graph(neighbor);
                 clone->neighbors.push_back(neighbor_clone);
             }
             return clone;
         };
 
-        return clone_graph(node);
+        return clone_graph(start);
     }
 };

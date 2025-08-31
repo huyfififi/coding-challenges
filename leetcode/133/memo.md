@@ -41,10 +41,13 @@ auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
 
 ### "clone"
 
-`clone_neighbor`が関数名のように聞こえるし、英語的に少し変 (？) な感じがする、step 2では`neighbor_clone`とした。`cloned_neighbor`も良さげだろうか。
+`clone_neighbor`が関数名のように聞こえるし、英語的に少し変 (？) な感じがするので、step 2では`neighbor_clone`とした。`cloned_neighbor`も良さげだろうか。
 
 ### `node` as 引数
 
 step 1で、`cloneGraph()`に与えられている引数の`node`と、lambdaの引数の`node`が同じ名前を使用しているので、混乱の元になると心配になった。`cloning`、`original`、`src`などが思いついたが、自分では判断がつかないので一旦`original`で先に進んでみる。
+
+何回かstep 2 \~ step 3を行き来していて思ったのだが、C++にはPythonのようなキーワード引数が存在しないので、呼び出し側からは引数の名前はどうでもいい -> 与えられている`cloneGraph()`の引数の命名を変えても問題がない、と (自信はないが) 考えたので、わかりづらく感じた、最初に与えられているNodeの変数名 `node` を変更してしまうことにした。
+特定の意味のあるNodeを指しているのに、変数名が抽象的過ぎて嫌だった。
 
 ## TODO: 実行時間を測ってみて、1秒で10^9ステップに近いかどうか確認してみる。
