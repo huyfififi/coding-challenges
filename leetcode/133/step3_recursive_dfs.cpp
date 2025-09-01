@@ -29,7 +29,7 @@ public:
         }
 
         std::map<Node*, Node*> node_to_clone;
-        std::function<Node* (Node*)>clone_graph = [&](Node* node) -> Node* {
+        std::function<Node* (Node*)> clone_graph = [&](Node* node) -> Node* {
             if (node_to_clone.contains(node)) {
                 return node_to_clone[node];
             }
