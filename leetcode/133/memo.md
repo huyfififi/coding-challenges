@@ -14,7 +14,7 @@ Discord内にこの問題をレビューに回された方はいなさそう (St
 
 [StackOverflow - Can we have functions inside functions in C++?](https://stackoverflow.com/questions/4324763/can-we-have-functions-inside-functions-in-c)
 
-少し古い質問・回答だが、lambdaを使用するか、local classを介する方法が一般的だろうか。私がStep 1で使用した方法もlambdaで、[この回答のコードに](https://stackoverflow.com/a/46566416/16193058)
+少し古い質問・回答だが、lambdaを使用するか、local classを介する方法が一般的だろうか。私がStep 1で使用した方法もlambdaで、[この回答](https://stackoverflow.com/a/46566416/16193058)のコードに酷似している。
 
 私の回答の場合
 
@@ -24,8 +24,6 @@ Discord内にこの問題をレビューに回された方はいなさそう (St
 - `{ ... }` -> 関数の中身
 
 そもそもlambdaを使用するかどうかだが、私はスコープが減らせることの方がテストのしやすさ (後で調べる) よりも今回の場合嬉しく感じるが、まだ強く意見を持つほどの知識と経験がない。
-
-とあり、GoogleのStyle Guideに従うならsnake\_caseが良いか。
 
 ## 命名
 
@@ -39,7 +37,9 @@ lambdaで作成した関数はlocal variableなので、function nameのでは�
 auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
 ```
 
-### "clone"
+という行があったので、variable nameのスタイルガイドのsnake_caseが適用されているように思う。
+
+### "clone"という名前の使い方
 
 `clone_neighbor`が関数名のように聞こえるし、英語的に少し変 (？) な感じがするので、step 2では`neighbor_clone`とした。`cloned_neighbor`も良さげだろうか。
 
@@ -52,6 +52,8 @@ step 1で、`cloneGraph()`に与えられている引数の`node`と、lambdaの
 
 ## 実行時間を測ってみる。
 
+Step 1で実行時間をなんとなく推定してみるべきだったがやり忘れたので素直に測ってみる。
+
 試しにBFSの方の実行時間を測ってみる (with -O3 option) と、ノード数100の一本線となるグラフを処理したとき平均で約7000nsくらいかかった。
-CPUのクロック周波数が大体数GHzで、一つの命令に対して数クロックかかるので、大雑把に1秒で10^9個くらい命令が処理できる -> 1 ns で 1 命令処理できるとおく。
-1つのNodeを処理するのにかかった時間は 7000 ns / 100 = 70 ns -> 70 命令くらい。C++のコードと命令の対応は、今の私には考察しかねるが、それくらいの命令数だと言われると納得してしまうような気がする。
+CPUのクロック周波数が大体数GHzで、一つの命令に対して数クロックかかるので、大雑把に1秒で10^9個くらい (命令の複雑さや他の要素によっては10^8個くらい?) 命令が処理できる -> 1\~10 ns で 1 命令処理できるとおく。
+1つのNodeを処理するのにかかった時間は 7000 ns / 100 = 70 ns -> 7\~70 命令くらい?。C++のコードと命令の対応は、今の私には考察しかねるが、大雑把にそれくらいの命令数だと言われると納得してしまうような気がする。
