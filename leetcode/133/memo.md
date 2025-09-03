@@ -37,7 +37,7 @@ lambdaで作成した関数はlocal variableなので、function nameのでは�
 auto find_window_to_stack_below = [&](size_t order) -> aura::Window* {
 ```
 
-という行があったので、variable nameのスタイルガイドのsnake_caseが適用されているように思う。
+という行があったので、variable nameのスタイルガイドのsnake\_caseが適用されているように思う。
 
 ### "clone"という名前の使い方
 
@@ -61,3 +61,11 @@ CPUのクロック周波数が大体数GHzで、一つの命令に対して数�
 # Step 3
 
 (PR作成後見直していて) そういえば `std::map`は、Red Black TreeなどのBalanced Binary Search Treeで実装されていて、検索や削除は`O(logN)`だったか。今回の場合`N`は最大でも`100`なので、小さい定数に収まるが、`log(2)64 = 6 < log(2)100 < log(2)128 = 7`で、なんとなくこのへんの数倍程度の差も上で測った実行時間に効いてきているのかなと思った。
+
+# Feedback
+
+- C++ではnested functionを頻繁に用いない
+- 各instructionが何クロックかかるかは公式のドキュメントにある
+	- 例えば [https://www.intel.co.jp/content/www/jp/ja/content-details/679103/instruction-throughput-and-latency.html](https://www.intel.co.jp/content/www/jp/ja/content-details/679103/instruction-throughput-and-latency.html)
+	- AMDのRyzenは軽くGoogleしても見つけられなかった。もう少し視野が広がったら見つかるかも。
+- [*ただ、命令一つ一つのクロック数は書かれているのですが、実際にはパイプライン、アウトオブオーダー命令実行、複数の計算ユニットによる同時実行等、命令発行ポート、μop等、複雑です。目安程度に考えておくのが良いと思います。*](https://github.com/huyfififi/coding-challenges/pull/32#discussion_r2315641683)
