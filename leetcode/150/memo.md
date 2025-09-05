@@ -59,3 +59,5 @@ $ ./a.out
 ```
 
 毎回違う値が出てきているように見える。法則性も見つからない。
+
+TODO: Read [https://en.cppreference.com/w/cpp/language/ub.html](https://en.cppreference.com/w/cpp/language/ub.html)
