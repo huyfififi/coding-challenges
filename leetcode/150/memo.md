@@ -19,3 +19,43 @@ if token not in ("+", "-", "*", "/"):  # またはtupleを別で定義するの�
 他にも、`token_stack.push(std::to_string()`が繰り返されていること、stackから取り出す2つの数字の変数名、stackの命名をどうするか (データ構造や型名を名前につけるのは情報が増えないのに変数名が長くなるので、`token_stack`ではなく`tokens`などとしたかったが、引数と被ってしまう。他の良い案も思いつかなかった) に悩んだ。
 
 そういえば、問題の制約上起こり得ないが、C++で、0を数字で割ろうとするとどうなるんだろう。PythonだったらZeroDivisionErrorになるはず。後で調べてみよう。
+
+# Step 2
+
+## Division by zero
+
+```cpp
+#include <iostream>
+
+int main() {
+    int a = 1 / 0;
+    std::cout << a << std::endl;
+}
+```
+
+```zsh
+$ g++ divide.cpp
+divide.cpp:4:15: warning: division by zero is undefined [-Wdivision-by-zero]
+    4 |     int a = 1 / 0;
+      |               ^ ~
+1 warning generated.
+```
+
+コンパイルしたら未定義動作？との警告が出た。
+
+```zsh
+$ ./a.out
+75695256
+$ ./a.out
+9782424
+$ ./a.out
+6177944
+$ ./a.out
+82904216
+$ ./a.out
+14484632
+$ ./a.out
+73745560
+```
+
+毎回違う値が出てきているように見える。法則性も見つからない。
