@@ -69,3 +69,4 @@ CPUのクロック周波数が大体数GHzで、一つの命令に対して数�
 	- 例えば [https://www.intel.co.jp/content/www/jp/ja/content-details/679103/instruction-throughput-and-latency.html](https://www.intel.co.jp/content/www/jp/ja/content-details/679103/instruction-throughput-and-latency.html)
 	- AMDのRyzenは軽くGoogleしても見つけられなかった。もう少し視野が広がったら見つかるかも。
 - [*ただ、命令一つ一つのクロック数は書かれているのですが、実際にはパイプライン、アウトオブオーダー命令実行、複数の計算ユニットによる同時実行等、命令発行ポート、μop等、複雑です。目安程度に考えておくのが良いと思います。*](https://github.com/huyfififi/coding-challenges/pull/32#discussion_r2315641683)
+- テストが書きにくくなるのであまり好まれなさそう。
