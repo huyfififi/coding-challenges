@@ -60,4 +60,15 @@ $ ./a.out
 
 毎回違う値が出てきているように見える。法則性も見つからない。
 
-TODO: Read [https://en.cppreference.com/w/cpp/language/ub.html](https://en.cppreference.com/w/cpp/language/ub.html)
+[nasal demons](http://www.catb.org/jargon/html/N/nasal-demons.html)という言葉があるらしい。
+
+[Hacker News](https://news.ycombinator.com/item?id=8234013)
+
+> ...when you hit undefined behavior, the compiler would be completely within its rights to make demons fly out of your nose.
+> "Undefined behavior" means the compiler can do anything.
+
+[cppreference.com - Undefined behavior](https://en.cppreference.com/w/cpp/language/ub.html)
+
+> *undefined behavior* - There are no restrictions on the behavior of the program.
+
+本当に何の保証もなく、何が起こってもおかしくないらしい。
