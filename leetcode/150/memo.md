@@ -16,6 +16,8 @@ operatorsを最初の定数と条件式で各2回書いているのが、どち�
 
 > If the yielded value is of a class type, it is contextually implicitly converted to an integral or enumeration type.
 
+operatorであれば一文字であることがわかっているので、先にoperatorかどうか判定して、`char`を`switch`に用いればいいのだが、やや条件式が複雑になってしまう気がしたので避けた。
+
 # Step 2
 
 Discord内では、この問題をC++で解かれた方は見当たらなかった。
