@@ -20,7 +20,7 @@ public:
                 operands.push(std::stoi(token));
                 continue;
             }
-            std::function<int(int, int)> operator_function = operator_to_function[token];
+            const auto& operator_function = operator_to_function[token];
             int right_operand = operands.top();
             operands.pop();
             int left_operand = operands.top();
