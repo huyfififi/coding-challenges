@@ -7,7 +7,7 @@
 class Solution {
 public:
     int evalRPN(const std::vector<std::string>& tokens) {
-        std::map<std::string, std::function<int(int, int)>> operator_to_function = {
+        static const std::map<std::string, std::function<int(int, int)>> operator_to_function = {
             {"+", std::plus<int>()},
             {"-", std::minus<int>()},
             {"*", std::multiplies<int>()},
@@ -20,7 +20,7 @@ public:
                 operands.push(std::stoi(token));
                 continue;
             }
-            const auto& operator_function = operator_to_function[token];
+            const auto& operator_function = operator_to_function.at(token);
             int right_operand = operands.top();
             operands.pop();
             int left_operand = operands.top();
