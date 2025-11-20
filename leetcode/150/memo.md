@@ -4,7 +4,7 @@
 
 operatorsを最初の定数と条件式で各2回書いているのが、どちらかを間違えて書いてしまった場合にバグが起こるので嫌だなぁと思ったが、代替案も思いつかないのでこの形のままにした。
 
-+`, `-`, `*`, と`/`を処理する条件式が並列であることを強調するため、`if`ではなく`switch`を用いようとしたが、`std::string`はそのまま`switch`に用いることができなかった。
+`+`, `-`, `*`, と`/`を処理する条件式が並列であることを強調するため、`if`ではなく`switch`を用いようとしたが、`std::string`はそのまま`switch`に用いることができなかった。
 
 [cppreference.com - switch statement](https://cppreference.com/w/cpp/language/switch.html)
 
