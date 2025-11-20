@@ -6,7 +6,7 @@
 
 class Solution {
 public:
-    int evalRPN(std::vector<std::string>& tokens) {
+    int evalRPN(const std::vector<std::string>& tokens) {
         std::map<std::string, std::function<int(int, int)>> operator_to_function = {
             {"+", std::plus<int>()},
             {"-", std::minus<int>()},
@@ -15,7 +15,7 @@ public:
         };
 
         std::stack<int> operands;
-        for (std::string token : tokens) {
+        for (const auto& token : tokens) {
             if (!operator_to_function.contains(token)) {
                 operands.push(std::stoi(token));
                 continue;
