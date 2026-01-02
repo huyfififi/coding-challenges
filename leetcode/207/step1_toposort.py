@@ -4,9 +4,7 @@ class Solution:
         for course, prerequisite in prerequisites:
             course_to_dependencies[course].add(prerequisite)
 
-        def exclude_course(
-            excluding_course: int, course_to_dependencies: dict[int, set[int]]
-        ) -> None:
+        def exclude_course(excluding_course: int) -> None:
             course_to_dependencies.pop(excluding_course)
             for course in course_to_dependencies.keys():
                 course_to_dependencies[course] -= {excluding_course}
@@ -21,6 +19,6 @@ class Solution:
                 return False
 
             for course in courses_without_dependencies:
-                exclude_course(course, course_to_dependencies)
+                exclude_course(course)
 
         return True
