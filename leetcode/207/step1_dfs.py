@@ -6,7 +6,7 @@ class Solution:
 
         visited = set()
 
-        def visit(course: int, visiting: set[int]) -> bool:
+        def has_cycle(course: int, visiting: set[int]) -> bool:
             if course in visited:
                 return False
             if course in visiting:
@@ -14,14 +14,14 @@ class Solution:
 
             visiting.add(course)
             for prerequisite in course_to_prerequisites[course]:
-                if visit(prerequisite, visiting):
+                if has_cycle(prerequisite, visiting):
                     return True
 
             visited.add(course)
             return False
 
         for course in range(numCourses):
-            if visit(course, set()):
+            if has_cycle(course, set()):
                 return False
 
         return True
