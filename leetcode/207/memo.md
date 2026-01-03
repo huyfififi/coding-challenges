@@ -9,3 +9,5 @@
 Wikipediaを眺めると、私がトポロジカルソートだと思っていたアルゴリズムはトポロジカルソートの中でも特にKahn's algorithmと呼ばれるもので、それとは別にDFSを用いる方法もあるよう。やや掲載されている擬似コードと私の実装は異なるか。
 
 Discord内で前例が少なかったので、一応LeetCodeのSolutionsも眺めてみたが、変数・関数名が読み取りづらかったのと、queue + indegree count を用いる方法は一旦しっくりこなかったので飛ばした (-> queueとindegree countを用いる方法も書いてみたが、こちらの方がわかりやすい気がする `step2_kahn.cpp` から `step2_more_bfs_like.cpp` へ)。
+
+`HasCycle()`としているのに、cycle detectionだけでなく他のデータ変更もしているのが気になるが、他に良いメソッド名が思いつかなかった。
