@@ -19,3 +19,5 @@ Mistakes:
 - pass by reference
 - type syntax
 - last return value
+
+3回繰り返したらqueueを用いる方法 (`step3_bfs_based.cpp`) がしっくりきた。
