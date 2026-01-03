@@ -21,3 +21,5 @@ Mistakes:
 - last return value
 
 3回繰り返したらqueueを用いる方法 (`step3_bfs_based.cpp`) がしっくりきた。
+
+自分のstep 1/2のKahn's algorithmの回答を見返してみると、keyがない -> visited、valueがempty -> visiting、valueがnon empty set -> unvisited であることがコメントなしだと伝わりにくく感じ、素直にindegree countsを持つ方が読み取りやすく感じた。
