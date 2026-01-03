@@ -29,3 +29,4 @@ Mistakes:
 - 野田さんの真似をして、複合型の参照を除き、スコープ内で初期化され変更されない変数に`const`をつけるのは避けてみようかな。
 - `.size() == 0` -> `.empty()`
 - `Traverse()`という関数名案。私のコードの`HasCycle()`だと副作用なく`bool`を返しそうに聞こえ誤解を生むが、`Traverse()`ならそのデメリットが緩和されている。今回の場合、関数のやることが多くてどちらにせよ関数名だけで読み取ってもらうのは困難なので、`Traverse()`が良さそう。
+- `keys()` in `for key in dictionary.keys():` is redundant. `for key in dictionary:` works the same
