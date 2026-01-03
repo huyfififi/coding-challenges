@@ -16,7 +16,7 @@ class Solution:
             for prerequisite in course_to_prerequisites[course]:
                 if has_cycle(prerequisite, visiting):
                     return True
-
+            visiting.remove(course)
             visited.add(course)
             return False
 
