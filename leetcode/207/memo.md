@@ -31,3 +31,11 @@ Mistakes:
 - `Traverse()`という関数名案。私のコードの`HasCycle()`だと副作用なく`bool`を返しそうに聞こえ誤解を生むが、`Traverse()`ならそのデメリットが緩和されている。今回の場合、関数のやることが多くてどちらにせよ関数名だけで読み取ってもらうのは困難なので、`Traverse()`が良さそう。
 - `keys()` in `for key in dictionary.keys():` is redundant. `for key in dictionary:` works the same
 - 前から思っていたけれど、自分はarrayや`list`を用いても (用いれば高速で) 処理できることでも、他のデータ構造を選択してしまう傾向があるな。
+
+# Step 4
+
+-> `step4_dfs.cpp`
+
+LeetCode上の実行時間はあまりアテにしてはいけないのだけど、確かに `std::set` -> `std::vector` への切り替えとO(1) random accessで、明らかに速くなった。
+
+enum classってこういう風に使うんだな。
