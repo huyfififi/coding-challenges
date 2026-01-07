@@ -27,8 +27,8 @@ answer: [24, 12, 8, 6]
 確かに、
 
 ```
-prefix[i] = nums[0] + nums[1] + ... + nums[i - 1]
-suffix[i] = nums[i + 1] + nums[i + 2] + ... + nums[n]
+prefix[i] = nums[0] \* nums[1] \* ... \* nums[i - 1]
+suffix[i] = nums[i + 1] \* nums[i + 2] \* ... + \* nums[n - 1]
 ```
 
 の時、`prefix[i] * suffix[i]` は自分自身を除いた全ての数の積になる。
