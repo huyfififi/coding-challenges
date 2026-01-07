@@ -88,3 +88,7 @@ products_except_self[i] *= suffix_products[i]
 
 この解法はfollow upとあるので、時間が余ったら触れるくらいのもので、普通に面接をする分には素直にprefix and suffix products を持つ方法で十分なのだと予想するが、どうだろう。
 一応、理解を深めるためにも練習しておくか。
+
+# Step 3
+
+左から右への走査と右から左への走査が意外とこんがらがってしまう。
