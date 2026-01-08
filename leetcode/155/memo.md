@@ -30,4 +30,4 @@ minへのアクセスが O(1) なのを考えると、min-heap?とも思った�
 
 [cppreference.com - std::get](https://en.cppreference.com/w/cpp/utility/tuple/get)
 
-`prefix_min` もしっくりこないが、他にいい案も思いつかない。
+`prefix_min` という変数名しっくりこないが (stackなので、prefixというよりは、物理的に下にあるイメージ)、他にいい案も思いつかない。
