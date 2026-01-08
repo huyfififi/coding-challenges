@@ -21,3 +21,9 @@ minへのアクセスが O(1) なのを考えると、min-heap?とも思った�
 > Consider each node in the stack having a minimum value. (Credits to @aakarshmadhavan)
 
 なるほど！！
+
+# Step 2
+
+`std::stack` は使ってもいいのかな、でもそれを禁止すると`std::vector`や Python の `list` はどうなるんだ、となりそうなので、このへんは面接官との対話次第かな。
+
+[Declare methods to be const unless they alter the logical state of the object...](https://google.github.io/styleguide/cppguide.html#Use_of_const)
