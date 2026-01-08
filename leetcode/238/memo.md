@@ -92,3 +92,10 @@ products_except_self[i] *= suffix_products[i]
 # Step 3
 
 左から右への走査と右から左への走査が意外とこんがらがってしまう。
+
+# Step 4
+
+- [cppreference.com - `std::partial\_sum` in `numeric`](https://en.cppreference.com/w/cpp/algorithm/partial_sum.html)
+- [cppreference.com - `std::rbegin()`](https://en.cppreference.com/w/cpp/iterator/rbegin.html)
+	- Also, there is `std::rend()`
+- I didn't remember `std::multiplies` is in `functional`
