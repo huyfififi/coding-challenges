@@ -1,6 +1,6 @@
 # Step 1
 
-Cracking the Coding Interview で 見た気がするが、関連する記憶がない。
+Cracking the Coding Interview で 見た気がする (追記: 3章に載っていたのを確認) が、関連する記憶がない。
 
 なんだか見覚えのある問題として LeetCode 232\. Implement Queue using Stacks が思い起こされるが、今回の問題は
 
