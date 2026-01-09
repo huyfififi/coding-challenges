@@ -8,3 +8,7 @@
 ## `step1_2_pass_down_lo_hi.py`
 
 レビュー依頼に流れてたPRを眺めていた時の記憶で、`lo`と`hi`を子nodeに送っていって取ってもいい値の幅を狭めていく方法もあった気がする。
+
+## `step1_3_iterative_dfs.py`
+
+Pythonのrecursion limitはdefaultだと1000なので、それより深い木を扱うには自前でstackを用意する必要がある。(LeetCode上ではこの設定が上書きされているようだが。)
