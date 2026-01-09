@@ -28,3 +28,5 @@ step 1 - 4 を、わざわざ`list`で持たず都度確認する形にすると
 The Art of Readable Code を 見返す。
 
 > In general, adding words like `is`, `has`, `can,` or `should` can make booleans more clear.
+
+`lower_bound`, `upper_bound` という変数名で語弊がないか不安だが、The Art of Readable Code にはこういう状況への名付けへの言及はなさそうだ。
