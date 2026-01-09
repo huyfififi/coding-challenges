@@ -13,7 +13,7 @@
 
 step 1 - 2 を iterative に。
 
-Pythonのrecursion limitはdefaultだと1000なので、それより深い木を扱うには自前でstackを用意する必要がある。(LeetCode上ではこの設定が上書きされているようだが。)
+Pythonのrecursion limitはdefaultだと1000なので、それより深い木を扱うには自前でstackを用意する必要がある。(か、LeetCodeのようにrecursion limitの値をdefault値より上書きする必要がある。)
 
 ## Step 1 - 4
 
