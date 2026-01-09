@@ -12,3 +12,7 @@
 ## `step1_3_iterative_dfs.py`
 
 Pythonのrecursion limitはdefaultだと1000なので、それより深い木を扱うには自前でstackを用意する必要がある。(LeetCode上ではこの設定が上書きされているようだが。)
+
+# Step 2
+
+helper関数を`is_valid()`と命名した方が`bool`が返ってくることが分かりやすそうだな。
