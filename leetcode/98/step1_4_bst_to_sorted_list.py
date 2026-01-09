@@ -20,6 +20,6 @@ class Solution:
 
         traverse(root, values)
         for i in range(len(values) - 1):
-            if values[i + 1] <= values[i]:
+            if values[i] >= values[i + 1]:
                 return False
         return True
