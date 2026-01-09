@@ -8,15 +8,15 @@ class TreeNode:
 
 class Solution:
     def isValidBST(self, root: TreeNode | None) -> bool:
-        def validate(node: TreeNode | None, lower_bound, upper_bound):
+        def is_valid(node: TreeNode | None, lower_bound, upper_bound):
             if node is None:
                 return True
 
             if not (lower_bound < node.val < upper_bound):
                 return False
 
-            return validate(node.left, lower_bound, node.val) and validate(
+            return is_valid(node.left, lower_bound, node.val) and is_valid(
                 node.right, node.val, upper_bound
             )
 
-        return validate(root, float("-inf"), float("inf"))
+        return is_valid(root, float("-inf"), float("inf"))

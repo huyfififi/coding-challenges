@@ -22,7 +22,3 @@ Binary Search Tree を inorder traversal するとincreasing (sorted) sequence �
 ## Step 1 - 5
 
 step 1 - 4 を、わざわざ`list`で持たず都度確認する形にするとこうなりそう。
-
-# Step 2
-
-helper関数を`is_valid()`と命名した方が`bool`が返ってくることが分かりやすそうだな。
