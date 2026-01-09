@@ -36,3 +36,5 @@ The Art of Readable Code を 見返す。
 [cppreference.com - std::nullopt](https://en.cppreference.com/w/cpp/utility/optional/nullopt.html)
 
 \*Helperという命名はできるだけ避けて、関数が何をするのか言い表したいのだが、良い案が思いつかなかった。
+
+部分問題で見れば、入力Nodeがrootであるので、`node`よりも`root`とした方がいいのかな... :thinking:
