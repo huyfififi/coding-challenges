@@ -22,3 +22,9 @@ Binary Search Tree を inorder traversal するとincreasing (sorted) sequence �
 ## Step 1 - 5
 
 step 1 - 4 を、わざわざ`list`で持たず都度確認する形にするとこうなりそう。
+
+# Step 2
+
+The Art of Readable Code を 見返す。
+
+> In general, adding words like `is`, `has`, `can,` or `should` can make booleans more clear.
