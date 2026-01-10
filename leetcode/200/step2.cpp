@@ -8,7 +8,6 @@ public:
         constexpr char kWater = '0';
         const int num_rows = (int)grid.size();
         const int num_cols = (int)grid[0].size();
-        constexpr std::pair<int, int> kDirections[4] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
         int num_islands = 0;
         std::vector<std::vector<bool>> visited(num_rows, std::vector<bool>(num_cols));
@@ -32,9 +31,10 @@ public:
                     if (grid[r][c] == kWater) { continue; }
                     if (visited[r][c]) { continue; }
 
-                    for (auto [row_diff, col_diff] : kDirections) {
-                        area_to_visit.push({r + row_diff, c + col_diff});
-                    }
+                    area_to_visit.push({r + 1, c});
+                    area_to_visit.push({r - 1, c});
+                    area_to_visit.push({r, c + 1});
+                    area_to_visit.push({r, c - 1});
                     visited[r][c] = true;
                 }
             }

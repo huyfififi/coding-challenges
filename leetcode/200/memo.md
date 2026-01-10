@@ -62,3 +62,5 @@ overheadがあるので、queueに同じ座標を入れる回数を 4 -> 1 回�
 [constexpr specifier](https://en.cppreference.com/w/cpp/language/constexpr.html)
 
 迷いどころだったが、今訪れているrow/columnを`visiting_row`/`visiting_col`とすると条件式がかなり長くなって逆に読みづらく感じたので、代替案も思いつかず、狗肉の策で`r`/`c`とした。周りの処理からなんとな読み取ってもらえるだろうか。
+
+grid/grid[0] が空かどうかはチェックしなくてもいいかな、と考えた。入力を疑いだすと、gridが四角ではない可能性も考え始めて、かなり煩雑なguardが必要になってしまうから。
