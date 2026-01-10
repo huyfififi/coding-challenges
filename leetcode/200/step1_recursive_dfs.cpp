@@ -11,7 +11,7 @@ public:
         int num_islands = 0;
         for (int row = 0; row < num_rows; ++row) {
             for (int col = 0; col < num_cols; ++col) {
-                if (grid[row][col] == WATER) {
+                if (grid[row][col] == kWater) {
                     continue;
                 }
                 if (visited[row][col]) {
@@ -27,7 +27,7 @@ public:
     }
 
 private:
-    static const char WATER = '0';
+    static const char kWater = '0';
     void ExploreIsland(
         int row,
         int col,
@@ -40,7 +40,7 @@ private:
         if (visited[row][col]) {
             return;
         }
-        if (grid[row][col] == WATER) {
+        if (grid[row][col] == kWater) {
             return;
         }
 
