@@ -12,6 +12,7 @@
 	- 個人的には切り出すかどうかちょうど迷うくらいの長さだなと感じる。結局処理をちゃんと読んでいくなら、まとまっていた方が、いろんな関数にとんで目が動かされるよりも楽かな...。
 	- 複雑な処理を覆って、メインのループを読む時に覚えていなければいけないことを減らすことも理解できる。
 - そういえば、今は4方向を予め定義してループを回しているが、ベタ書きした方が読みやすいと幾人かに言われたような記憶が蘇ってきた。
+	- 今回の場合は、queueへのpushと`visited[row][col] = true;`がセットで繰り返されるので、for文を回した方がいいと思う。
 - [`std::vector<bool>`](https://en.cppreference.com/w/cpp/container/vector_bool.html) は 特殊な最適化がなされているよう (?)
 	- boolはintegral typeで、`std::vector<bool> v(10);`などで各要素がvalue-initializationされるとzero-initialized -> falseになりそうだが、もう少し後で調べたい。
 - `std::pair`の`.first`, `.second`が書いててなんとなく冗長で面倒な気がするのと、Pythonのtupleに慣れているのもあり、 私は`std::pair`よりも`std::tuple`を使用しがちなのだが、要素が二つだとわかっている座標などのデータを扱うとき、`std::pair`を使用される方が多い (というか見かける限り皆さん) 印象。
