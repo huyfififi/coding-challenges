@@ -25,3 +25,31 @@ constantをkConstantName のような変数名で定義するのは知ってい�
 
 ということは、関数の中では一定だが呼び出しに応じて変化しうるものにはこのルール (ガイド) は当てはまらさなそうに聞こえる。
 Chromium Code Searchで`const\ int\ k[A-Z]`を検索して見ると、全て固定の数字を持つもので、実行中に変わらないものだけだな。だから、`kNumRows`ではなく`num_rows`という名付けで良さそうだ。(自信はないけれど。)
+
+## push-after-checking vs push-before-checking
+
+300x300、要素の全てが1のmatrixに対して queue から取り出した時に範囲・water・visited チェックをする方法と、入れる前にチェックする方法の実行時間を比較するプログラムをLLMに書いてもらって `-O3` でコンパイルして走らせたら以下のようになった。
+
+```
+Benchmark: 300x300 matrix (all 1s), 10000 iterations
+===========================================
+
+Solution1 (push before check):
+  Total time: 13501 ms
+  Average time per iteration: 1.3501 ms
+  Average time per iteration: 1350.1 microseconds
+
+Solution2 (prune before push):
+  Total time: 5501 ms
+  Average time per iteration: 0.5501 ms
+  Average time per iteration: 550.1 microseconds
+
+Comparison:
+  Solution1 (push before check): 13946 ms
+  Solution2 (prune before push): 5531 ms
+  Solution2 is 2.52142x faster
+```
+
+overheadがあるので、queueに同じ座標を入れる回数を 4 -> 1 回に減らした (角・端は元々4回もないが、デカいmatrixだとならして4回だと置ける) から 4x faster とはいかないが、これくらいの数字で2倍以上差が出るのか。
+
+少し悩んだが、今回の場合先にチェックしても後にチェックしても code complexity がそこまで変わらないような気がするので、先にチェックする方法でstep2, 3に進もうとおもう。
