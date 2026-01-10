@@ -22,21 +22,21 @@ public:
                 std::queue<std::pair<int, int>> area_to_visit;
                 area_to_visit.push({row, col});
                 while (!area_to_visit.empty()) {
-                    auto [r, c] = area_to_visit.front();
+                    auto [visiting_row, visiting_col] = area_to_visit.front();
                     area_to_visit.pop();
-                    if (r < 0 || num_rows <= r ||
-                        c < 0 || num_cols <= c) {
+                    if (visiting_row < 0 || num_rows <= visiting_row ||
+                        visiting_col < 0 || num_cols <= visiting_col) {
                         continue;
                     }
-                    if (grid[r][c] == kWater) { continue; }
-                    if (visited[r][c]) { continue; }
+                    if (grid[visiting_row][visiting_col] == kWater) { continue; }
+                    if (visited[visiting_row][visiting_col]) { continue; }
 
-                    area_to_visit.push({r + 1, c});
-                    area_to_visit.push({r - 1, c});
-                    area_to_visit.push({r, c + 1});
-                    area_to_visit.push({r, c - 1});
-                    visited[r][c] = true;
-                }
+                    area_to_visit.push({visiting_row + 1, visiting_col});
+                    area_to_visit.push({visiting_row - 1, visiting_col});
+                    area_to_visit.push({visiting_row, visiting_col + 1});
+                    area_to_visit.push({visiting_row, visiting_col - 1});
+                    visited[visiting_row][visiting_col] = true;
+                } 
             }
         }
 
