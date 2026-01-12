@@ -65,7 +65,9 @@ overheadがあるので、queueに同じ座標を入れる回数を 4 -> 1 回�
 
 grid/grid[0] が空かどうかはチェックしなくてもいいかな、と考えた。入力を疑いだすと、gridが四角ではない可能性も考え始めて、かなり煩雑なguardが必要になってしまうから。
 
-# Step 4
+# Step 4 / Feedback
+
+## function inlining
 
 [GCC Optimize Options - Inline Functions](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-finline-functions)
 
@@ -74,3 +76,16 @@ grid/grid[0] が空かどうかはチェックしなくてもいいかな、と�
 [cppreference - inline function specifier](https://en.cppreference.com/w/c/language/inline.html)
 
 > *If the compiler performs function inlining, it replaces a call of that function with its body, avoiding the overhead of a function call (placing data on stack and retrieving the result)*
+
+## その他次回気をつける (試してみる) こと
+
+```cpp
+if (!(0 <= r && r < num_rows && 0 <= c && c < num_cols))
+```
+
+プリミティブ型のローカル変数には const を付けない
+
+`static_cast<target-type ﻿>(expression ﻿)`
+
+定数は static なメンバ変数か、グローバルに定義
+
