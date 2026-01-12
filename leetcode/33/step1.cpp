@@ -4,7 +4,7 @@ class Solution {
 public:
     int search(const std::vector<int>& nums, int target) {
         int first = 0;
-        int last = static_cast<int>(nums.size() - 1);
+        int last = static_cast<int>(nums.size()) - 1;
 
         while (first <= last) {
             size_t middle = (first + last) / 2;
