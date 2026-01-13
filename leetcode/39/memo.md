@@ -31,3 +31,31 @@ combinationの構成要素数が20 (\* candidate min: 2 = target max: 40 ) よ�
 Coin Change と同様に、candidatesをソートしておいて早めにループを抜けるのも細かい最適化案としてはあるか。
 
 至る所でbacktrackという用語が使われていたのだが、初耳だった。調べてみる。
+
+[Reddit - I don't understand backtracking at all. (信憑性-低)](https://www.reddit.com/r/leetcode/comments/yv3gth/i_dont_understand_backtracking_at_all/)
+
+> Backtracking is just DFS on tree except there's no pre-defined tree. You have to build your own tree by passing the states through parameters.
+
+信憑性は低そうだが、なんだか腑に落ちた。
+
+Antti Laaksonen - Guide to Competitive Programming
+
+> A *backtracking* algorithm begins with an empty solution and extends the solution step by step. The search recursively goes through all different ways how a solution can be constructed.
+
+-> chessのqueensをおいていく問題
+
+[Wikipedia - Backtracking](https://en.wikipedia.org/wiki/Backtracking)
+
+> **Backtracking** is a class of algorithms for finding solutions to some computational problems, notably constraint satisfaction or enumeration problems, that incrementally builds candidates to the solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.
+
+上の本のクイーン問題も、探索が終わったら共有のstate?への変更をrevertしていたな。
+
+こう読むと、私の回答では
+
+```
+combination.append(candidates[i)
+find_target_combinations()
+combination.pop()
+```
+
+というパターンがbacktrackingたらしめているのだろう。手元の資料が乏しく、あまりはっきりとしたことはわからないが...
