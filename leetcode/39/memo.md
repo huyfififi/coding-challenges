@@ -26,4 +26,8 @@ l.pop()
 
 PRをざっと眺めると、`step1_improved.py`が皆さんの解法と同じ感じ。
 
+combinationの構成要素数が20 (\* candidate min: 2 = target max: 40 ) よりも少ないので、`total`を保持せずに毎回`sum()`しても定数倍でやや遅くなるがそこまで問題にはならなそう。
+
+Coin Change と同様に、candidatesをソートしておいて早めにループを抜けるのも細かい最適化案としてはあるか。
+
 至る所でbacktrackという用語が使われていたのだが、初耳だった。調べてみる。
