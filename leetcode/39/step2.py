@@ -1,6 +1,6 @@
 class Solution:
     def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
-        target_combinations = []
+        target_combinations: list[list[int]] = []
         num_candidates = len(candidates)
         sorted_candidates = sorted(candidates)
 
@@ -14,7 +14,7 @@ class Solution:
             for i in range(candidate_start, num_candidates):
                 new_total = total + sorted_candidates[i]
                 if new_total > target:
-                    break
+                    return
 
                 combination.append(sorted_candidates[i])
                 find_target_combinations(i, new_total, combination)
