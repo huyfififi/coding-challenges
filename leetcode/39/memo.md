@@ -14,4 +14,8 @@ recursive_call(l)
 l.pop()
 ```
 
-として余分なコピーを減らす方法に慣れているので、一旦再帰で -> `step1_improved_recursive.py`
+として余分なコピーを減らす方法に慣れているので、一旦再帰で -> `step1_improved.py`
+
+その後、recursiveでできるならiterativeでもできると少し考えてみたのだが、各stackの要素にcombinationの新しいコピーを入れない方法は、かなり煩雑になりそうだったので一旦やめておく。
+
+枝刈りがあるとき、どう計算量を導き出せばいいのかわからない... Climbing StairsとかはO(1.6^n)になった記憶があるが...
