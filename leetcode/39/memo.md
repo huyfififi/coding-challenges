@@ -26,7 +26,7 @@ l.pop()
 
 PRをざっと眺めると、`step1_improved.py`が皆さんの解法と同じ感じ。
 
-combinationの構成要素数が20 (\* candidate min: 2 = target max: 40 ) よりも少ないので、`total`を保持せずに毎回`sum()`しても定数倍でやや遅くなるがそこまで問題にはならなそう。
+combinationの構成要素数が20 (\* candidate min: 2 = target max: 40 ) よりも少ないので、`total`を保持せずに毎回`sum()`してもやや遅くなるが大きく問題にはならなそう (100倍の実行時間とかにはならない)。
 
 Coin Change と同様に、candidatesをソートしておいて早めにループを抜けるのも細かい最適化案としてはあるか。
 
@@ -36,13 +36,13 @@ Coin Change と同様に、candidatesをソートしておいて早めにルー�
 
 > Backtracking is just DFS on tree except there's no pre-defined tree. You have to build your own tree by passing the states through parameters.
 
-信憑性は低そうだが、なんだか腑に落ちた。
+厳密ではないだろうが、なんだか腑に落ちた。
 
 Antti Laaksonen - Guide to Competitive Programming
 
 > A *backtracking* algorithm begins with an empty solution and extends the solution step by step. The search recursively goes through all different ways how a solution can be constructed.
 
--> chessのqueensをおいていく問題
+-> 例: chessのqueensをおいていく問題
 
 [Wikipedia - Backtracking](https://en.wikipedia.org/wiki/Backtracking)
 
