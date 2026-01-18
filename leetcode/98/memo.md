@@ -1,0 +1,40 @@
+# Step 1
+
+## Step 1 - 1
+
+各nodeが、左のnodeと右のnodeからそれぞれ報告書をもらって、上のnodeに (自分がBSTの条件を満たしているか, 自分からなる部分木の最小値, 部分木の最大値) を返せば良いと思った。
+左側を先にチェックして、BSTの条件を既に満たしていなかったら右側をチェックせずに切り上げる方法もあると思うが、やや例外的なロジックを足すより、(is valid BST, min, max) を絶対に返すと約束する方がシンプルで頭に収まりやすいように感じる (偏った感覚かも)。
+
+## Step 1 - 2
+
+レビュー依頼に流れてたPRを眺めていた時の記憶で、`lo`と`hi`を子nodeに送っていって取ってもいい値の幅を狭めていく方法もあった気がする。
+
+## Step 1 - 3
+
+step 1 - 2 を iterative に。
+
+Pythonのrecursion limitはdefaultだと1000なので、それより深い木を扱うには自前でstackを用意する必要がある。(か、LeetCodeのようにrecursion limitの値をdefault値より上書きする必要がある。)
+
+## Step 1 - 4
+
+Binary Search Tree を inorder traversal するとincreasing (sorted) sequence になる。
+
+## Step 1 - 5
+
+step 1 - 4 を、わざわざ`list`で持たず都度確認する形にするとこうなりそう。
+
+# Step 2
+
+The Art of Readable Code を 見返す。
+
+> In general, adding words like `is`, `has`, `can,` or `should` can make booleans more clear.
+
+`lower_bound`, `upper_bound` という変数名で語弊がないか不安だが、The Art of Readable Code にはこういう状況への名付けへの言及はなさそうだ。
+
+
+[cppreference.com - std::optional](https://en.cppreference.com/w/cpp/utility/optional.html)
+[cppreference.com - std::nullopt](https://en.cppreference.com/w/cpp/utility/optional/nullopt.html)
+
+\*Helperという命名はできるだけ避けて、関数が何をするのか言い表したいのだが、良い案が思いつかなかった。
+
+部分問題で見れば、入力Nodeがrootであるので、`node`よりも`root`とした方がいいのかな... :thinking:
