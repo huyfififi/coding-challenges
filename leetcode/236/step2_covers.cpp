@@ -24,7 +24,7 @@ public:
         }
     }
 private:
-    bool Covers(TreeNode* root, TreeNode* target) {
+    bool Covers(const TreeNode* root, const TreeNode* target) {
         if (root == nullptr) { return false; }
         if (root == target) { return true; }
         return Covers(root->left, target) || Covers(root->right, target);
