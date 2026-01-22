@@ -39,8 +39,8 @@ private:
     // - a pointer to either p, q, or their lowest comon ancestor if exists
     // - a flag indicating whether the returned node is confirmed as a lowest common ancestor
     NodeAndIsAncestor LowestCommonAncestorHelper(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if (root == nullptr) { return NodeAndIsAncestor({root, false}); }
-        if (root == p && root == q) { return NodeAndIsAncestor({root, true}); }
+        if (root == nullptr) { return NodeAndIsAncestor(root, false); }
+        if (root == p && root == q) { return NodeAndIsAncestor(root, true); }
 
         NodeAndIsAncestor left_result = LowestCommonAncestorHelper(root->left, p, q);
         if (left_result.is_ancestor) { return left_result; }
@@ -49,7 +49,7 @@ private:
         if (right_result.is_ancestor) { return right_result; }
 
         if (left_result.node != nullptr && right_result.node != nullptr) {
-            return NodeAndIsAncestor({root, true});
+            return NodeAndIsAncestor(root, true);
         } else if (root == p || root == q){
             bool is_ancestor = left_result.node != nullptr || right_result.node != nullptr;
             return NodeAndIsAncestor(root, is_ancestor);
