@@ -17,11 +17,11 @@ public:
         bool is_q_on_left = Covers(root->left, q);
         if (is_p_on_left && is_q_on_left) {
             return lowestCommonAncestor(root->left, p, q);
-        } else if (!is_p_on_left && !is_q_on_left) {
-            return lowestCommonAncestor(root->right, p, q);
-        } else {
-            return root;
         }
+        if (!is_p_on_left && !is_q_on_left) {
+            return lowestCommonAncestor(root->right, p, q);
+        }
+        return root;
     }
 private:
     bool Covers(const TreeNode* root, const TreeNode* node) {

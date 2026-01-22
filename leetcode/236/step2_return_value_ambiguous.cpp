@@ -18,10 +18,10 @@ public:
 
         if (left != nullptr && right != nullptr) {
             return root;
-        } else if (left != nullptr) {
-            return left;
-        } else {
-            return right;
         }
+        if (left != nullptr) {
+            return left;
+        }
+        return right;
     }
 };
