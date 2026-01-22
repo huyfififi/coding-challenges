@@ -101,7 +101,7 @@ public:
 ```
 
 シンプルだ。便宜上、pしかいない部分木のLCAはpである (部分木にpまたはqしかいなければそれを返し、両方存在すればLCAを返す) と置くことで、処理を簡潔にできている。pとqが与えられているTree内に必ず存在するという制約を利用している。
-この、厳密には違うのだが、便宜上定義の捉え方を変えることにより処理をシンプルにする、ということを以前やったことがある気がする。
+この、厳密には違うのだが、便宜上捉え方を変えることにより処理をシンプルにする、ということを以前やったことがある気がする。
 自分のLeetCode練習メモを遡ったら、235. Lowest Common Ancestor of a Binary Search Tree にあった。[https://github.com/huyfififi/coding-challenges/pull/10/changes#diff-a85bba0a3335858bea809ef42cf2918e9208e78ca28f844af1e68ae5b48c295dR7](https://github.com/huyfififi/coding-challenges/pull/10/changes#diff-a85bba0a3335858bea809ef42cf2918e9208e78ca28f844af1e68ae5b48c295dR7)
 
 > lowest common ancestorの解釈を少し変えているのでやや邪道な感じがするが、`p`と`q`が左右に分かれているパターンを判定するために、`q`を含まない`p`をrootとした部分木においても、`p`がlowest common ancestorだとしておく（`q`が部分木のrootの場合も同様に）。
