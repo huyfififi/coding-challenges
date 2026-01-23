@@ -33,3 +33,37 @@ C++ではこの関数を使えば良いらしい。
 > We recognize that this rule is controversial, but so much existing code already adheres to it, and we feel that consistency is important.
 
 80文字なのか。結構短いな。
+
+CPythonの `bisect_left()` と `bisect_right()` を見比べて、脳にいい感じに収まるのを待っている。
+
+```py
+def bisect_left(a, x, lo=0, hi=None, *, key=None):
+  while lo < hi:
+    mid = (lo + hi) // 2
+      if key(a[mid]) < x:
+        lo = mid + 1
+      else:
+        hi = mid
+  return lo
+```
+
+i < lo には key(a[i]) < x のみ
+i >= hi には key(a[i]) >= x のみ
+
+```py
+def bisect_right(a, x, lo=0, hi=None, *, key=None):
+  while lo < hi:
+    mid = (lo + hi) // 2
+    if x < key(a[mid]):
+      hi = mid
+    else:
+      lo = mid + 1
+  return lo
+```
+
+i < lo には key(a[i]) <= x のみ
+i >= hi には key(a[i]) > x のみ
+
+`=`をどちらに寄せるかだけが違う。
+
+本当にしっくりくるには、もう少し脳内で寝かせないといけない。
