@@ -18,3 +18,18 @@ setが `10^5`回、getが`10^5`回の場合、各getで10^5の長さのリスト
 `bisect.bisect_right`を試してからはすぐに回答に辿り着いた。(-> `step1.py`)
 
 [GitHub - cpython/Lib/bisect.py](https://github.com/python/cpython/blob/f8262b84f5b76e45cfea9d73b09657919926850f/Lib/bisect.py#L21)
+
+# Step 2
+
+LeetCodeに投稿されているコードをみても、Binary Searchをどう書くかだけで、大きく私のstep 1からは変わらないl。Binary Search中に返す値 (例えば`result`という変数とか) を更新していく
+
+[cppreference - std::upper\_bound](https://en.cppreference.com/w/cpp/algorithm/upper_bound.html)
+
+C++ではこの関数を使えば良いらしい。
+
+[Google C++ Style Guide - Line Length](https://google.github.io/styleguide/cppguide.html#Line_Length)
+
+> Each line of text in your code should be at most 80 characters long.
+> We recognize that this rule is controversial, but so much existing code already adheres to it, and we feel that consistency is important.
+
+80文字なのか。結構短いな。
