@@ -16,3 +16,5 @@ setが `10^5`回、getが`10^5`回の場合、各getで10^5の長さのリスト
 
 `bisect.bisect_left`を用いようとしたが、インデックスの扱いがうまくいかず時間をかなり費やした。
 `bisect.bisect_right`を試してからはすぐに回答に辿り着いた。(-> `step1.py`)
+
+[GitHub - cpython/Lib/bisect.py](https://github.com/python/cpython/blob/f8262b84f5b76e45cfea9d73b09657919926850f/Lib/bisect.py#L21)
