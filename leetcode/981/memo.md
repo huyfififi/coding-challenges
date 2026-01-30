@@ -71,3 +71,11 @@ i >= hi には key(a[i]) > x のみ
 # Step 3
 
 invariantsをコメントに残すことで、書いていて混乱することを防いだ。
+
+# Step 4
+
+PRを作ってからDiscord内のPRに気づいた。
+
+[この問題を見たとき、同じ key に対する `value` は、 `timestamp` でソートした二分探索木に入れるのがよいと思いました。](https://github.com/sakzk/leetcode/pull/8/changes#r1639814857)
+
+確かにそういう方法もあったか。
