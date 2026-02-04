@@ -48,3 +48,5 @@ Wikipediaを覗くと [https://en.wikipedia.org/wiki/Disjoint-set\_data\_structu
 とある。初期化のメソッド、find()、union() があれば Union-Find と呼んでも差し支えないのかな。
 
 と考えると、`step1_union_find.py`では非常に煩雑な実装になってしまっていたが、`__init__()__`, `find()`, `union()` だけを持つ `UnionFind`クラスを定義すればもっと単純な実装になりそうだな。
+
+LeetCode上にある解法を眺めつつ、実装してみたら `step2_union_find.py` になった。
