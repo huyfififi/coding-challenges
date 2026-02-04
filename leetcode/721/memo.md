@@ -50,3 +50,7 @@ Wikipediaを覗くと [https://en.wikipedia.org/wiki/Disjoint-set\_data\_structu
 と考えると、`step1_union_find.py`では非常に煩雑な実装になってしまっていたが、`__init__()__`, `find()`, `union()` だけを持つ `UnionFind`クラスを定義すればもっと単純な実装になりそうだな。
 
 LeetCode上にある解法を眺めつつ、実装してみたら `step2_union_find.py` になった。
+
+# Step 3
+
+Union-Find を使うのは、[Law of the instrument](https://en.wikipedia.org/wiki/Law_of_the_instrument) のような手段に振り回されている気がして、何回か繰り返した後もしっくりこなかった。素直にグラフを繋げてDFSが素直な解法なのではなかろうか。
