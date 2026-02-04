@@ -5,13 +5,12 @@ class Solution:
     def accountsMerge(self, accounts: list[list[str]]) -> list[list[str]]:
         email_to_name = {}
         email_to_neighbors = collections.defaultdict(set)
-        for account in accounts:
-            name, hub, *rest = account
+        for name, hub, *rest in accounts:
             email_to_name[hub] = name
             for email in rest:
                 email_to_name[email] = name
-                email_to_neighbors[email].add(hub)
                 email_to_neighbors[hub].add(email)
+                email_to_neighbors[email].add(hub)
 
         visited = set()
 
