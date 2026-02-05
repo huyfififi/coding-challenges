@@ -19,3 +19,10 @@ LeetCodeにポストされている解法を眺めていたら、カウンター
 [Wikipedia - Selection sort](https://en.wikipedia.org/wiki/Selection_sort)
 
 Selection sortのページを眺めている限り、step 1 で実装した理解で合っていそう。今最小にしようとしているポジションの値が、既に自分を含めてまだソートされていない部分の最小であった場合swapをスキップする実装が提示されているが、同じポジション同士でswapしてもロジックとしては変わらないし、swapのスキップの条件分岐がない方が脳内フローチャートが簡潔に収まるような気がする。
+
+[Wikipedia - Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort)
+[Northern Illinois University CS501 Bubble Sort](https://faculty.cs.niu.edu/~winans/CS501/Notes/Sorting_Algorithms/bubble_sort.html)
+
+私のStep 1 の解法とほぼ同じだと思うが、ちょっと思っていた書き方と違った。pseudocode を書き起こすとこうなりそう (-> `step2_bubble_sort.py`)。
+swapが起こらなかったら、既にソートされていることがわかるので早めにループを打ち切れる。
+また、後方に最大の値を集めていくことを利用して、ループ範囲を狭めていく最適化もあるように見受けられる。
