@@ -31,3 +31,14 @@ Pythonはdo-whileがないので、便宜上 `swapped=True`で初期化してい
 [Wikipedia - Insertion sort](https://en.wikipedia.org/wiki/Insertion_sort)
 
 こちらの理解も合っていそう。だが、言語化できないちょっとした引っかかりがあり、少し脳内に寝かせる必要がありそう。
+
+# Step 4
+
+Tried 4 colors problem -> `step4_4_colors.py`
+
+TODO:
+
+- Try 5 colors
+	- I may be able to simply add one more pointer do extend the swapping logic
+- Reply back to サザンカ-san
+- Check Noda-san's solution
