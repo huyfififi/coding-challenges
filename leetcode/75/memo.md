@@ -35,10 +35,11 @@ Pythonはdo-whileがないので、便宜上 `swapped=True`で初期化してい
 # Step 4
 
 Tried 4 colors problem -> `step4_4_colors.py`
+Tried 5 colors problem -> `step4_5_colors.py`
+
+It appears that, as long as the number of colors is fixed, I can keep extending the idea of three pointers partition.
 
 TODO:
 
-- Try 5 colors
-	- I may be able to simply add one more pointer do extend the swapping logic
 - Reply back to サザンカ-san
 - Check Noda-san's solution
