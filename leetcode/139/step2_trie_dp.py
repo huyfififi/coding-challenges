@@ -9,11 +9,10 @@ class Trie:
 
     def insert(self, word: str) -> None:
         node = self.root
-        for letter in word:
-            if letter not in node.children:
-                node.children[letter] = Trie.Node()
-            node = node.children[letter]
-
+        for c in word:
+            if c not in node.children:
+                node.children[c] = Trie.Node()
+            node = node.children[c]
         node.is_end = True
 
 
@@ -25,20 +24,17 @@ class Solution:
 
         divisible = [False] * (len(s) + 1)
         divisible[0] = True
-
         for i in range(len(s)):
             if not divisible[i]:
                 continue
 
             node = trie.root
-            j = i
-            while j < len(s):
+            for j in range(i, len(s)):
                 node = node.children.get(s[j])
                 if node is None:
                     break
 
                 if node.is_end:
                     divisible[j + 1] = True
-                j += 1
 
         return divisible[len(s)]
