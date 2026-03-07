@@ -26,3 +26,9 @@ TLEした方法だと、再帰関数が二つの引数 `(subset_sum, checking_in
 > SSP is a special case of the knapsack problem and of the multiple subset sum problem.
 
 この問題は、各itemが最大でも一回しか使えない 0/1 Knapsack Problem に分類されるらしい。
+
+# Step 4
+
+[https://github.com/hemispherium/LeetCode\_Arai60/pull/10#discussion\_r2618523247](https://github.com/hemispherium/LeetCode_Arai60/pull/10#discussion_r2618523247)
+
+いつでも参照渡しが効率的なわけではない :eyes:
