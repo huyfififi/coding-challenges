@@ -6,11 +6,11 @@ class Solution {
 public:
     int myAtoi(const std::string s) {
         const std::string decimal_string = "0123456789";
-        const long upper_bound = std::numeric_limits<int32_t>::max();
-        const long lower_bound = std::numeric_limits<int32_t>::min();
+        const long long upper_bound = std::numeric_limits<int32_t>::max();
+        const long long lower_bound = std::numeric_limits<int32_t>::min();
 
         bool positive = true;
-        long result = 0;
+        long long result = 0;
         size_t start = 0;
         while (s[start] == ' ') { ++start; }
         if (s[start] == '-') {

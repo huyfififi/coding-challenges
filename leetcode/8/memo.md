@@ -10,7 +10,7 @@
 
 ## オーバーフロー対策
 
-Step 1 では、途中結果をオーバーフローさせないために `long` で一旦計算する方針をとっていたのだが、
+Step 1 では、途中結果をオーバーフローさせないために `long long` で一旦計算する方針をとっていたのだが、
 
 [Satorien さんのPR](https://github.com/Satorien/LeetCode/pull/58/changes#diff-6360db6e2a790c155563f693493e79f9fdbe0bcac7ddbf5fe63c39382745bd7bR51)
 
