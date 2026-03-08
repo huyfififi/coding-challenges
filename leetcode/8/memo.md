@@ -5,3 +5,17 @@
 もちろん問題文を読んでサンプルに挙げられていないケースまで想像が及ぶことがベストなのだが...。
 
 また、直接 `std::atoi` は用いていないものの、面接官が求めている解き方をしていないかもしれないという不安がある。
+
+# Step 2
+
+## オーバーフロー対策
+
+Step 1 では、途中結果をオーバーフローさせないために `long` で一旦計算する方針をとっていたのだが、
+
+[Satorien さんのPR](https://github.com/Satorien/LeetCode/pull/58/changes#diff-6360db6e2a790c155563f693493e79f9fdbe0bcac7ddbf5fe63c39382745bd7bR51)
+
+```python
+if sign == POSITIVE and (MAX_INT - int(s[index])) // 10 - num < 0:
+```
+
+なるほど、`num * 10 + digit > MAX_INT` という不等式を式変形すればオーバーフローさせずにチェックできるのか。
