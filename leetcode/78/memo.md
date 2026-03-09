@@ -32,3 +32,22 @@ class Solution:
 (num1, None), (num1, num2)
 
 を何重にもやるような感じだろうか。
+
+LeetCode の Solutions を眺めてみたけど、読解に苦労する解法ばかりだと感じた。素直に2分岐していくのが一番わかりやすくないかなぁ。
+
+[こういうの](https://leetcode.com/problems/subsets/solutions/5186398/fasterless-mem3-methodsdetailed-approach-2qpi)もあった。
+
+```python
+class Solution:
+    def subsets(self, nums: list[int]) -> list[list[int]]:
+        def backtrack(start, path):
+            result.append(path)
+            for i in range(start, len(nums)):
+                backtrack(i + 1, path + [nums[i]])
+
+        result = []
+        backtrack(0, [])
+        return result
+```
+
+結構読解に時間を要してしまった。バリエーションの一つとして、頭の片隅にでも置いておこう。
