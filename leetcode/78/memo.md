@@ -37,6 +37,8 @@ LeetCode の Solutions を眺めてみたけど、読解に苦労する解法ば
 
 [こういうの](https://leetcode.com/problems/subsets/solutions/5186398/fasterless-mem3-methodsdetailed-approach-2qpi)もあった。
 
+以下ポストからコピペ。
+
 ```python
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
