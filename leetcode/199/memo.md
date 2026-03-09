@@ -15,3 +15,10 @@
 
 時間計算量 O(n), 空間計算量 O(n) (最悪の場合、Nodeが一列に並ぶ木において call stack と 答えを持つリストが n の長さを持つ)。
 ただし、Node の数が高々100つなので、実行時間・メモリ使用量ともに問題ないだろう。
+
+# Step 2
+
+[cppreference.com - std::size\_t](https://en.cppreference.com/w/cpp/types/size_t.html)
+勘違いをしていたのだが、`std::size_t`を使用するには `#include <cstddef>` をすべきなのか。primitive type だと思っていた。
+
+LeetCode Solutions を眺めた感じ、自分の解法が一番わかりやすそうだったので、これで進むことにする。
