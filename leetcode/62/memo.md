@@ -10,6 +10,8 @@
 
 # Step 2
 
+## 組み合わせ
+
 [dxxsxsxkxさんのPR](https://github.com/dxxsxsxkx/leetcode/pull/33/changes#diff-e425ab53cee19df2ef6995889ba4e527fc0e29e480a6787c15119f2da066511c)
 
 動的計画法だと初めからわかっていたのでそれに飛びついてしまったが、いつかの数学でやった組み合わせの問題であることも連想できた方が良かったな。
@@ -22,3 +24,7 @@
 時間計算量: O(min(m, n)), 空間計算量: O(1)
 
 そもそもPythonには [math.comb](https://docs.python.org/3/library/math.html#math.comb) という関数があるらしいのでそれを使えば簡単か。-> `step2_math_comb.py`
+
+## Memoization
+
+そういえば、Memoizationでもいけそうだな -> `step2_memoization.py`
