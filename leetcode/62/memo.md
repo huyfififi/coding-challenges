@@ -20,3 +20,5 @@
 書いてみた -> `step2_combination.py` Pythonだから桁を気にせず掛け合わせてしまっている。
 
 時間計算量: O(min(m, n)), 空間計算量: O(1)
+
+そもそもPythonには [math.comb](https://docs.python.org/3/library/math.html#math.comb) という関数があるらしいのでそれを使えば簡単か。-> `step2_math_comb.py`
