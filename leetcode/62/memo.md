@@ -28,3 +28,9 @@
 ## Memoization
 
 そういえば、Memoizationでもいけそうだな -> `step2_memoization.py`
+
+## 1 列 DP
+
+[naoto-iwaseさんのPR](https://github.com/naoto-iwase/leetcode/pull/38/changes#diff-8a6ff63343e74cc80d732f8899ddf515ccf1d52a91f0f73f0d8b022fd23400cbR44)
+
+保持するのが一列だけでも良いのか、いや確かに言われてみれば。-> `step2_one_row_dp.py`
