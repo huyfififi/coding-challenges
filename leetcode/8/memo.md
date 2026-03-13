@@ -39,3 +39,9 @@ int digit = *it - '0';
 
 また、[std::isdigit](https://en.cppreference.com/w/cpp/string/byte/isdigit.html)や[std::isspace](https://en.cppreference.com/w/cpp/string/byte/isspace.html)を使えば簡潔に、また自前の処理がバグを起こすことを心配する必要なく書けそう。
 Pythonは仕事で使っているので定期的にドキュメントを見て、どういう関数があるのかチェックしているのだが、他の言語ともなるとなかなか難しいな。
+
+# Step 4
+
+メモ
+
+`((max_int - digit) / 10)` は整数除算で少数部分が切り捨てられるが、比較している `integer` は整数なので、`integer > floor((max_int - digit) / 10)` と同じ。
