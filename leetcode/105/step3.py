@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode | None:
-        value_to_inorder_index = {index: value for value, index in enumerate(inorder)}
+        val_to_inorder_index = {val: index for index, val in enumerate(inorder)}
 
         def build_tree_helper(
             root_preorder_index: int, inorder_begin: int, inorder_end: int
@@ -15,7 +15,7 @@ class Solution:
                 return None, root_preorder_index
 
             root_val = preorder[root_preorder_index]
-            root_inorder_index = value_to_inorder_index[root_val]
+            root_inorder_index = val_to_inorder_index[root_val]
 
             next_root_preorder_index = root_preorder_index + 1
 
@@ -26,9 +26,6 @@ class Solution:
                 next_root_preorder_index, root_inorder_index + 1, inorder_end
             )
 
-            return (
-                TreeNode(val=root_val, left=left, right=right),
-                next_root_preorder_index,
-            )
+            return TreeNode(root_val, left, right), next_root_preorder_index
 
         return build_tree_helper(0, 0, len(inorder))[0]
