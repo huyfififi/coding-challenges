@@ -25,7 +25,9 @@ class Solution:
         num_to_inorder_i = {num: i for i, num in enumerate(inorder)}
 
         def build_tree_helper(
-            preorder_span: Span, inorder_span: Span
+            # preorder_span and inorder_span represent the same subtree
+            preorder_span: Span,
+            inorder_span: Span,
         ) -> TreeNode | None:
             if preorder_span.is_empty():
                 return None
@@ -33,15 +35,20 @@ class Solution:
             root_val = preorder[preorder_span.begin]
             root_inorder_i = num_to_inorder_i[root_val]
 
+            # When picking a root inorder index, the range is split into
+            # [left subtree | root | right subtree]
             inorder_left = Span(inorder_span.begin, root_inorder_i)
             inorder_right = Span(root_inorder_i + 1, inorder_span.end)
 
+            # [root | left subtree | right subtree]
+            # The size of left subtree is determined by inorder left size
             preorder_left = Span(
                 preorder_span.begin + 1, preorder_span.begin + 1 + inorder_left.size
             )
             preorder_right = Span(
                 preorder_span.end - inorder_right.size, preorder_span.end
             )
+
             return TreeNode(
                 val=root_val,
                 left=build_tree_helper(preorder_left, inorder_left),
