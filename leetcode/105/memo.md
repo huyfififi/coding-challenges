@@ -31,3 +31,9 @@ TODO: 時間計算量・空間計算量
 - 写経 -> `step2_pick_preorder.py`
 - Step 1 を考えていた時はうまく言語化できていなかったのだが、私の Step 1 の方法では、次の root をつけるために preorder を毎回スキャンする必要があった。
 - この方法では、次に root になる preorder の位置を返して再帰間で共有できるため、余計な探索を省くことができていて、脳への収まりも良い。
+
+# Step 3
+
+## `step3_pick_next_root.py`
+
+次に root として使うべき preorder の位置を渡していく。
