@@ -8,6 +8,8 @@
 
 しばらく考えてみたのだが、枝刈りは思いついても、時間計算量を O(nlogn) や O(n) にする方法が思いつかなかった。
 
+# Step 2
+
 LeetCode にポストされている Solution を見てみた。
 
 ```py
@@ -30,4 +32,6 @@ class Solution:
 
 うーん？なんでTwo Pointersでうまくいくのだろう。少し考えてみる。
 
-TODO: Check [https://github.com/thonda28/leetcode/pull/16](https://github.com/thonda28/leetcode/pull/16)
+[thonda28 さんのPR](https://github.com/thonda28/leetcode/pull/16/changes#r1687386128)
+
+[Segment Tree](https://en.wikipedia.org/wiki/Segment_tree) を用いた解法もあるようだ。実装できるまで理解するのにかなり時間がかかりそうだから一旦置いておこうか。
