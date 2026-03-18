@@ -7,3 +7,27 @@
 なので、C++ が 1秒間に10^9 回の処理が行えるとしても、大体 10 秒くらいのオーダーの処理時間がかかりそう。
 
 しばらく考えてみたのだが、枝刈りは思いついても、時間計算量を O(nlogn) や O(n) にする方法が思いつかなかった。
+
+LeetCode にポストされている Solution を見てみた。
+
+```py
+class Solution:
+    def maxArea(self, height: list[int]) -> int:
+        max_area = 0
+        left = 0
+        right = len(height) - 1
+
+        while left < right:
+            max_area = max(max_area, (right - left) * min(height[left], height[right]))
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return max_area
+
+```
+
+うーん？なんでTwo Pointersでうまくいくのだろう。少し考えてみる。
+
+TODO: Check [https://github.com/thonda28/leetcode/pull/16](https://github.com/thonda28/leetcode/pull/16)
