@@ -11,4 +11,4 @@
 時間計算量: O(n * 4 ^ n) (string construction + generate all possible combinations)
 空間計算量: O(n * 4 ^ n) (the result holds 4 ^ n strings with length of n)
 
-テストケースは無事にパスしたのだが、LeetCode 上の実行時間・補助空間使用量の順位が最下位に近い。constant くらいしか違わなそうだが、私の解法よりも効率の良い解法がありそうだ。Step 2 で見てみることにする。
+テストケースは無事にパスしたのだが、LeetCode 上の実行時間・補助空間使用量の順位が最下位に近い。constant くらいしか違わなそうだが、私の解法よりも効率の良い解法がありそうだ。~Step 2 で見てみることにする。~ と思ったのだが、これ backtracking で行けるのでは？ C++のsyntaxを思い出すことにいっぱいいっぱいになってしまっていたが、Pythonだったらnested functions を書くのが楽なので helper 関数を用意して backtracking という方法がすぐに思いついたのにな、悔しい。
