@@ -13,7 +13,7 @@ class Solution:
 
         generated = []
 
-        def generate_combinations(digit_index: int, generating: list[int]) -> None:
+        def generate_combinations(digit_index: int, generating: list[str]) -> None:
             if digit_index == len(digits):
                 generated.append("".join(generating))
                 return
