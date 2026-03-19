@@ -41,4 +41,11 @@ class Solution:
 
 [thonda28 さんのPR](https://github.com/thonda28/leetcode/pull/16/changes#r1687386128)
 
-[Segment Tree](https://en.wikipedia.org/wiki/Segment_tree) を用いた解法もあるようだ。実装できるまで理解するのにかなり時間がかかりそうだから一旦置いておこうか。
+[Segment Tree](https://en.wikipedia.org/wiki/Segment_tree) を用いた解法もあるようだ。
+LeetCode の Solutions も眺めてみると、幾つか [Segment Tree を用いた解法](https://leetcode.com/problems/container-with-most-water/solutions/2998428/c-min-and-max-segment-tree-on-log10000-b-yh5c)が提示されている。
+
+Segment Tree は区間内の最大値を返すことができて、今回の問題の場合、区間を高さ、値を `height` のインデックスに設定する。
+あるインデックス `i` に対して、その `height[i]` の値以上の高さを持つ一番右のインデックスが面積の最大を作るので、区間 `[height[i], 10^4]` という クエリの返すインデックスとの面積をチェックしていけばいい。ただしこれだけだと、右側が`height[i]`以上になるような場合しかチェックしていないので、[5,4,3,2,1] のような入力を扱うために、逆方向にも同様にクエリを行い、左側にある最も遠いインデックスも調べる必要がある。
+時間計算量は O(n log 10 ^ 4) = O(n)
+
+いくつか解法をみてみたが、今の私には荷が重そうなので、一旦スキップさせていただくことにする。
