@@ -29,7 +29,6 @@ class Solution:
                 right -= 1
 
         return max_area
-
 ```
 
 うーん？なんでTwo Pointersでうまくいくのだろう。少し考えてみる。
