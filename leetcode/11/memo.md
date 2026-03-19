@@ -32,6 +32,13 @@ class Solution:
 
 うーん？なんでTwo Pointersでうまくいくのだろう。少し考えてみる。
 
+わかった。
+`i`, `j` (`i < j`, `height[i] < height[j]`) の2点を考える。面積は、高さが `height[i]` で決まるので、`(j - i) * height[i]`。
+ここで、`j` をどれだけ減らしても、この面積を超えることはない。幅は小さくなる一方だし、`height[j]` が大きくなっても高さは `height[i]` で頭打ちだし、`height[j]` が小さくなれば高さも小さくなる。
+だから `height[i] < height[j]` のときは、`j` を減らして得られる面積は最初のものを超えないので、試す必要がない。
+`height[i] > height[j]` のときも同様。
+なので、Two Pointersで解ける。
+
 [thonda28 さんのPR](https://github.com/thonda28/leetcode/pull/16/changes#r1687386128)
 
 [Segment Tree](https://en.wikipedia.org/wiki/Segment_tree) を用いた解法もあるようだ。実装できるまで理解するのにかなり時間がかかりそうだから一旦置いておこうか。
