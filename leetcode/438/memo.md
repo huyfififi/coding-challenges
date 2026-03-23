@@ -19,3 +19,7 @@
 # Step 2
 
 Discord 内には先駆者がいなかった。LeetCode の Solutions を眺めても似たりよったり。
+
+# Step 3
+
+`ord(c) - ord("a")` の方が意図が明確かも...。あまり他の方々が `string` の constants を使っているのを見たことがない。
