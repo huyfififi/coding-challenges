@@ -2,6 +2,16 @@
 
 素直に全ての root を試す方法しか思いつかなかった -> `step1_tle.py`。
 
+後から思ったが、cycle がないことが保証されているので、一つ前に戻るのだけスキップする形の方がシンプルだった。
+
+```py
+            for adj in node_to_adjacents[node]:
+                if adj == parent:
+                    continue
+                child_height = max(child_height, 1 + height(adj, node))
+            return child_height
+```
+
 制約が
 
 > `1 <= n <= 2 * 10^4`
