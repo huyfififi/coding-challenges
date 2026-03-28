@@ -1,23 +1,34 @@
 class Solution:
     def findMinHeightTrees(self, n: int, edges: list[list[int]]) -> list[int]:
-        adjacents = [set() for _ in range(n)]
+        if n == 1:
+            return [0]
+
+        neighbors = [[] for _ in range(n)]
         degrees = [0] * n
+
         for node1, node2 in edges:
-            adjacents[node1].add(node2)
-            adjacents[node2].add(node1)
+            neighbors[node1].append(node2)
+            neighbors[node2].append(node1)
             degrees[node1] += 1
             degrees[node2] += 1
 
-        removed = set()
-        while n - len(removed) > 2:
-            leaves = [node for node in range(n) if degrees[node] == 1]
+        leaves = [node for node in range(n) if degrees[node] == 1]
+        remaining = n
+        while remaining > 2:
+            next_leaves = []
             for leaf in leaves:
-                for adj in adjacents[leaf]:
-                    degrees[adj] -= 1
-                    adjacents[adj].remove(leaf)
+                degrees[leaf] = 0
+                remaining -= 1
 
-                degrees[leaf] -= 1
-                adjacents[leaf].pop()
-                removed.add(leaf)
+                # Only one neighbor is active at this point since `leaf` is a leaf
+                for neighbor in neighbors[leaf]:
+                    if degrees[neighbor] == 0:
+                        continue
 
-        return [node for node in range(n) if node not in removed]
+                    degrees[neighbor] -= 1
+                    if degrees[neighbor] == 1:
+                        next_leaves.append(neighbor)
+
+            leaves = next_leaves
+
+        return leaves

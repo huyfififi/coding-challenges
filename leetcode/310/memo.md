@@ -46,6 +46,6 @@ Discord 上で取り組まれた方はいなさそうなので、LeetCode の So
 
 まず、Minimum Height Tree を作る root は 1 つか 2 つという私の考えは正しかった。それをどう求めるのかだが、各ステップで現在の葉ノードを全て削除していって、最後に残った 1 個か 2 個のノードがグラフの一番長いパスの真ん中 -> Minimum Height Tree の root(s) になる。
 
-やり方だけ頭において、LeetCode 207\. Course Schedule のように書いたら、`step1.py` のようになった。しかし、書いていてすぐ、一々各ステップで線形探索して葉ノードを探す (`O(n)`)のではなくて、隣接するノードを更新してそれが葉になり次第 `next_leaves: list[int]` か何かに入れておけば、線形探索をしなくて済むなと思った -> `step1_improved.py`。
+やり方だけ頭において、LeetCode 207\. Course Schedule を思い出しながら書いた `step1.py`。
 
 TODO: Time/Space Complexity
