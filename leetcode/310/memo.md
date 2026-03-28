@@ -42,6 +42,8 @@ LeetCode 上の Hint を考えてみる。
 Discord 上で取り組まれた方はいなさそうなので、LeetCode の Solutions を眺めてみると、これらの記事が理解しやすそう
 
 [dietpepsi - Share some thoughts](https://leetcode.com/problems/minimum-height-trees/solutions/76055/share-some-thoughts-by-dietpepsi-mjsc/)
-[lc_1000xCoder - [ Full Explanation ] BFS - Remove Leaf Nodes](https://leetcode.com/problems/minimum-height-trees/solutions/5060930/full-explanation-bfs-remove-leaf-nodes-b-4x00/)
+[lc\_1000xCoder - [ Full Explanation ] BFS - Remove Leaf Nodes](https://leetcode.com/problems/minimum-height-trees/solutions/5060930/full-explanation-bfs-remove-leaf-nodes-b-4x00/)
 
 まず、Minimum Height Tree を作る root は 1 つか 2 つという私の考えは正しかった。それをどう求めるのかだが、各ステップで現在の葉ノードを全て削除していって、最後に残った 1 個か 2 個のノードがグラフの一番長いパスの真ん中 -> Minimum Height Tree の root(s) になる。
+
+やり方だけ頭において、LeetCode 207\. Course Schedule のように書いたら、`step1.py` のようになった。
