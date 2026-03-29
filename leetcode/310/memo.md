@@ -48,4 +48,5 @@ Discord 上で取り組まれた方はいなさそうなので、LeetCode の So
 
 やり方だけ頭において、LeetCode 207\. Course Schedule を思い出しながら書いた `step1.py`。
 
-TODO: Time/Space Complexity
+時間計算量: `O(n)`、隣接リストの構築 `O(n)` + 各ノードは高々一回だけ葉として処理される `O(n)` + 各ノードの隣接リストは高々1回しか走査されないため (`adjacents[leaf]`) 合計で `O(n)`
+空間計算量: `O(n)`、neighbors が合計で `2(n - 1)`、degrees/leaves/next leaves も `O(n)`。
