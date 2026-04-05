@@ -55,3 +55,9 @@ Discord 上で取り組まれた方はいなさそうなので、LeetCode の So
 
 上のポストを見返すと、`neighbors: list[set[int]]` を持ってそれを 隣接ノードの取得 + 長さによる枝の本数チェック、の両方に使用すれば、`neighbors` と `degrees` を別々に持たなくても済んでいる。
 時間・空間計算量が変わることはなく、隣接ノードと持っている枝の本数を一つの変数にまとめることが読みやすさにどれだけ影響があるのか判断がつかないが、とりあえず書いてみることにする -> `step2.py`。
+
+# Step 4
+
+[Stack Overflow - Proof of correctness: Algorithm for diameter of a tree in graph theory](https://beta.stackoverflow.com/questions/20010472/proof-of-correctness-algorithm-for-diameter-of-a-tree-in-graph-theory)
+
+Performing BFS (or DFS) twice to find the farthest node in a tree yields the diameter.

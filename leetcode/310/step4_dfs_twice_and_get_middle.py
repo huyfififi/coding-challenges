@@ -3,7 +3,6 @@ First attempt using two DFS passes to find the longest path (diameter) and retur
 I haven't carefully reviewed or refactored yet.
 TODO:
 - Revisit review comments
-- Consider why performing DFS twice can find the longest path
 - Improve/refactor this solution.
 """
 
