@@ -61,3 +61,7 @@ Discord 上で取り組まれた方はいなさそうなので、LeetCode の So
 [Stack Overflow - Proof of correctness: Algorithm for diameter of a tree in graph theory](https://beta.stackoverflow.com/questions/20010472/proof-of-correctness-algorithm-for-diameter-of-a-tree-in-graph-theory)
 
 Performing BFS (or DFS) twice to find the farthest node in a tree yields the diameter.
+
+Added `step4_bf_tle.py` and `step4_get_diameter.py`
+
+(node, parent) を渡せば無限ループが容易に回避できるのだが、-1を最初に渡すのが読み手からすると少し驚くポイントかもしれない。
