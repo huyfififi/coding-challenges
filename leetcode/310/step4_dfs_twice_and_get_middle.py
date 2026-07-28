@@ -4,6 +4,8 @@ I haven't carefully reviewed or refactored yet.
 TODO:
 - Revisit review comments
 - Improve/refactor this solution.
+
+Improved version -> `step4_get_diameter.py` which replaces two functions here with one
 """
 
 
