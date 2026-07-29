@@ -65,3 +65,5 @@ Performing BFS (or DFS) twice to find the farthest node in a tree yields the dia
 Added `step4_bf_tle.py` and `step4_get_diameter.py`
 
 (node, parent) を渡せば無限ループが容易に回避できるのだが、-1を最初に渡すのが読み手からすると少し驚くポイントかもしれない。
+
+Added `step4_rerooting_ac.py` さざんかさんの解法をトライ。
