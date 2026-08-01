@@ -1,3 +1,7 @@
+# Step 1
+
+## ノーヒント
+
 最初に考えたのは、全てのユニークなラベルを各ステップで一個ずつ消費していく方法だった。
 
 ```
@@ -40,3 +44,15 @@ A, B, A, C, A, D
 ```
 
 ただ、それだけだとユニークなタスクが埋めたいidleの数を超えて存在する場合（例えば `[A, A, A, B, B, B, C, C, C], n = 1`）どうすれば良いのかわからず詰まってしまった。
+
+## ヒントを見たあと
+
+Hint 2 まで見た。
+
+> For every cycle, find the most frequent letter that can be placed in this cycle. After placing, decrease the frequency of that letter by one.
+
+問題文を見た時は特に気にしていなかったのだが
+
+> `tasks[i]` is an uppercase English letter.
+
+という制約があるので、タスクの種類は最大 26種類。ということは、最頻のタスクをとってくることは `O(1)` で行える。-> 変数の書き間違いをして延々とハマってしまったが、最終的に解答を書き上げられた（`step1.py`）。
