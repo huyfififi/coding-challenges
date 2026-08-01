@@ -11,7 +11,7 @@ class Solution:
         remaining_labels = set(label_to_count)
 
         intervals = 0
-        while len(remaining_labels) > 0:
+        while remaining_labels:
             available_label_to_count = {
                 label: count
                 for label, count in label_to_count.items()
