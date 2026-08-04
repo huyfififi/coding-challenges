@@ -4,34 +4,31 @@ import heapq
 
 class Solution:
     def leastInterval(self, tasks: list[str], n: int) -> int:
-        label_to_count = collections.defaultdict(int)
-        for label in tasks:
-            label_to_count[label] += 1
-
-        negated_counts_heap = []
+        label_to_count = collections.Counter(tasks)
+        negated_counts = []
         for count in label_to_count.values():
-            heapq.heappush(negated_counts_heap, -count)
+            negated_counts.append(-count)
 
-        del label_to_count
+        heapq.heapify(negated_counts)
 
         time = 0
         cycle_length = n + 1
-        while negated_counts_heap:
-            next_counts = []
-            num_tasks_done = 0
 
-            for _ in range(min(cycle_length, len(negated_counts_heap))):
-                count = -heapq.heappop(negated_counts_heap)
+        while negated_counts:
+            num_tasks_done = min(cycle_length, len(negated_counts))
+            next_counts = []
+
+            for _ in range(num_tasks_done):
+                count = -heapq.heappop(negated_counts)
                 if count > 1:
                     next_counts.append(count - 1)
-                num_tasks_done += 1
 
             for count in next_counts:
-                heapq.heappush(negated_counts_heap, -count)
+                heapq.heappush(negated_counts, -count)
 
-            if negated_counts_heap:
+            if negated_counts:
                 time += cycle_length
             else:
                 time += num_tasks_done
 
-        return time
+        return timeimport collections
