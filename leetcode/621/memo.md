@@ -74,3 +74,9 @@ Hint 2 を見た時に、the most frequent latter をとってくるのは max h
 [kazuki-officialさんのPR](https://github.com/kazuki-official/leetcode/pull/116/)
 
 Step 1 のコードは、データ構造の選択や処理順に違いがあるものの、私のものと基本的には同じ、クールタイム中のものを除く最頻のタスクを各サイクルで実行する方法だと思った。
+
+## Greedy simultation using batches of size `n + 1` (cooldown windows).
+
+`step2_batch_by_cycle.py`
+
+一度理解するとなるほど、と思う。
