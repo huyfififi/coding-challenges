@@ -31,4 +31,4 @@ class Solution:
             else:
                 time += num_tasks_done
 
-        return timeimport collections
+        return time
