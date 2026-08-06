@@ -11,13 +11,12 @@ class Solution:
 
         heapq.heapify(negated_counts)
 
-        time = 0
-        cycle_length = n + 1
-
+        intervals = 0
+        batch_size = n + 1
         while negated_counts:
-            num_tasks_done = min(cycle_length, len(negated_counts))
             next_counts = []
 
+            num_tasks_done = min(batch_size, len(negated_counts))
             for _ in range(num_tasks_done):
                 count = -heapq.heappop(negated_counts)
                 if count > 1:
@@ -27,8 +26,8 @@ class Solution:
                 heapq.heappush(negated_counts, -count)
 
             if negated_counts:
-                time += cycle_length
+                intervals += batch_size
             else:
-                time += num_tasks_done
+                intervals += num_tasks_done
 
-        return time
+        return intervals
