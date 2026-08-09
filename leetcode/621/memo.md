@@ -80,3 +80,9 @@ Step 1 のコードは、データ構造の選択や処理順に違いがある�
 `step2_batch_by_cycle.py`
 
 一度理解するとなるほど、と思う。
+
+## Most-frequent-tasks-first placement
+
+Step 1 で少し考えた方法だが、具体的な計算にまで落とし込めなかった。
+
+`step2_place_most_frequent.py`
