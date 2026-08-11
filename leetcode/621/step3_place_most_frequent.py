@@ -16,6 +16,7 @@ class Solution:
         empty_slots_per_gap = max(0, n - (num_most_frequent_labels - 1))
         empty_slots = num_gaps * empty_slots_per_gap
 
-        num_non_frequent_tasks = len(tasks) - max_count * num_most_frequent_labels
+        num_infrequent_tasks = len(tasks) - max_count * num_most_frequent_labels
 
-        return len(tasks) + max(0, empty_slots - num_non_frequent_tasks)
+        num_unfilled_slots = max(0, empty_slots - num_infrequent_tasks)
+        return len(tasks) + num_unfilled_slots
