@@ -58,5 +58,19 @@ if condition がかなり複雑になってしまったが、LeetCode 上の実�
 
 # Step 2
 
+## ChatGPT と色々相談してみる
+
 - head だけ dummy を用いていたが、tail でも dummy を使えば、追加・削除する node がいつでも `next` と `prev` を持つようになって、条件分岐がを減らせる。
 - `\_\_detach\_cache` と `\_\_attach\_cache` から `key\_to\_node` の扱いを外して関数内でやることをシンプルに、結果的に余分な Hash Table の操作を削減。
+
+## 他の方々のPRを見てみる
+
+- [tom4649 さんのPR](https://github.com/tom4649/Coding/pull/72)
+	- OrderedDict を使えばもっと簡単に書けるのか、[move_to_end](https://docs.python.org/3/library/collections.html#collections.OrderedDict.move_to_end) と [popitem(last=False)](https://docs.python.org/3/library/collections.html#collections.OrderedDict.popitem) があるの便利だな。dict でも insertion order は保持されるので、OrderedDict は頭の中のすぐ使える部分にはないな。
+- [t0hsumi さんのPR](https://github.com/t0hsumi/leetcode/pull/16)
+	- CPython の `lru\_cache` 実装への言及がある。
+		- [https://github.com/python/cpython/blob/e3287f631f3c88ed80191aa222e7fc4ba91edd17/Lib/functools.py#L609](https://github.com/python/cpython/blob/e3287f631f3c88ed80191aa222e7fc4ba91edd17/Lib/functools.py#L609)
+			- ListNode を `[PREV, NEXT, KEY, RESULT]` で表しているの面白いな。
+			- circular doubly linked list with a single sentinel root だ。これはOdaさんもレビューコメントで残されている。
+
+TODO: Implement OrderedDict approach
