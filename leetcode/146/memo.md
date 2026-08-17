@@ -73,4 +73,4 @@ if condition がかなり複雑になってしまったが、LeetCode 上の実�
 			- ListNode を `[PREV, NEXT, KEY, RESULT]` で表しているの面白いな。
 			- circular doubly linked list with a single sentinel root だ。これはOdaさんもレビューコメントで残されている。
 
-TODO: Implement OrderedDict approach
+OrderedDict を用いて実装してみた -> `step2\_ordered\_dict.py`。こんなに簡単に実装できたのか、便利だな。
