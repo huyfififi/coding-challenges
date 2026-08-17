@@ -14,8 +14,8 @@ class LRUCache:
         return self.key_to_val[key]
 
     def put(self, key: int, value: int) -> None:
-        self.key_to_val.pop(key, default=None)
         self.key_to_val[key] = value
+        self.key_to_val.move_to_end(key)
 
         while len(self.key_to_val) > self.capacity:
             self.key_to_val.popitem(last=False)
