@@ -59,3 +59,4 @@ if condition がかなり複雑になってしまったが、LeetCode 上の実�
 # Step 2
 
 - head だけ dummy を用いていたが、tail でも dummy を使えば、追加・削除する node がいつでも `next` と `prev` を持つようになって、条件分岐がを減らせる。
+- `\_\_detach\_cache` と `\_\_attach\_cache` から `key\_to\_node` の扱いを外して関数内でやることをシンプルに、結果的に余分な Hash Table の操作を削減。
