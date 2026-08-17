@@ -55,3 +55,7 @@ if condition がかなり複雑になってしまったが、LeetCode 上の実�
 > The functions get and put must each run in O(1) average time complexity.
 
 というのが問題文にあったからだった。LeetCode 上ではテストケースをパスするかもしれないが、Priority Queue を使用する方法は問題文を読む限り想定解ではないのだろう。
+
+# Step 2
+
+- head だけ dummy を用いていたが、tail でも dummy を使えば、追加・削除する node がいつでも `next` と `prev` を持つようになって、条件分岐がを減らせる。
