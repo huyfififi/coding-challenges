@@ -74,3 +74,15 @@ if condition がかなり複雑になってしまったが、LeetCode 上の実�
 			- circular doubly linked list with a single sentinel root だ。これはOdaさんもレビューコメントで残されている。
 
 OrderedDict を用いて実装してみた -> `step2\_ordered\_dict.py`。こんなに簡単に実装できたのか、便利だな。
+
+[cpython/Lib/collections/__init__.py](https://github.com/python/cpython/blob/f40043e0953323675843a3c275511596f30c80e9/Lib/collections/__init__.py#L89)
+
+```py
+class OrderedDict(dict):
+    'Dictionary that remembers insertion order'
+
+    # The internal self.__map dict maps keys to links in a doubly linked list.
+    # The circular doubly linked list starts and ends with a sentinel element.
+```
+
+`lru\_cache` と同じく、 circular doublly linked list か。この問題の解法まんまだな。この共通のパターンを学ばせるための問題のように感じる。
