@@ -50,4 +50,8 @@ if condition がかなり複雑になってしまったが、LeetCode 上の実�
 
 > At most `2 * 10^5` calls will be made to get and put
 
-なので O(nlogn) くらいまでLeetCode上で許容されそう。ぱっとは思いつかないが、他の方法がありそうなので、複雑な `step`.py` をリファクタリングすることと共に Step 2 で取り組む。
+なので O(nlogn) くらいまでLeetCode上で許容されそう。LeetCode 上の実行時間の分布を見ると、私の複雑で、特に最適化もしていない doubly linked list を使用する方法よりも遅いところに分布の山があるので、get/put に O(log n) かかる方法も多く含まれているのかもしれない。複雑な `step`.py` をリファクタリングすることと共に ~Step 2 で取り組む。~ -> よく考えてみたら、私が Step 1 で Priority Queue を使う方法を捨てたのは、
+
+> The functions get and put must each run in O(1) average time complexity.
+
+というのが問題文にあったからだった。LeetCode 上ではテストケースをパスするかもしれないが、Priority Queue を使用する方法は問題文を読む限り想定解ではないのだろう。
