@@ -2,29 +2,22 @@ from __future__ import annotations
 
 
 class ListNode:
-    def __init__(
-        self,
-        key: int | None = None,
-        value: int | None = None,
-        next_: ListNode | None = None,
-        prev: ListNode | None = None,
-    ):
+    def __init__(self, key: int | None = None, value: int | None = None):
         self.key = key
         self.value = value
-        self.next = next_
-        self.prev = prev
+        self.prev = None
+        self.next = None
 
 
 class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
+        self.key_to_node = {}
 
         self.head = ListNode()
         self.tail = ListNode()
         self.head.next = self.tail
         self.tail.prev = self.head
-
-        self.key_to_node: dict[int, ListNode] = {}
 
     def __detach_node(self, node: ListNode) -> None:
         node.prev.next = node.next
@@ -32,8 +25,10 @@ class LRUCache:
 
     def __attach_node(self, node: ListNode) -> None:
         most_recent = self.head.next
+
         self.head.next = node
         node.prev = self.head
+
         most_recent.prev = node
         node.next = most_recent
 
