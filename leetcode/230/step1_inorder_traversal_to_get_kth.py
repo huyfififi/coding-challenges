@@ -9,22 +9,20 @@ class Solution:
     def kthSmallest(self, root: TreeNode | None, k: int) -> int:
         count = 0
 
-        def traverse(
-            node: TreeNode | None,
-        ) -> tuple[int | None, bool]:  # kth smallest, found
+        def find_kth_smallest(node: TreeNode | None) -> int | None:
             if node is None:
-                return None, False
+                return None
 
             nonlocal count
 
-            kth_smallest, found = traverse(node.left)
-            if found:
-                return kth_smallest, True
+            kth_smallest = find_kth_smallest(node.left)
+            if kth_smallest is not None:
+                return kth_smallest
 
             count += 1
             if count == k:
-                return node.val, True
+                return node.val
 
-            return traverse(node.right)
+            return find_kth_smallest(node.right)
 
-        return traverse(root)[0]
+        return find_kth_smallest(root)
