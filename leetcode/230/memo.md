@@ -25,3 +25,57 @@ BST でも一度 traverse しない限りはどちらの木にいくつ Node が
 > Subtle hint: think about what happens at a single node during your inorder traversal. At the root, you don't know if the k-th smallest is in the left subtree, is the root itself, or is in the right subtree — that's exactly the "I can't tell how many nodes are on which side" problem you identified at the start. What's the one number, if stored at each node, that would let you answer that question locally, in O(1), without visiting either subtree?
 
 Step 1 の解法をこれ以上速くするのは難しいのではないか、と混乱していたが、実際に Follow up で聞かれていたのは、問題設定が若干変わった際にどう対応したらいいか、ということだった。ここまでヒントを出されると、流石に各 Node に子の数を持てば、いちいち subtree を全部探索せずに済み、左右どちらに行くかだけ判断すればいいので O(h) で済む。また、insertion/deletion の際はそのNode の親の Node を root までたどりながら `size += 1` または `size -= 1` をすればいいので O(h)。
+
+`size` を追加した場合の BST への挿入と削除を書こうとしたが、削除で詰まってしまった。一旦、この問題は follow up 以前のものとして扱って、時間がある時に 450\. Delete Node in a BST に取り組みたいと思う。
+
+途中までのコード :arrow_down:
+
+```py
+from __future__ import annotations
+
+
+class TreeNode:
+    def __init__(
+        self,
+        val: int = 0,
+        left: TreeNode | None = None,
+        right: TreeNode | None = None,
+        size: int = 1,
+    ) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+        self.size = size
+
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, val: int) -> None:
+        adding = TreeNode(val=val)
+        if self.root is None:
+            self.root = adding
+            return
+
+        node = self.root
+        while node is not None:
+            node.size += 1
+
+            assert adding.val != node.val
+            if adding.val < node.val:
+                if node.left is None:
+                    node.left = adding
+                    break
+                else:
+                    node = node.left
+            else:
+                if node.right is None:
+                    node.right = adding
+                    break
+                else:
+                    node = node.right
+
+    def delete(self, val: int) -> None:
+        pass
+```
