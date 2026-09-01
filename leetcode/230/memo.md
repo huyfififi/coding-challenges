@@ -28,9 +28,13 @@ Step 1 の解法をこれ以上速くするのは難しいのではないか、�
 
 `size` を追加した場合の BST への挿入と削除を書こうとしたが、削除で詰まってしまった。一旦、この問題は follow up 以前のものとして扱って、時間がある時に 450\. Delete Node in a BST に取り組みたいと思う。
 
-450\. Deelte Node in a BST に取り組んできた。
+450\. Delete Node in a BST に取り組んできた。
 
 - pick largest in the left subtree -> `450_step1_predecessor.py`
 - pick smallest in the right subtree -> `450_step1_successor.py`
 
 Time Complexity は O(h)。一度目の predecessor (successor) の探索で h のノードを訪問。二度目の `deleteNode()` で`root.left` (`root.right`) から先ほどの predecessor (successor) まで行って (O(h)) そこで O(1) の繋ぎかえ。
+
+450\. Delete Node に取り組んだので、follow up への回答をやや強引に書き上げたのが `step1_follow_up.py`。
+
+`a + b if b is not None else 0` が `b is None` の時 `0` になることに引っかかってかなりの時間を溶かしてしまった。`x if y else z` で `x` 部分がひとまとまりで評価されること、覚えておこう。
