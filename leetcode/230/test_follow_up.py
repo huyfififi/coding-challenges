@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib
 
 # Add new implementation modules here as they're created (e.g. "step2_follow_up").
-MODULE_NAMES = ["step1_follow_up", "step2_follow_up"]
+MODULE_NAMES = ["step1_follow_up", "step2_follow_up", "step3_follow_up"]
 
 
 def inorder(node) -> list[int]:
