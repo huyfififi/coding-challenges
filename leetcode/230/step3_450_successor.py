@@ -7,6 +7,7 @@ class TreeNode:
 
 class Solution:
     def deleteNode(self, root: TreeNode | None, key: int) -> TreeNode | None:
+        """Returns the new root after deletion"""
         if root is None:
             return None
 
@@ -20,11 +21,11 @@ class Solution:
             if root.right is None:
                 return root.left
 
-            predecessor = root.left
-            while predecessor.right is not None:
-                predecessor = predecessor.right
+            successor = root.right
+            while successor.left is not None:
+                successor = successor.left
 
-            root.val = predecessor.val
-            root.left = self.deleteNode(root.left, predecessor.val)
+            root.val = successor.val
+            root.right = self.deleteNode(root.right, successor.val)
 
         return root
