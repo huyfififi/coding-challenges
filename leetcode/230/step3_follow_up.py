@@ -28,8 +28,10 @@ class BST:
             root.size += 1
             if val < root.val:
                 root.left = insert_helper(root.left, val)
-            else:
+            elif root.val < val:
                 root.right = insert_helper(root.right, val)
+            else:
+                raise ValueError("The value already exists in the tree.")
 
             return root
 
@@ -69,12 +71,10 @@ class BST:
                 return None
 
             left_size = root.left.size if root.left is not None else 0
-            order = left_size + 1
-            if order == k:
+            if left_size + 1 == k:
                 return root.val
-            elif k < order:
+            if k < left_size + 1:
                 return find_kth_smallest_helper(root.left, k)
-            else:
-                return find_kth_smallest_helper(root.right, k - order)
+            return find_kth_smallest_helper(root.right, k - (left_size + 1))
 
         return find_kth_smallest_helper(self.root, k)
