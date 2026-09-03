@@ -30,17 +30,9 @@ for start in range(len(s)):
 
 `t`の文字カウンタの構築で`O(n)`、あとは2つのポインタを右に移動させていくだけなので`O(m)`、合計で時間計算量は `O(m + n)`。処理時間は52種の文字比較の定数も考えると大体 0.1 ~ 10 秒くらいのオーダーか。
 
-# Step 2
-
-みなさんのやり方をとりあえず写経してみる。
+# Step 2。
 
 - [hayashi-ay さんのPR](https://github.com/hayashi-ay/leetcode/pull/73)
 - [tom4649 さんのPR](https://github.com/tom4649/Coding/pull/127)
 
-[さざんかぬふさんのコメント](https://github.com/tom4649/Coding/pull/127#discussion_r3356627233)の
-
-> `required_count`と`window_count`を両方使っていますが、一つにまとめて正負を反対にすると、すっきりするかなと思います。
-
-が私の Step 1 から LeetCode の Solutions や Discord 内にある解法に行くためのテクニックを端的に表されているなと思った。
-
-全然関係ないが、しゃくとり法という言葉を誰がつけてどう広まったのか軽くGoogleしたが不明。
+外側のループは右側 (substring の終わり) だけ動かしていけばスッキリ書けるのか、思い至らなかった。そこと、カウンタの上手い使い方を頭に入れれば、自分でも他の方々の step 3 に近いものが再現できそう。
