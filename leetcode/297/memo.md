@@ -40,3 +40,10 @@ serialize は BFS したあと `9999 -> null`、 `0 ~ 2000 -> x - 1000` とす�
 > The standard approach is preorder DFS with explicit null markers, using a delimiter so tokens can be variable-length (no fixed-width padding needed): ...
 
 とのことだったので、DFS で書いてみる。-> `step1.py`
+
+delimiter を使えば良いのだとわかったら思った以上にすんなり書けた。
+
+TODO:
+
+- try using iterator or `collections.deque` + `pop/next()`
+- 
