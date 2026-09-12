@@ -46,4 +46,6 @@ preorder, delimiter を使えば良いのだとわかったら思った以上に
 AI に iterator を使う方法と deque を使う方法もあるよと言われたのでやってみる。
 
 - `step1_iter_next.py`
-- TODO: `step1_deque.py`
+- `step1_deque_popleft.py`
+
+変数名にしっくりくるものが思いつかなかったが、Step 2 でもう少し考えてみたり他の方々のコードを確認したりすることにする。
