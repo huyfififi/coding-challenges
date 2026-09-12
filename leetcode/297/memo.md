@@ -41,9 +41,9 @@ serialize は BFS したあと `9999 -> null`、 `0 ~ 2000 -> x - 1000` とす�
 
 とのことだったので、DFS で書いてみる。-> `step1.py`
 
-delimiter を使えば良いのだとわかったら思った以上にすんなり書けた。
+preorder, delimiter を使えば良いのだとわかったら思った以上にすんなり書けた。
 
-TODO:
+AI に iterator を使う方法と deque を使う方法もあるよと言われたのでやってみる。
 
-- try using iterator or `collections.deque` + `pop/next()`
-- 
+- `step1_iter_next.py`
+- TODO: `step1_deque.py`
