@@ -75,3 +75,17 @@ inorder と postorder で同じ方法ができるのか考えてみたのだが�
 は inorder だと同じ 1 -> 2 -> 3 の順で訪れ、同様の方法で serialize すると `#,1,#,2,#,3,#` になるから 一意に deserialize できない。
 
 postorder は preorder と順番が反対になるだけなので、deque で左側から pop する代わりに list (かそのままdeque) で右側から pop すればできそう。-> `step1_postorder.py`
+
+# Step 2
+
+## LeetCode Solutions を眺めてみる
+
+DFS (Preorder) で解くコードは私が Step 1 で実装したものとほとんど変わらないが、
+
+[https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/6932485/bfs-most-easy-implementation-java-c-java-xaqh](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/6932485/bfs-most-easy-implementation-java-c-java-xaqh)
+
+は BFS で行えている。`deserialize()` がすんなりと理解できないが、とりあえず写経してみる。TODO: `step2_bfs.py`
+
+## 変数名
+
+`serialized` という変数名の代わりを考えていたのだが、`tokens` や `values` しか思いつかない。ある程度短くて意味がある程度通じるものとしては妥協で `serialized` でいいかなと思う。
