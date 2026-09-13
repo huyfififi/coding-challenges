@@ -49,3 +49,29 @@ AI に iterator を使う方法と deque を使う方法もあるよと言われ
 - `step1_deque_popleft.py`
 
 変数名にしっくりくるものが思いつかなかったが、Step 2 でもう少し考えてみたり他の方々のコードを確認したりすることにする。
+
+## inorder & postorder
+
+inorder と postorder で同じ方法ができるのか考えてみたのだが、inorderだとこのままの方法ではserialized されたものが区別できない木の形があるから不可能だろう。
+
+```
+1
+ \
+  3
+ /
+2
+```
+
+と
+
+```
+1
+ \
+  2
+   \
+    3
+```
+
+は inorder だと同じ 1 -> 2 -> 3 の順で訪れ、同様の方法で serialize すると `#,1,#,2,#,3,#` になるから 一意に deserialize できない。
+
+postorder は preorder と順番が反対になるだけなので、deque で左側から pop する代わりに list (かそのままdeque) で右側から pop すればできそう。-> `step1_postorder.py`
