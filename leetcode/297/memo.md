@@ -84,7 +84,9 @@ DFS (Preorder) で解くコードは私が Step 1 で実装したものとほと
 
 [https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/6932485/bfs-most-easy-implementation-java-c-java-xaqh](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/solutions/6932485/bfs-most-easy-implementation-java-c-java-xaqh)
 
-は BFS で行えている。`deserialize()` がすんなりと理解できないが、とりあえず写経してみる。TODO: `step2_bfs.py`
+は BFS で行えている。`deserialize()` がすんなりと理解できないが、とりあえず写経して、自分なりに整えてみる -> `step2_bfs.py`
+
+頭の中でqueueを動かしてみて、なんとなくやっていることはわかってきたが、うまく説明できない。今はとりあえず練習してみる。
 
 ## 変数名
 
