@@ -41,3 +41,7 @@ class Solution:
 狐につままれたような感覚だが、低い方の高さに cap されるからできるのだろう。11\. Container With Most Water みたいなやり方だなぁ。
 
 自分でやり方を思いつけた嬉しさからかもしれないが、自分のやり方の方がアイデアが明確で伝えやすいと思った。何回か書いてみたら意見が変わるかもしれないが。
+
+[https://leetcode.com/problems/trapping-rain-water/solutions/8522859/trapping-rain-water-prefix-max-suffix-ma-xd3q/](https://leetcode.com/problems/trapping-rain-water/solutions/8522859/trapping-rain-water-prefix-max-suffix-ma-xd3q/)
+
+prefix/suffix maximum arrays を持つやり方も有名みたいだ。こちらも練習しておこう。こちらはコードを見ただけで何が行われているのかわかった。
