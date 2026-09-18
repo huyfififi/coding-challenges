@@ -45,3 +45,5 @@ class Solution:
 [https://leetcode.com/problems/trapping-rain-water/solutions/8522859/trapping-rain-water-prefix-max-suffix-ma-xd3q/](https://leetcode.com/problems/trapping-rain-water/solutions/8522859/trapping-rain-water-prefix-max-suffix-ma-xd3q/)
 
 prefix/suffix maximum arrays を持つやり方も有名みたいだ。こちらも練習しておこう。こちらはコードを見ただけで何が行われているのかわかった。
+
+`step2_two_pointers_variant.py` (上コードのTwo Pointers) が、なぜ `left_max_height < right_max_height` を確認してから `left += 1` をしていいのか理解するのに苦しんだが、`left_max_height` がよしんば `right_max_height` を超えてしまっても `left_max_height == height[left]` となるから大丈夫なのか。私は `step2_two_pointers.py` の方が直接的でわかりやすく感じるが、一応練習しておこう。書いているうちに考えが変わるかも。
