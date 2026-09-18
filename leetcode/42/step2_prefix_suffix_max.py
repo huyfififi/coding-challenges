@@ -1,19 +1,18 @@
-import collections
-
-
 class Solution:
     def trap(self, height: list[int]) -> int:
-        prefix_max = [height[0]]
+        prefix_max = [float("-inf")] * len(height)
+        prefix_max[0] = height[0]
         for i in range(1, len(height)):
-            prefix_max.append(max(prefix_max[-1], height[i]))
+            prefix_max[i] = max(prefix_max[i - 1], height[i])
 
-        suffix_max = collections.deque([height[-1]])
+        suffix_max = [float("-inf")] * len(height)
+        suffix_max[-1] = height[-1]
         for i in range(len(height) - 2, -1, -1):
-            suffix_max.appendleft(max(suffix_max[0], height[i]))
+            suffix_max[i] = max(suffix_max[i + 1], height[i])
 
-        filling = 0
+        filled = 0
         for i in range(len(height)):
             capped_height = min(prefix_max[i], suffix_max[i])
-            filling = capped_height - height[i]
+            filled += capped_height - height[i]
 
-        return filling
+        return filled
