@@ -5,14 +5,14 @@ class Solution:
 
         filled = 0
 
-        left_max = float("-inf")
-        for left in range(max_position):
-            left_max = max(left_max, height[left])
-            filled += left_max - height[left]
+        prefix_max = float("-inf")
+        for i in range(max_position):
+            prefix_max = max(prefix_max, height[i])
+            filled += prefix_max - height[i]
 
-        right_max = float("-inf")
-        for right in range(len(height) - 1, max_position, -1):
-            right_max = max(right_max, height[right])
-            filled += right_max - height[right]
+        suffix_max = float("-inf")
+        for i in range(len(height) - 1, max_position, -1):
+            suffix_max = max(suffix_max, height[i])
+            filled += suffix_max - height[i]
 
         return filled
