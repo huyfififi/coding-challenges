@@ -71,3 +71,15 @@ class MedianFinder:
             if right_position < count:
                 return (left_num + num) / 2
 ```
+
+### If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+上の trick を使い回して、`<= -1` と `101 <=` の部分は別々にソートして持てば良いかなと思ったが、AIに聞いたところ、もっと効率的なやり方があるらしい。
+
+> Yes — your idea works, but there’s an even stronger optimization hiding in this follow-up.
+
+> If 99% of all values are in [0, 100], then the median must itself be somewhere in [0, 100]. The ≤1% outliers can’t occupy the middle of the sorted stream.
+
+> So you actually *don’t need to keep the values outside [0,100] sorted at all*. You only need to know how many values are below 0 and how many are above 100.
+
+確かに、99% が [0, 100] の範囲に収まるのならば、中央値もその中にあるから、上のコードに加えて、0 より小さい数と 100 より大きい数の個数だけ持って、その分中央値の計算をずらせばいいのか。なるほどね。
