@@ -91,3 +91,7 @@ self.counts = [0] * (self.MAX - self.MIN + 1)
 > So you actually *don’t need to keep the values outside [0,100] sorted at all*. You only need to know how many values are below 0 and how many are above 100.
 
 確かに、99% が [0, 100] の範囲に収まるのならば、中央値もその中にあるから、上のコードに加えて、0 より小さい数と 100 より大きい数の個数だけ持って、その分中央値の計算をずらせばいいのか。なるほどね。
+
+# Step 2
+
+LeetCode の Solutions を眺めても、AIに聞いても、2 つの Heap を使う方法が想定解らしい。では、Step 1 の解法を綺麗にする。
