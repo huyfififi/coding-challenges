@@ -60,16 +60,16 @@ class MedianFinder:
         second_position = self.size // 2
 
         count = 0
-        left_num = None
+        first_num = None
 
         for num in range(self.MIN, self.MAX + 1):
             count += self.num_to_count[num]
 
             if first_num is None and first_position < count:
-                left_num = num
+                first_num = num
 
-            if right_position < count:
-                return (left_num + num) / 2
+            if second_position < count:
+                return (first_num + num) / 2
 ```
 
 ### If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
