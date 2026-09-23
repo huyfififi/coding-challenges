@@ -95,3 +95,9 @@ self.counts = [0] * (self.MAX - self.MIN + 1)
 # Step 2
 
 LeetCode の Solutions を眺めても、AIに聞いても、2 つの Heap を使う方法が想定解らしい。では、Step 1 の解法を綺麗にする。
+
+[https://leetcode.com/problems/find-median-from-data-stream/solutions/74062/short-simple-javacpython-olog-n-o1-by-st-zu1r/](https://leetcode.com/problems/find-median-from-data-stream/solutions/74062/short-simple-javacpython-olog-n-o1-by-st-zu1r/)
+
+この解法シンプルだ。私の Step 1 は必要以上に複雑だったな。[0] にアクセスしてしまうの、Python の heap が配列で実装されているのを知らない人には驚きを与えてしまうかなと思ったが、まぁPythonを書いている人ならわかるか。
+
+defensive になるなら `while` が 2 ついるが... 今回の場合は一方向への変更のみの保証の方が読みやすい、ような気がする。
