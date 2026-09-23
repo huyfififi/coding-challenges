@@ -72,6 +72,14 @@ class MedianFinder:
                 return (first_num + num) / 2
 ```
 
+UPDATE:
+
+```py
+self.counts = [0] * (self.MAX - self.MIN + 1)
+```
+
+の方が、direct addressing ができることを直接表現できたな。問題の制約的に、配列 + direct accessing が想定されているのだろう。
+
 ### If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
 上の trick を使い回して、`<= -1` と `101 <=` の部分は別々にソートして持てば良いかなと思ったが、AIに聞いたところ、もっと効率的なやり方があるらしい。
