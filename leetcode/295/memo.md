@@ -134,3 +134,7 @@ class MedianFinder:
 
         return (-self.negated_smaller[0] + self.larger[0]) / 2
 ```
+
+# Step 3
+
+繰り返していくうちに、解法が馴染んでいくのを感じる。まだ詳細に言語化できるほどではないが。
