@@ -103,3 +103,31 @@ LeetCode の Solutions を眺めても、AIに聞いても、2 つの Heap を�
 defensive になるなら `while` が 2 ついるが... 今回の場合は一方向への変更のみの保証の方が読みやすい、ような気がする。
 
 あ、あと Step 1 で 返り値を `float` にするのを忘れていた。問題はないだろうが、型ヒントに `-> float:` と書いてあるので `float()` するのが無難であろう。
+
+`step2.py` ではまず larger に入れてから smaller に移し、smaller が larger よりも大きくなってしまうので、smaller と larger の大きさが同じか larger の方が smaller よりも 1 大きい状態にキープする方法。先に smaller に入れる方法と見比べてみたが... 今のところどちらが私の好みかは判別できない。どちらでも良いので、両方の書き換えができるようにした方がいいような気がする。
+
+```py
+import heapq
+
+
+class MedianFinder:
+    def __init__(self):
+        self.negated_smaller = []
+        self.larger = []
+
+    def addNum(self, num: int) -> None:
+        heapq.heappush(self.negated_smaller, -num)
+
+        largest_in_smaller = -heapq.heappop(self.negated_smaller)
+        heapq.heappush(self.larger, largest_in_smaller)
+
+        while len(self.negated_smaller) < len(self.larger):
+            smallest_in_larger = heapq.heappop(self.larger)
+            heapq.heappush(self.negated_smaller, -smallest_in_larger)
+
+    def findMedian(self) -> float:
+        if len(self.larger) < len(self.negated_smaller):
+            return float(-self.negated_smaller[0])
+
+        return (-self.negated_smaller[0] + self.larger[0]) / 2
+```
