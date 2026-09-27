@@ -138,3 +138,19 @@ class MedianFinder:
 # Step 3
 
 繰り返していくうちに、解法が馴染んでいくのを感じる。まだ詳細に言語化できるほどではないが。
+
+# Step 4
+
+Sqrt Decomposition -> `step4_sqrt_decomposition.py`
+
+- [Algorithms for Competitive Programming - Sqrt Decomposition](https://cp-algorithms.com/data_structures/sqrt_decomposition.html)
+- [GeeksforGeeks - Square Root (Sqrt) Decomposition Algorithm](https://cp-algorithms.com/data_structures/sqrt_decomposition.html)
+
+時間計算量:
+
+- `findMedian()`:`O(√N)`。最初のループが最大で N / √N = √N、次のループも最大で √N。それを2回。
+- `addNum()`: `O(1)`。配列 2 つのカウントと一つの変数をインクリメントするだけ。
+
+空間計算量: 数のカウンタが `O(N)`、バケツのカウンタが `O(√N)`、総じて `O(N)`。
+
+理解を深めるために、√N の代わりに自分で選んだ two level counting も実装してみた。-> `step4_fixed_width_buckets.py`。sqrt decomposition なら sqrt(N) + sqrt(N) で済む処理が、自分で値を選ぶとどちらかによってしまうことがわかった。
