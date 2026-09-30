@@ -27,7 +27,7 @@ class Solution:
                     word_to_neighbors[words[j]].append(words[i])
 
         count = 1
-        seen = set()
+        seen = {beginWord}
         candidates = [beginWord]
         while candidates:
             next_candidates = set()
@@ -35,12 +35,12 @@ class Solution:
                 if candidate == endWord:
                     return count
 
-                seen.add(candidate)
                 for neighbor in word_to_neighbors[candidate]:
                     if neighbor in seen:
                         continue
 
                     next_candidates.add(neighbor)
+                    seen.add(neighbor)
 
             candidates = list(next_candidates)
             count += 1
