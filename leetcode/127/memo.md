@@ -2,7 +2,21 @@
 
 レビュー依頼をされた時に一度解いたことがあったような気がするのだが、内容を忘れていた。いかんせんLeetCode練習会をやり始めてから一年以上経過してしまったので、ある程度仕方がないか。理想を言えば、もっと早足で駆け抜けられたらよかったのだろう。
 
-TODO: Note `step1_tle.py`
+シンプルな解法が思いつき、他の案が思いつかなかったので、一旦実装した -> `step1_tle_56_out_of_57_passed.py`
+
+文字列の数を N 文字列の長さを L とすると
+
+BFSは、各 word がたかだか 1 回ずつ処理され O(N)、endWord との文字列比較 O(L) とneighbor のループ O(N) で 時間計算量が O(N * (L + N))
+
+`word_to_neighbors` の 構築が時間がかかりそうで、2重ループとハミング距離の計算で O(N^2 * L)。
+
+> 1 <= wordList.length <= 5000
+
+> 1 <= beginWord.length <= 10, endWord.length == beginWord.length, wordList[i].length == beginWord.length
+
+より、ステップ数がだいたい 5000 * 5000 * 10 ~= 3 * 10 ^ 8。Python が大雑把に 10 ^ 6 steps / second の処理が行えるとすると、実行時間は100\~1000秒 だと推測されるが、これは経験的にギリギリ LeetCode で通るのではないかと思った、のだが結果的に TLE になった。
+
+## Hints from ChatGPT
 
 ChatGPT にヒントをもらった。3回くらいヒントを小出しにしてもらってやっと解答に辿り着いた。-> `step1.py`
 

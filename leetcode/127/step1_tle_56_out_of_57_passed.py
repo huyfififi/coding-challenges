@@ -30,7 +30,7 @@ class Solution:
         seen = {beginWord}
         candidates = [beginWord]
         while candidates:
-            next_candidates = set()
+            next_candidates = set()  # I could simply use list in this setting
             for candidate in candidates:
                 if candidate == endWord:
                     return count
