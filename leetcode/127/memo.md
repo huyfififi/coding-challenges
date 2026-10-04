@@ -35,3 +35,17 @@ ChatGPT にヒントをもらった。3回くらいヒントを小出しにし�
 時間計算量: queue に word は高々 1 度しか入らず、各文字列に対して、26 文字 * L positions の候補を検討するが、その時に`list()` と`.join()`を使用している (`O(L)`) ので、総じて `O(NL)`。
 
 空間計算量: 文字列の set、queue、seen に最大で N 個の長さ L の文字列が入るので `O(NL)`
+
+# Step 2
+
+レビュー依頼していただいた時に見た Discord 内の pull requests を見てみる。
+
+[garunitule さんのPR](https://github.com/garunitule/coding_practice/pull/20)
+
+なるほど、`h*t` みたいな形を key として隣接する word を 辞書型で持てば、わざわざ 26 文字種分ループして隣接する文字列の辞書を作らなくても済むな。
+
+[dxxsxsxkx さんのPR](https://github.com/dxxsxsxkx/leetcode/pull/20)
+
+自分が C++ で解いていた。[自分のレビューコメント](https://github.com/dxxsxsxkx/leetcode/pull/20#discussion_r2703086670)
+
+これ、Pythonでいけるのか？ -> Python で書いたら普通に Time Limit Exceeded になった。プログラミングコンテストとかでも、C++ だったら普通に全探索でもテストケースをパスできるけど、Python だったら TLE になることとかたびたびあったからなぁ。
