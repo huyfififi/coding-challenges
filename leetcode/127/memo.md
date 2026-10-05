@@ -42,7 +42,10 @@ ChatGPT にヒントをもらった。3回くらいヒントを小出しにし�
 
 [garunitule さんのPR](https://github.com/garunitule/coding_practice/pull/20)
 
-なるほど、`h*t` みたいな形を key として隣接する word を 辞書型で持てば、わざわざ 26 文字種分ループして隣接する文字列の辞書を作らなくても済むな。
+なるほど、`h*t` みたいな形を key として隣接する word を 辞書型で持てば、わざわざ 26 文字種分ループして隣接する文字列の辞書を作らなくても済むな。-> `step2_pattern_matching.py`
+
+空間計算量: O(NL^2), preprocessing で最大 NL 個の pattern key を作成し、それぞれの key が合計 O(L) 文字の substring を保持するため、O(NL^2)。value 側には word への参照が合計 O(NL) 個入るが、pattern key の方が支配的。
+時間計算量: O(NL^2), preprocessing が各 word に対して L 個のパターンの substring を作成 (O(L))。また、BFSも最大で N 個の word を処理するが、各文字列に対して L 個のパターンを検討し、substring の作成で O(L)。合計で O(NL^2)。`pattern_to_words[pattern]` は、制約より最大でも 26 個 しか持たないので、O(1) として無視。
 
 [dxxsxsxkx さんのPR](https://github.com/dxxsxsxkx/leetcode/pull/20)
 
