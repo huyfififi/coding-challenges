@@ -21,3 +21,27 @@
 いつも通り、AI にヒントを小出しにしてもらって、方針が立てられた。LeetCode 20\. Valid Parentheses を思い出せば、stack を使用すると良い感じにカッコ対応を処理できる。
 
 普通に左から右に舐めていって、開きカッコに遭遇したら Stack に途中結果を push し、閉じカッコが来たら カッコ内の結果と最後の途中結果を足し合わせればいけそう。positive/negative の sign をどう処理するかは... 他の stack を持つかどうか、うまく思考がまとまらないので、とりあえず書いてみよう。
+
+# Step 2
+
+## AI
+
+### Sign enum の是非
+
+sign を +1 と -1 で表現すれば、if 文をわざわざ書かなくても (`if sign == Sign.POSITIVE:` のようなことをしなくても) よくなるからオススメだとされた。sign という変数に意味を持たせすぎるような気がして避けたが、そちらの方がコードが単純になりそうだな。
+
+### Stack の管理
+
+別々に `results` stack と `signs` stack を持つより、同時にpush/pop される意味的に繋がりがある値なので一緒に持つといいとオススメされた。
+
+## LeetCode Solutions
+
+[https://leetcode.com/problems/basic-calculator/solutions/7576826/most-optimal-beats-100-all-languages-sta-jd4n/](https://leetcode.com/problems/basic-calculator/solutions/7576826/most-optimal-beats-100-all-languages-sta-jd4n/)
+
+数字だった場合に繰り返し `result = result * 10 + int(c)` する操作を最初に持ってくれば、自前で ループ変数を管理せず `for c in s:` で扱えている。
+
+[str.isdigit()](https://docs.python.org/3/builtins/stdtypes.html#str.isdigit) のことを完全に失念していた。わざわざ `if c in string.ascii_lowercase` のようなことをしなくてもよかったな。
+
+[https://github.com/python/cpython/blob/c6c060843b7635b5a1f82e0983d803eb0d185b5d/Lib/curses/ascii.py#L66](https://github.com/python/cpython/blob/c6c060843b7635b5a1f82e0983d803eb0d185b5d/Lib/curses/ascii.py#L66)
+
+`ord()` の返す値の範囲で判定していそう。計算量的には `in string.ascii_lowercase` と同じだと思うが、必要な操作が少ない。
