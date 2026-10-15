@@ -45,3 +45,13 @@ sign を +1 と -1 で表現すれば、if 文をわざわざ書かなくても 
 [https://github.com/python/cpython/blob/c6c060843b7635b5a1f82e0983d803eb0d185b5d/Lib/curses/ascii.py#L66](https://github.com/python/cpython/blob/c6c060843b7635b5a1f82e0983d803eb0d185b5d/Lib/curses/ascii.py#L66)
 
 `ord()` の返す値の範囲で判定していそう。計算量的には `in string.ascii_lowercase` と同じだと思うが、必要な操作が少ない。
+
+# Step 4
+
+## Recursive-Descent Parsing
+
+[https://www.cs.rochester.edu/u/nelson/courses/csc\_173/grammars/parsing.html](https://www.cs.rochester.edu/u/nelson/courses/csc_173/grammars/parsing.html)
+
+ざっと目を通して、よくわからなかったが、例として `1 + (2 * 3) / 4` が挙げられており、問題設定がそのままなので、この問題は recursive descent parser が念頭にあっての問題なのかもなと思った。
+
+AI に色々質問したが、理解にもう少し時間がかかりそう。日常使いとは違う "grammar" という用語があるよう。
