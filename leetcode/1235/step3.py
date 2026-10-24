@@ -27,7 +27,8 @@ class Solution:
                 jobs, job.end, lo=i + 1, key=lambda _job: _job.start
             )
             max_profit[i] = max(
-                max_profit[i + 1], job.profit + max_profit[next_compatible]
+                max_profit[i + 1],
+                job.profit + max_profit[next_compatible],
             )
 
         return max_profit[0]
